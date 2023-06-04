@@ -5,7 +5,8 @@ import { Dropdown } from "react-bootstrap";
 
 import ReactPlayer from "react-player/lazy";
 
-var fs = require("fs");
+import * as fs from 'fs';
+
 
 export class Music extends Component {
   constructor(props) {
