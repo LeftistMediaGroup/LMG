@@ -38,7 +38,7 @@ export class LoginAdmin extends Component {
   };
 
   async doesUserExist() {
-    let is_loggedin = await fetch(`https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/system/is_loggedin`, {credentials: "include"}, {
+    let is_loggedin = await fetch(`https://${process.env.host}:${process.env.host_port}/system/is_loggedin`, {credentials: "include"}, {
       method: 'GET',
       mode: 'cors',  
       headers: {
@@ -62,7 +62,7 @@ export class LoginAdmin extends Component {
 
     console.log(`username: ${this.state.username}`);
 
-    fetch(`https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/system/login_admin`, {
+    fetch(`https://${process.env.host}:${process.env.host_port}/system/login_admin`, {
       method: 'POST',
       mode: 'cors',
       headers: {

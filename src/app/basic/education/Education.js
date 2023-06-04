@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 import { Helmet } from "react-helmet";
 
-import WhatIsCapitalism from "./What_is_Capitalism.jsx";
-import WhatIsAnarchism from "./What_is_Anarchism.jsx";
-import Revolution from "./Revolution.jsx";
+import WhatIsCapitalism from "./What_is_Capitalism.js";
+import WhatIsAnarchism from "./What_is_Anarchism.js";
+import Revolution from "./Revolution.js";
 
 export class Education extends Component {
   render() {
