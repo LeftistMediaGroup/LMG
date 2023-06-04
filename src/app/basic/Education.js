@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import WhatIsCapitalism from "./education/What_is_Capitalism.jsx";
-import WhatIsAnarchism from "./education/What_is_Anarchism.jsx";
-import Revolution from "./education/Revolution.jsx";
+import WhatIsCapitalism from "./education/What_is_Capitalism.js";
+import WhatIsAnarchism from "./education/What_is_Anarchism.js";
+import Revolution from "./education/Revolution.js";
 
 export class Education extends Component {
   render() {
