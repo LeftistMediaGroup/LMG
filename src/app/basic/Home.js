@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
 
-import { row, column } from "./Home.css";
-
-import SignUpForm from "./SignUpForm.jsx";
+import SignUpForm from "./SignUpForm.js";
 
 export class Home extends Component {
   constructor(props) {
