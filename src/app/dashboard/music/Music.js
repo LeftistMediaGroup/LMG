@@ -11,19 +11,17 @@ import Library from  "./Library/Library.json";
 export class Music extends Component {
   constructor(props) {
     super(props);
-
-    let SongLibrary = [];
-
+    
     let urls = [];
     
     this.state = {
-      Library: SongLibrary,
+      Library: [],
       urls: urls,
       queue: [],
     };
 
     Object.values(Library).forEach(song=> {
-      this.songCard(song, SongLibrary);
+      this.songCard(song);
     });
   }
 
@@ -33,8 +31,8 @@ export class Music extends Component {
     return song.URL;
   }
 
-  songCard(song, SongLibrary) {
-    SongLibrary.push(
+  songCard(song) {
+    this.state.Library.push(
       <div className="col-md grid-margin stretch-card">
         <div className="card">
           <div className="card-body">
