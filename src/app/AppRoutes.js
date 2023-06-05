@@ -28,6 +28,7 @@ const RegisterAdmin = lazy(() => import('./user-pages/Register_admin.js'));
 
 const Home = lazy(() => import('./basic/Home.js'));
 const Education = lazy(() => import('./basic/Education.js'));
+const Volunteering = lazy(() => import('./basic/volunteering/Volunteering.js'));
 
 
 class AppRoutes extends Component {
@@ -44,6 +45,8 @@ class AppRoutes extends Component {
           <Route path="/dashboard" component={ Dashboard } />
 
           <Route path="/education" component={ Education } />
+
+          <Route path="/volunteering" component={ Volunteering } />
 
           <Route path="/basic-ui/buttons" component={ Buttons } />
           
@@ -62,6 +65,8 @@ class AppRoutes extends Component {
 
           <Route path="/error-pages/error-404" component={ Error404 } />
           <Route path="/error-pages/error-500" component={ Error500 } />
+
+          <Route basename={process.env.this_host}/>
 
           <Redirect to="/" />
         </Switch>
