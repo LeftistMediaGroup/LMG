@@ -5,26 +5,26 @@ import { Dropdown } from "react-bootstrap";
 
 import ReactPlayer from "react-player/lazy";
 
-import * as fs from 'fs';
+import Library from  "./Library/Library.json";
 
 
 export class Music extends Component {
   constructor(props) {
     super(props);
 
-    let Library = fs.readFileSync("./Library/Library.json");
-
     let SongLibrary = [];
 
-    Library.forEach(this.songCard, SongLibrary);
-
-    let urls = Library.forEach(this.getUrls);
-
+    let urls = [];
+    
     this.state = {
       Library: SongLibrary,
       urls: urls,
       queue: [],
     };
+
+    Object.values(Library).forEach(song=> {
+      this.songCard(song, SongLibrary);
+    });
   }
 
   
