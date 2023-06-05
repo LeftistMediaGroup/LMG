@@ -48,14 +48,6 @@ export class Volunteering extends Component {
             <div className="card corona-gradient-card">
               <div className="card-body py-0 px-0 px-sm-3">
                 <div className="row align-items-center">
-                  <div className="col-4 col-sm-3 col-xl-2">
-                    <img
-                      src={require("../../assets/images/dashboard/Group126@2x.png")}
-                      className="gradient-corona-img img-fluid"
-                      alt="banner"
-                    />
-                  </div>
-
                   <div className="col-5 col-sm-7 col-xl-8 p-0">
                     <h4 className="mb-1 mb-sm-0">
                       Lets Overthrow Capitalism together
@@ -117,44 +109,34 @@ export class Volunteering extends Component {
                                       </p>
                                     </div>
 
-                                    <div className="col-md-8 grid-margin stretch-card">
-                                      <div className="card">
-                                        <div className="card-body">
-                                          <div className="d-flex flex-row justify-content-between">
-                                            <Dropdown>
-                                              <Dropdown.Toggle
-                                                variant="btn btn-primary"
-                                                id="dropdownMenuButton1"
-                                              >
-                                                Positions Available
-                                              </Dropdown.Toggle>
-                                              <Dropdown.Menu>
-                                                <Dropdown.Header>
-                                                  Positions & Information
-                                                </Dropdown.Header>
-                                                <Dropdown.Divider />
+                                    <Dropdown>
+                                      <Dropdown.Toggle
+                                        variant="btn btn-primary"
+                                        id="dropdownMenuButton1"
+                                      >
+                                        Positions Available
+                                      </Dropdown.Toggle>
+                                      <Dropdown.Menu>
+                                        <Dropdown.Header>
+                                          Positions & Information
+                                        </Dropdown.Header>
+                                        <Dropdown.Divider />
 
-                                                <Dropdown.Item>
-                                                  <Dropdown.Header>
-                                                    Meme Distributer
-                                                  </Dropdown.Header>
-                                                  Browse and share Leftist Memes
-                                                  on a dedicated Facebook page{" "}
-                                                  <br />
-                                                  Time Requirement: <br />
-                                                  1 Hour a week <br />
-                                                  Position Requirements: <br />
-                                                  Experience with Facebook{" "}
-                                                  <br />
-                                                  Preferred - Experience with
-                                                  Facebook Pages
-                                                </Dropdown.Item>
-                                              </Dropdown.Menu>
-                                            </Dropdown>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                        <Dropdown.Item>
+                                          <Dropdown.Header>
+                                            Meme Distributer
+                                          </Dropdown.Header>
+                                          Browse and share Leftist Memes on a
+                                          dedicated Facebook page <br />
+                                          Time Requirement: <br />
+                                          1 Hour a week <br />
+                                          Position Requirements: <br />
+                                          Experience with Facebook <br />
+                                          Preferred - Experience with Facebook
+                                          Pages
+                                        </Dropdown.Item>
+                                      </Dropdown.Menu>
+                                    </Dropdown>
 
                                     <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                                       <p className="text-muted">0 volunteers</p>
@@ -392,59 +374,38 @@ export class Volunteering extends Component {
                                             topics.
                                           </p>
                                         </div>
+                                        <Dropdown>
+                                          <Dropdown.Toggle
+                                            variant="btn btn-primary"
+                                            id="dropdownMenuButton1"
+                                          >
+                                            Positions Available{" "}
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu>
+                                            <Dropdown.Header>
+                                              Positions & Information
+                                            </Dropdown.Header>
+                                            <Dropdown.Divider />
 
-                                        <div className="col-md-8 grid-margin stretch-card">
-                                          <div className="card">
-                                            <div className="card-body">
-                                              <div className="d-flex flex-row justify-content-between">
-                                                <h4 className="card-title mb-1">
-                                                  Positions Available
-                                                </h4>
+                                            <Dropdown.Item>
+                                              <Dropdown.Header>
+                                                React Programer
+                                              </Dropdown.Header>
+                                              Work in React to build the
+                                              frontend music player component
+                                              for LeftistMediaGroup.org <br />
+                                              Time Requirement: <br />
+                                              1 Hour a week <br />
+                                              Position Requirements: <br />
+                                              Experience with React, CSS, HTML,
+                                              or Node js <br />
+                                              Preferred - Experience with front
+                                              and backend development
+                                            </Dropdown.Item>
 
-                                                <br />
-
-                                                <Dropdown>
-                                                  <Dropdown.Toggle
-                                                    variant="btn btn-primary"
-                                                    id="dropdownMenuButton1"
-                                                  >
-                                                    Positions Available{" "}
-                                                  </Dropdown.Toggle>
-                                                  <Dropdown.Menu>
-                                                    <Dropdown.Header>
-                                                      Positions & Information
-                                                    </Dropdown.Header>
-                                                    <Dropdown.Divider />
-
-                                                    <Dropdown.Item>
-                                                      <Dropdown.Header>
-                                                        React Programer
-                                                      </Dropdown.Header>
-                                                      Work in React to build the
-                                                      frontend music player
-                                                      component for
-                                                      LeftistMediaGroup.org{" "}
-                                                      <br />
-                                                      Time Requirement: <br />
-                                                      1 Hour a week <br />
-                                                      Position Requirements:{" "}
-                                                      <br />
-                                                      Experience with React,
-                                                      CSS, HTML, or Node js{" "}
-                                                      <br />
-                                                      Preferred - Experience
-                                                      with front and backend
-                                                      development
-                                                    </Dropdown.Item>
-
-                                                    <Dropdown.Item></Dropdown.Item>
-                                                  </Dropdown.Menu>
-                                                </Dropdown>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-
+                                            <Dropdown.Item></Dropdown.Item>
+                                          </Dropdown.Menu>
+                                        </Dropdown>
                                         <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                                           <p className="text-muted">
                                             0 Volunteers
