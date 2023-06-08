@@ -66,8 +66,6 @@ class AppRoutes extends Component {
           <Route path="/error-pages/error-404" component={ Error404 } />
           <Route path="/error-pages/error-500" component={ Error500 } />
 
-          <Route basename={process.env.this_host}/>
-
           <Redirect to="/" />
         </Switch>
       </Suspense>
