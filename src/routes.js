@@ -15,7 +15,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from "views/Dashboard.js";
 import Icons from "views/Icons.js";
 import Map from "views/Map.js";
 import Notifications from "views/Notifications.js";
@@ -26,7 +25,50 @@ import UserProfile from "views/UserProfile.js";
 
 import Home from "views/Home";
 
+import Login from './views/user-pages/Login';
+import LoginAdmin from'./views/user-pages/Login_admin';
+import Register1 from'./views/user-pages/Register';
+import RegisterAdmin from'./views/user-pages/Register_admin.js';
+import Dashboard from'./views/Dashboard';
+import Education from'./views/Education.js';
+
 var routes = [
+  {
+    path: "/login",
+    name: "Login",
+    rtlName: "",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Login />,
+    layout: "/admin",
+  },
+  {
+    path: "/LoginAdmin",
+    rtlName: "",
+    component: <LoginAdmin />,
+    layout: "/admin",
+  },
+  {
+    path: "/register",
+    name: "Register",
+    rtlName: "",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Register1 />,
+    layout: "/admin",
+  },
+  {
+    path: "/RegisterAdmin",
+    rtlName: "",
+    component: <RegisterAdmin />,
+    layout: "/admin",
+  },
+  {
+    path: "/Education",
+    name: "Education",
+    rtlName: "",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Education />,
+    layout: "/admin",
+  },
   {
     path: "/",
     name: "Home",
