@@ -40,7 +40,7 @@ export class Sync extends Component {
 
         console.log(`Changes: ${fileList}`);
 
-        fetch(`https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/syncIn`, {
+        fetch(`https://${process.env.host}:${process.env.port}/syncIn`, {
             method: 'POST',
             mode: 'cors',
             headers: {

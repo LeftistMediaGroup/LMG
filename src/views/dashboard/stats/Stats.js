@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { allContext } from "../../contexts.js"
+import { allContext } from "../../../contexts.js"
 
 
 export class Stats extends Component {

@@ -50,7 +50,7 @@ export class Volunteering extends Component {
                 <div className="row align-items-center">
                   <div className="col-4 col-sm-3 col-xl-2">
                     <img
-                      src={require("../../assets/images/dashboard/Group126@2x.png")}
+                      src={require("../../src/assets/images/dashboard/Group126@2x.png")}
                       className="gradient-corona-img img-fluid"
                       alt="banner"
                     />

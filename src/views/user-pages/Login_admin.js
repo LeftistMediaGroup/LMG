@@ -33,7 +33,7 @@ export class LoginAdmin extends Component {
   };
 
   async doesUserExist() {
-    let is_loggedin = await fetch(`https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/system/is_loggedin`, {credentials: "include"}, {
+    let is_loggedin = await fetch(`https://${process.env.host}:${process.env.port}/system/is_loggedin`, {credentials: "include"}, {
       method: 'GET',
       mode: 'cors',  
       headers: {
@@ -57,7 +57,7 @@ export class LoginAdmin extends Component {
 
     console.log(`username: ${this.state.username}`);
 
-    fetch(`https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/system/login_admin`, {
+    fetch(`https://${process.env.host}:${process.env.port}/system/login_admin`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -90,7 +90,7 @@ export class LoginAdmin extends Component {
             <div className="col-lg-4 mx-auto">
               <div className="card text-left py-5 px-4 px-sm-5">
                 <div className="brand-logo">
-                  <img src={require("../../assets/images/logo.svg")} alt="logo" />
+                  <img src={require("../../../src/assets/images/logo512.png")} alt="logo" />
                 </div>
                 
                 <h4>Welcome to Cephalopod</h4>

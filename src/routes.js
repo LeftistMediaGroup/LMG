@@ -15,13 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Icons from "views/Icons.js";
-import Map from "views/Map.js";
-import Notifications from "views/Notifications.js";
-import Rtl from "views/Rtl.js";
-import TableList from "views/TableList.js";
-import Typography from "views/Typography.js";
-import UserProfile from "views/UserProfile.js";
+
 
 import Home from "views/Home";
 
@@ -29,50 +23,13 @@ import Login from './views/user-pages/Login';
 import LoginAdmin from'./views/user-pages/Login_admin';
 import Register1 from'./views/user-pages/Register';
 import RegisterAdmin from'./views/user-pages/Register_admin.js';
-import Dashboard from'./views/Dashboard';
+import Dashboard from'./views/dashboard/Dashboard';
 import Education from'./views/Education.js';
 
 var routes = [
   {
-    path: "/login",
-    name: "Login",
-    rtlName: "",
-    icon: "tim-icons icon-chart-pie-36",
-    component: <Login />,
-    layout: "/admin",
-  },
-  {
-    path: "/LoginAdmin",
-    rtlName: "",
-    component: <LoginAdmin />,
-    layout: "/admin",
-  },
-  {
-    path: "/register",
-    name: "Register",
-    rtlName: "",
-    icon: "tim-icons icon-chart-pie-36",
-    component: <Register1 />,
-    layout: "/admin",
-  },
-  {
-    path: "/RegisterAdmin",
-    rtlName: "",
-    component: <RegisterAdmin />,
-    layout: "/admin",
-  },
-  {
-    path: "/Education",
-    name: "Education",
-    rtlName: "",
-    icon: "tim-icons icon-chart-pie-36",
-    component: <Education />,
-    layout: "/admin",
-  },
-  {
-    path: "/",
+    path: "/Home",
     name: "Home",
-    rtlName: "",
     icon: "tim-icons icon-chart-pie-36",
     component: <Home />,
     layout: "/admin",
@@ -86,60 +43,28 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "Icons",
-    rtlName: "الرموز",
-    icon: "tim-icons icon-atom",
-    component: <Icons />,
+    path: "/Education",
+    name: "Education",
+    rtlName: "",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Education />,
     layout: "/admin",
   },
   {
-    path: "/map",
-    name: "Map",
-    rtlName: "خرائط",
-    icon: "tim-icons icon-pin",
-    component: <Map />,
+    path: "/register",
+    name: "Register",
+    rtlName: "",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Register1 />,
     layout: "/admin",
   },
   {
-    path: "/notifications",
-    name: "Notifications",
-    rtlName: "إخطارات",
-    icon: "tim-icons icon-bell-55",
-    component: <Notifications />,
+    path: "/login",
+    name: "Login",
+    rtlName: "",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Login />,
     layout: "/admin",
-  },
-  {
-    path: "/user-profile",
-    name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
-    icon: "tim-icons icon-single-02",
-    component: <UserProfile />,
-    layout: "/admin",
-  },
-  {
-    path: "/tables",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "tim-icons icon-puzzle-10",
-    component: <TableList />,
-    layout: "/admin",
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    rtlName: "طباعة",
-    icon: "tim-icons icon-align-center",
-    component: <Typography />,
-    layout: "/admin",
-  },
-  {
-    path: "/rtl-support",
-    name: "RTL Support",
-    rtlName: "ار تي ال",
-    icon: "tim-icons icon-world",
-    component: <Rtl />,
-    layout: "/rtl",
   },
 ];
 export default routes;
