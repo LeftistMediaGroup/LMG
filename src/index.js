@@ -37,11 +37,7 @@ root.render(
     <BackgroundColorWrapper>
       <BrowserRouter>
         <Routes>
-          <Route path="/admin/*" element={<AdminLayout />} />
-          <Route
-            path="*"
-            element={<Navigate to="/admin/dashboard" replace />}
-          />
+          <Route path="/*" element={<AdminLayout />} />
         </Routes>
       </BrowserRouter>
     </BackgroundColorWrapper>
