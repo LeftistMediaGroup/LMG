@@ -28,7 +28,7 @@ export class Kanban1 extends Component {
     console.log(`Task Added: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/Kanban/task_add`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/Kanban/task_add`,
       {
         method: "POST",
         mode: "cors",
@@ -49,7 +49,7 @@ export class Kanban1 extends Component {
     console.log(`Task Updated: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/Kanban/task_update`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/Kanban/task_update`,
       {
         method: "POST",
         mode: "cors",
@@ -69,7 +69,7 @@ export class Kanban1 extends Component {
     console.log(`Task Removed: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/Kanban/task_remove`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/Kanban/task_remove`,
       {
         method: "POST",
         mode: "cors",
@@ -89,7 +89,7 @@ export class Kanban1 extends Component {
     console.log(`Column Added: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/Kanban/column_add`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/Kanban/column_add`,
       {
         method: "POST",
         mode: "cors",
@@ -109,7 +109,7 @@ export class Kanban1 extends Component {
     console.log(`Column Updated: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/Kanban/column_update`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/Kanban/column_update`,
       {
         method: "POST",
         mode: "cors",
@@ -129,7 +129,7 @@ export class Kanban1 extends Component {
     console.log(`Column Removed: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/Kanban/column_removed`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/Kanban/column_removed`,
       {
         method: "POST",
         mode: "cors",

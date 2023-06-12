@@ -130,7 +130,7 @@ class Calendar1 extends React.Component {
 
   getCalendarData = async () => {
     const response = await fetch(
-      `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/calendar/get_events`,
+      `https://${process.env.backend_host}:${process.env.backend_port}/calendar/get_events`,
       {
         method: "GET",
         credentials: "include",
@@ -163,7 +163,7 @@ class Calendar1 extends React.Component {
     switch (action) {
       case "update":
         fetch(
-          `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/calendar/update_event`,
+          `https://${process.env.backend_host}:${process.env.backend_port}/calendar/update_event`,
           {
             method: "POST",
             mode: "cors",
@@ -182,7 +182,7 @@ class Calendar1 extends React.Component {
         break;
       case "insert":
         fetch(
-          `https://${import.meta.env.VITE_host}:${import.meta.env.VITE_port}/calendar/insert_event`,
+          `https://${process.env.backend_host}:${process.env.backend_port}/calendar/insert_event`,
           {
             method: "POST",
             mode: "cors",
