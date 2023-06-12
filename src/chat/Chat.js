@@ -50,11 +50,7 @@ export class Chat extends Component {
             <div className="preview-list">
               <div className="preview-item border-bottom">
                 <div className="preview-thumbnail">
-                  <img
-                    src={require("../../src/assets/images/faces/face6.jpg")}
-                    alt="face"
-                    className="rounded-circle"
-                  />
+
                 </div>
 
                 <div className="preview-item-content d-flex flex-grow">
@@ -74,11 +70,7 @@ export class Chat extends Component {
 
               <div className="preview-item border-bottom">
                 <div className="preview-thumbnail">
-                  <img
-                    src={require("../../src/assets/images/faces/face19.jpg")}
-                    alt="face"
-                    className="rounded-circle"
-                  />
+
                 </div>
 
                 <div className="preview-item-content d-flex flex-grow">
@@ -98,11 +90,7 @@ export class Chat extends Component {
 
               <div className="preview-item border-bottom">
                 <div className="preview-thumbnail">
-                  <img
-                    src={require("../../src/assets/images/faces/face9.jpg")}
-                    alt="face"
-                    className="rounded-circle"
-                  />
+
                 </div>
 
                 <div className="preview-item-content d-flex flex-grow">
@@ -119,11 +107,6 @@ export class Chat extends Component {
 
               <div className="preview-item border-bottom">
                 <div className="preview-thumbnail">
-                  <img
-                    src={require("../../src/assets/images/faces/face11.jpg")}
-                    alt="face"
-                    className="rounded-circle"
-                  />
                 </div>
 
                 <div className="preview-item-content d-flex flex-grow">
