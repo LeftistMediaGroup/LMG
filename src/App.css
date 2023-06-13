@@ -36,7 +36,7 @@
     transform: rotate(360deg);
   }
 }
-#Sidebar {
-  position: left;
-  height: 100%;
+.sidebar {
+   height: "100vh";
+   display: "flex" ;
 }
