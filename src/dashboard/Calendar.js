@@ -1,6 +1,5 @@
 import "smart-webcomponents-react/source/styles/smart.default.css";
 import React from "react";
-import { ReactDOM } from "react";
 
 import {
   Button,
@@ -15,6 +14,7 @@ import { Scheduler } from "smart-webcomponents-react/scheduler";
 
 import { ProgressBar } from "smart-webcomponents-react/progressbar";
 import { Rating } from "smart-webcomponents-react/rating";
+
 
 class Calendar1 extends React.Component {
   constructor(props) {
@@ -130,7 +130,7 @@ class Calendar1 extends React.Component {
 
   getCalendarData = async () => {
     const response = await fetch(
-      `https://${process.env.backend_host}:${process.env.backend_port}/calendar/get_events`,
+      `https://${process.env.Wade_host}:${process.env.Wade_port}/calendar/get_events`,
       {
         method: "GET",
         credentials: "include",
@@ -163,7 +163,7 @@ class Calendar1 extends React.Component {
     switch (action) {
       case "update":
         fetch(
-          `https://${process.env.backend_host}:${process.env.backend_port}/calendar/update_event`,
+          `https://${process.env.Wade_host}:${process.env.Wade_port}/calendar/update_event`,
           {
             method: "POST",
             mode: "cors",
@@ -182,7 +182,7 @@ class Calendar1 extends React.Component {
         break;
       case "insert":
         fetch(
-          `https://${process.env.backend_host}:${process.env.backend_port}/calendar/insert_event`,
+          `https://${process.env.Wade_host}:${process.env.Wade_port}/calendar/insert_event`,
           {
             method: "POST",
             mode: "cors",
@@ -201,7 +201,7 @@ class Calendar1 extends React.Component {
         break;
       case "delete":
         fetch(
-          `https://${process.env.host}:${process.env.feeler_back_port}/calendar/delete_event`,
+          `https://${process.env.Wade_host}:${process.env.Wade_port}/calendar/delete_event`,
           {
             method: "POST",
             mode: "cors",

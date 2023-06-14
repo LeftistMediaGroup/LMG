@@ -40,7 +40,7 @@ export class Sync extends Component {
 
         console.log(`Changes: ${fileList}`);
 
-        fetch(`https://${process.env.backend_host}:${process.env.backend_port}/syncIn`, {
+        fetch(`https://${process.env.Wade_host}:${process.env.Wade_port}/syncIn`, {
             method: 'POST',
             mode: 'cors',
             headers: {
