@@ -17,10 +17,9 @@
 */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import AdminLayout from "layouts/Admin/Admin.js";
-import RTLLayout from "layouts/RTL/RTL.js";
 
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
@@ -36,11 +35,10 @@ root.render(
   <ThemeContextWrapper>
     <BackgroundColorWrapper>
       <BrowserRouter>
-        <Routes>
+        <Switch>
           <Route path="/*" element={<AdminLayout />} />
-        </Routes>
+        </Switch>
       </BrowserRouter>
     </BackgroundColorWrapper>
   </ThemeContextWrapper>
 );
-

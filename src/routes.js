@@ -28,7 +28,7 @@ import Education from'./views/Education.js';
 
 var routes = [
   {
-    path: "/Home",
+    path: "/",
     name: "Home",
     icon: "tim-icons icon-chart-pie-36",
     component: <Home />,
