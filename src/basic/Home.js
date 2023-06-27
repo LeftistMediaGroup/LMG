@@ -87,8 +87,7 @@ export class Home extends Component {
               <div className="card corona-gradient-card">
                 <div className="card-body py-0 px-0 px-sm-3">
                   <div className="row align-items-center">
-                    <div className="col-4 col-sm-3 col-xl-2">
-                    </div>
+                    <div className="col-4 col-sm-3 col-xl-2"></div>
 
                     <div className="col-5 col-sm-7 col-xl-8 p-0">
                       <h4 className="mb-1 mb-sm-0">

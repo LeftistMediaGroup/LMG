@@ -139,12 +139,12 @@ class Calendar1 extends React.Component {
 
     let calendarData = await response.json();
 
-    //console.log(`GetCalendarData: ${JSON.stringify(calendarData, null, 2)}`);
+    console.log(`GetCalendarData: ${JSON.stringify(calendarData, null, 2)}`);
 
     this.calendarHandler(calendarData);
 
     if (this.state) {
-      //console.log(`Calendar data state: ${JSON.stringify(this.state.data, null, 2)} `);
+      console.log(`Calendar data state: ${JSON.stringify(this.state.data, null, 2)} `);
     };
   };
 
