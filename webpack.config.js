@@ -12,7 +12,6 @@ module.exports = {
   },
   mode: 'production',
   target: 'web',
-  disableHostCheck: true,
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
