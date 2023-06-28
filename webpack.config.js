@@ -20,13 +20,14 @@ module.exports = {
     }),
     new Dotenv()
   ],
+  target: 'web',
+
   devServer: {
     static: {
       directory: path.join(__dirname, "build"),
     },
     port: 3000,
     historyApiFallback: true,
-    target: 'web',
     allowedHosts: 'all'  },
   module: {
     // exclude node_modules
