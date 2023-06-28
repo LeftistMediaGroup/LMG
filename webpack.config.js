@@ -26,6 +26,7 @@ module.exports = {
     },
     port: 3000,
     historyApiFallback: true,
+    target: 'web',
     allowedHosts: 'all'  },
   module: {
     // exclude node_modules
