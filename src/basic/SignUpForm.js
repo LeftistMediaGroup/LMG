@@ -6,20 +6,20 @@ export class SignUpForm extends Component {
     super(props);
 
     this.state = {
-      "email": null,
-      "username": null,
-      "password": null,
-      "password2": null,
+      email: null,
+      username: null,
+      password: null,
+      password2: null,
     };
   }
 
   submit() {
     if (this.state.password === this.state.password2) {
       let bodyOut = {
-        "email": this.state.email,
-        "username": this.state.username,
-        "password": this.state.password
-      }
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password,
+      };
 
       console.log(`Data: ${JSON.stringify(bodyOut)}`);
 
@@ -30,7 +30,7 @@ export class SignUpForm extends Component {
           Accept: "application/json, text/plain, */*",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(bodyOut)
+        body: JSON.stringify(bodyOut),
       });
     } else {
       console.log("Passwords don't match, please try again.");
@@ -41,66 +41,68 @@ export class SignUpForm extends Component {
     let username = event.target.value;
 
     console.log(`Username: ${username}`);
-    
+
     if (username !== this.state.username) {
       this.setState({
-        "username":username
+        username: username,
       });
-    };
-  };
+    }
+  }
 
   emailChange(event) {
     let email = event.target.value;
 
     if (email !== this.state.email) {
       this.setState({
-        "email":email
+        email: email,
       });
-    };
-  };
+    }
+  }
 
   passwordChange(event) {
     let password = event.target.value;
 
     if (password !== this.state.password) {
       this.setState({
-        "password":password
+        password: password,
       });
-    };
-  };
+    }
+  }
 
   password2Change(event) {
     let password2 = event.target.value;
 
     if (password2 !== this.state.password2) {
       this.setState({
-        "password2":password2
+        password2: password2,
       });
-    };
-  };
+    }
+  }
 
   render() {
     return (
-      <div>
+      <div className="row-centered">
         <div className="page-header">
-          <h3 className="page-title"> Sign Up </h3>
+          <h4>Volunteering</h4>
+          <h5>Sign up</h5>
+
+          <p>
+            Leftist Media Group is recruiting for volunteers to spread
+            revolutionary propaganda.
+          </p>
         </div>
 
         <div className="row">
           <div className="col-md-6 grid-margin stretch-card">
             <div className="card">
               <div className="card-body">
-                <h4 className="card-title">Apply now!</h4>
-
-                <p className="card-description">
-                  Create an account to start Volunteering!{" "}
-                </p>
-
-                <form className="forms-sample" onSubmit={(e)=> {
-                  e.preventDefault();
-                  this.submit()
-                }
-                }>
+                <form
+                  className="forms-sample"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    this.submit();
+                  }}
+                >
                   <Form.Group>
                     <label htmlFor="InputEmail">Email</label>
                     <Form.Control
@@ -144,6 +146,8 @@ export class SignUpForm extends Component {
                     />
                   </Form.Group>
 
+                  <br />
+
                   <button type="submit" className="btn btn-primary mr-2">
                     Submit
                   </button>
@@ -154,7 +158,7 @@ export class SignUpForm extends Component {
         </div>
       </div>
     );
-  };
-};
+  }
+}
 
 export default SignUpForm;
