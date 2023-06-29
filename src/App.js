@@ -7,7 +7,6 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import Home from "./basic/Home.js";
 import Education from "./basic/Education.js";
 import Volunteering from "./basic/volunteering/Volunteering.js";
-import Dashboard from "./dashboard/Dashboard.js";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -35,10 +34,6 @@ function App() {
                 {" "}
                 Volunteering
               </MenuItem>
-              <MenuItem component={<Link to="/dashboard" />}>
-                {" "}
-                Dashboard
-              </MenuItem>
             </Menu>
           </Sidebar>
         </div>
@@ -50,7 +45,6 @@ function App() {
               path="/volunteering"
               element={<Volunteering></Volunteering>}
             ></Route>
-            <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
             <Route exact path="/" element={<Home></Home>} />/
           </Routes>
         </div>
