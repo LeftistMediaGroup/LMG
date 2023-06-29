@@ -139,7 +139,7 @@ class Calendar1 extends React.Component {
 
     let calendarData = await response.json();
 
-    //console.log(`GetCalendarData: ${JSON.stringify(calendarData, null, 2)}`);
+    console.log(`GetCalendarData: ${JSON.stringify(calendarData, null, 2)}`);
 
     this.calendarHandler(calendarData);
 
@@ -322,7 +322,7 @@ class Calendar1 extends React.Component {
   };
 
   componentDidMount() {
-    setInterval(this.getCalendarData, 20000);
+    //setInterval(this.getCalendarData, 20000);
   };
 
   render = () => {

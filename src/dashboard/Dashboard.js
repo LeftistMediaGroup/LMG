@@ -28,10 +28,6 @@ export class Dashboard extends Component {
     slidesToScroll: 1,
   };
 
-  toggleProBanner() {
-    document.querySelector(".proBanner").classList.toggle("hide");
-  }
-
   render() {
     return (
       <div>

@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 
-import { allContext } from "../../contexts.js"
-
+import { allContext } from "../../contexts.js";
 
 export class Stats extends Component {
   constructor(props) {
     super(props);
 
-    let Context = allContext._currentValue
+    let Context = allContext._currentValue;
 
-    this.state = {"Context": Context
-    };
-  };
+    this.state = { Context: Context };
+  }
 
   render() {
     return (
@@ -22,9 +20,9 @@ export class Stats extends Component {
               <div className="d-flex flex-row justify-content-between">
                 <h4 className="card-title">Stats</h4>
               </div>
-              
-              <p> isLoggedin: {this.state.Context.is_loggedin} </p>
-            </div>            
+
+              <p> isLoggedin: </p>
+            </div>
           </div>
         </div>
       </div>
