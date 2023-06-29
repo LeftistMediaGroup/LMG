@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import WhatIsCapitalism from "./education/What_is_Capitalism.js";
 import WhatIsAnarchism from "./education/What_is_Anarchism.js";
 import Revolution from "./education/Revolution.js";
+import { Card, CardContent } from "@mui/material";
 
 export class Education extends Component {
   render() {
@@ -45,60 +46,54 @@ export class Education extends Component {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-12 grid-margin stretch-card">
-              <div className="card corona-gradient-card">
-                <div className="card-body py-0 px-0 px-sm-3">
-                  <div className="row align-items-center">
-                    <div className="col-5 col-sm-7 col-xl-8 p-0">
-                      <h4 className="mb-1 mb-sm-0">
-                        Lets Overthrow Capitalism together
-                      </h4>
-                      <p className="mb-0 font-weight-normal d-none d-sm-block">
-                        {" "}
-                        The goal of overthrowing Capitalism will require many
-                        subtasks, as the only way to defeat it is through the
-                        power of love, or in other words, a multifaceted attack
-                        from every angle possible.
-                      </p>
-                    </div>
-                    <div className="col-3 col-sm-2 col-xl-2 pl-0 text-center">
-                      <button className="btn btn-outline-light btn-rounded get-started-btn">
-                        See Projects
-                      </button>
-                    </div>
-                  </div>
-                </div>
+          <Card>
+            <CardContent>
+              <div className="row">
+                <h4 className="mb-1 mb-sm-0">
+                  Lets Overthrow Capitalism together
+                </h4>
+                <p className="mb-0 font-weight-normal d-none d-sm-block">
+                  {" "}
+                  The goal of overthrowing Capitalism will require many
+                  subtasks, as the only way to defeat it is through the power of
+                  love, or in other words, a multifaceted attack from every
+                  angle possible.
+                </p>
               </div>
-            </div>
-          </div>
-
-          <div className="col-md-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Topics to explore</h4>
-                <ul className="list-arrow">
-                  <li> What is Capitalism? </li>
-                  <li> What is Anarchism? </li>
-                  <li> Revolution </li>
-
-                  <br></br>
-
-                  <p> - Coming soon! </p>
-
-                  <li> Anarcho-Syndicalism </li>
-                  <li> Revolutionary Thinking </li>
-                  <li> The State </li>
-                  <li> Workers Rights </li>
-                  <li> BLM </li>
-                </ul>
+              <div className="col-3 col-sm-2 col-xl-2 pl-0 text-center">
+                <button className="btn btn-outline-light btn-rounded get-started-btn">
+                  See Projects
+                </button>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
 
-          <WhatIsCapitalism></WhatIsCapitalism>
-          <WhatIsAnarchism></WhatIsAnarchism>
-          <Revolution></Revolution>
+          <Card>
+            <CardContent>
+              <h4 className="card-title">Topics to explore</h4>
+              <ul className="list-arrow">
+                <li> What is Capitalism? </li>
+                <li> What is Anarchism? </li>
+                <li> Revolution </li>
+
+                <br></br>
+
+                <p> - Coming soon! </p>
+
+                <li> Anarcho-Syndicalism </li>
+                <li> Revolutionary Thinking </li>
+                <li> The State </li>
+                <li> Workers Rights </li>
+                <li> BLM </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <WhatIsCapitalism />
+
+          <WhatIsAnarchism />
+
+          <Revolution />
         </div>
       </>
     );
