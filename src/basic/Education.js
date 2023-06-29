@@ -32,60 +32,58 @@ export class Education extends Component {
                 <p>Sign up to volunteer with us!</p>
                 <a
                   href="leftistmediagroup.com/volunteering"
-                  rel="noopener noreferrer"
-                  target="_blank"
                   className="btn btn-sm purchase-button ml-auto"
                 >
                   Volunteer Now
                 </a>
-                <i
-                  className="mdi mdi-close bannerClose"
-                  onClick={this.toggleProBanner}
-                ></i>
               </span>
             </div>
           </div>
 
           <Card>
             <CardContent>
-              <div className="row">
-                <h4 className="mb-1 mb-sm-0">
-                  Lets Overthrow Capitalism together
-                </h4>
-                <p className="mb-0 font-weight-normal d-none d-sm-block">
-                  {" "}
+              <div className="row-centered">
+                <h4>Lets Overthrow Capitalism together</h4>
+                <p>
                   The goal of overthrowing Capitalism will require many
                   subtasks, as the only way to defeat it is through the power of
                   love, or in other words, a multifaceted attack from every
                   angle possible.
                 </p>
               </div>
-              <div className="col-3 col-sm-2 col-xl-2 pl-0 text-center">
-                <button className="btn btn-outline-light btn-rounded get-started-btn">
-                  See Projects
-                </button>
-              </div>
+              <button className="btn btn-outline-light btn-rounded get-started-btn">
+                See Projects
+              </button>
             </CardContent>
           </Card>
 
           <Card>
             <CardContent>
-              <h4 className="card-title">Topics to explore</h4>
-              <ul className="list-arrow">
-                <li> What is Capitalism? </li>
-                <li> What is Anarchism? </li>
-                <li> Revolution </li>
+              <h4>Topics to explore</h4>
 
-                <br></br>
+              <Card>
+                <CardContent>
+                  <div className="row">
+                    <div className="col"> What is Capitalism? </div>
+                    <div className="col"> What is Anarchism? </div>
+                    <div className="col"> Revolution </div>
+                  </div>
 
-                <p> - Coming soon! </p>
+                  <div className="row-centered">
+                    <br /> <br />
+                    <p> - Coming soon! </p>
+                    <br />
+                  </div>
 
-                <li> Anarcho-Syndicalism </li>
-                <li> Revolutionary Thinking </li>
-                <li> The State </li>
-                <li> Workers Rights </li>
-                <li> BLM </li>
-              </ul>
+                  <div className="row">
+                    <div className="col"> Anarcho-Syndicalism </div>
+                    <div className="col"> Revolutionary Thinking </div>
+                    <div className="col"> The State </div>
+                    <div className="col"> Workers Rights </div>
+                    <div className="col"> BLM </div>
+                  </div>
+                </CardContent>
+              </Card>
             </CardContent>
           </Card>
 

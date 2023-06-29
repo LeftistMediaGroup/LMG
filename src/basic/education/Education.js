@@ -11,18 +11,20 @@ export class Education extends Component {
     return (
       <>
         <div>
-        <Helmet>
+          <Helmet>
             <title> Education</title>
             <meta charSet="utf-8" />
             <meta
               name="description"
               content="Anti-Capitalist Educational Pages"
             />
-            <link rel="canonical" href="https://LeftistMediaGrpup.org/Education" />
+            <link
+              rel="canonical"
+              href="https://LeftistMediaGrpup.org/Education"
+            />
           </Helmet>
 
           <div className="page-header">
-            <h3 className="page-title"> Education </h3>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
@@ -62,8 +64,7 @@ export class Education extends Component {
               <div className="card corona-gradient-card">
                 <div className="card-body py-0 px-0 px-sm-3">
                   <div className="row align-items-center">
-                    <div className="col-4 col-sm-3 col-xl-2">
-                    </div>
+                    <div className="col-4 col-sm-3 col-xl-2"></div>
                     <div className="col-5 col-sm-7 col-xl-8 p-0">
                       <h4 className="mb-1 mb-sm-0">
                         Lets Overthrow Capitalism together
