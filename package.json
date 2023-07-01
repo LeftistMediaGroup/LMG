@@ -1,6 +1,6 @@
 {
-  "name": "Cephalopod",
-  "version": "1.0.0",
+  "name": "lmg",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
