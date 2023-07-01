@@ -91,7 +91,6 @@ export class SignUpForm extends Component {
             revolutionary propaganda.
           </p>
         </div>
-
         <div className="row">
           <div className="col-md-6 grid-margin stretch-card">
             <div className="card">
@@ -156,6 +155,10 @@ export class SignUpForm extends Component {
             </div>
           </div>
         </div>
+
+        <Mail></Mail>
+
+
       </div>
     );
   }
