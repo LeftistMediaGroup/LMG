@@ -59,8 +59,6 @@ export class Volunteering extends Component {
               </button>
             </CardContent>
           </Card>
-
-          <SignUpForm />
         </CardContent>
       </Card>
     );

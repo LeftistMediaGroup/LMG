@@ -30,10 +30,6 @@ function App() {
                 {" "}
                 Education
               </MenuItem>
-              <MenuItem component={<Link to="/volunteering" />}>
-                {" "}
-                Volunteering
-              </MenuItem>
             </Menu>
           </Sidebar>
         </div>
