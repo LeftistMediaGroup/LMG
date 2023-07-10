@@ -581,12 +581,7 @@ export class Home extends Component {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardContent>
-              <SignUpForm />
-            </CardContent>
-          </Card>
-
+w
           <div className="row-centerd">
             <Card>
               <CardContent>
