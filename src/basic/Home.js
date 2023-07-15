@@ -580,8 +580,6 @@ export class Home extends Component {
               </div>
             </CardContent>
           </Card>
-
-w
           <div className="row-centerd">
             <Card>
               <CardContent>

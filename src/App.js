@@ -25,11 +25,39 @@ function App() {
         <div className="sidebar">
           <Sidebar>
             <Menu>
-              <MenuItem component={<Link to="/" />}> Home</MenuItem>
-              <MenuItem component={<Link to="/education" />}>
-                {" "}
-                Education
-              </MenuItem>
+              <div className="sidebar-btn-wrapper">
+                <MenuItem
+                  rootStyles={{
+                    marginLeft: 15,
+                    marginRight: 105,
+                    marginTop: 5,
+                    marginBottom: 5,
+                    backgroundColor: "silver",
+                    borderRadius: 10,
+                  }}
+                  component={<Link to="/" />}
+                >
+                  {" "}
+                  Home
+                </MenuItem>
+              </div>
+
+              <div className="sidebar-btn-wrapper">
+                <MenuItem
+                  rootStyles={{
+                    marginLeft: 15,
+                    marginRight: 105,
+                    marginTop: 5,
+                    marginBottom: 5,
+                    backgroundColor: "silver",
+                    borderRadius: 10,
+                  }}
+                  component={<Link to="/education" />}
+                >
+                  {" "}
+                  Education
+                </MenuItem>
+              </div>
             </Menu>
           </Sidebar>
         </div>
