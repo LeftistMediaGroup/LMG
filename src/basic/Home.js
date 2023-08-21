@@ -65,7 +65,7 @@ export class Home extends Component {
           </div>
 
           <div className="row-centered">
-            <Card>
+            <Card variant="outlined">
               <CardContent>
                 <h1>Leftist Media Group</h1>
 
@@ -109,8 +109,8 @@ export class Home extends Component {
             </Card>
           </div>
 
-          <Card>
-            <CardContent>
+          <Card variant="outlined">
+            <CardContent style={{borderColor: "red"}}>
               <h4>Projects</h4>
 
               <p>All projects need volunteers</p>
@@ -125,44 +125,33 @@ export class Home extends Component {
                   <Card>
                     <CardContent>
                       <h6>LMG - Memes</h6>
-
+                      <p>A facebook page for sharing leftist propaganda.</p>
+                      Positions
+                      <br />
                       <div className="row">
                         <div className="col">
-                          <p>A facebook page for sharing leftist propaganda.</p>
-                        </div>
-                        <div className="col">
-                          <Dropdown>
-                            <Dropdown.Toggle
-                              variant="btn btn-primary"
-                              id="dropdownMenuButton1"
-                            >
-                              Positions Available
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                              <Dropdown.Header>
-                                Positions & Information
-                              </Dropdown.Header>
-                              <Dropdown.Divider />
-
-                              <Dropdown.Item>
-                                <Dropdown.Header>
-                                  Meme Distributer
-                                </Dropdown.Header>
+                          <Card>
+                            <CardContent>
+                              <div className="row">
+                                Meme Distributer <br />
                                 Browse and share Leftist Memes on a dedicated
                                 Facebook page <br />
+                                <br />
+                                <br />
+                              </div>
+
+                              <div
+                                className="row"
+                                style={{ textAlign: "left" }}
+                              >
                                 Time Requirement: <br />
                                 1 Hour a week <br />
                                 Position Requirements: <br />
                                 Experience with Facebook <br />
                                 Preferred - Experience with Facebook Pages
-                              </Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
-                        </div>
-                        <div className="col">
-                          <p>0 volunteers</p>
-                          <p>? Tasks </p>
-                          <p>? Issues</p>
+                              </div>
+                            </CardContent>
+                          </Card>
                         </div>
                       </div>
                     </CardContent>
@@ -180,34 +169,15 @@ export class Home extends Component {
                         </div>
 
                         <div className="col">
-                          <Dropdown>
-                            <Dropdown.Toggle
-                              variant="btn btn-primary"
-                              id="dropdownMenuButton1"
-                            >
-                              Positions Available
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                              <Dropdown.Header>
-                                Positions & Information
-                              </Dropdown.Header>
-                              <Dropdown.Divider />
-
-                              <Dropdown.Item>
-                                <Dropdown.Header>
-                                  Social Media Manager
-                                </Dropdown.Header>
-                                Build and refine the online presence of
-                                LeftistMediaGroup.org <br />
-                                Time Requirement: <br />
-                                1 Hour a week <br />
-                                Preferred Experience: <br />
-                                Facebook, Instagram, Reddit, Media Trends, Brand
-                                Building, or social media managing
-                                <br />
-                              </Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
+                          Positions Available Positions & Information Social
+                          Media Manager Build and refine the online presence of
+                          LeftistMediaGroup.org <br />
+                          Time Requirement: <br />
+                          1 Hour a week <br />
+                          Preferred Experience: <br />
+                          Facebook, Instagram, Reddit, Media Trends, Brand
+                          Building, or social media managing
+                          <br />
                         </div>
 
                         <div className="col">
@@ -220,75 +190,49 @@ export class Home extends Component {
                   </Card>
                 </div>
 
-                <div className="col">
-                  <Card>
-                    <CardContent>
-                      <h6>Sophia</h6>
+                <div className="row">
+                  <div className="col">
+                    <Card>
+                      <CardContent>
+                        <h6>Sophia</h6>
 
-                      <div className="row">
-                        <div className="col">
-                          <p>
-                            Ask Leftist questions to be answered, discussed, or
-                            debated.
-                          </p>
+                        <div className="row">
+                          <div className="col">
+                            <p>
+                              Ask Leftist questions to be answered, discussed,
+                              or debated.
+                            </p>
+                          </div>
+
+                          <div className="col">
+                            Positions Available Positions & Information Node js
+                            Programer Work in Node js to build the backend for
+                            LeftistMediaGroup.org. <br />
+                            Design and implement Wade components into website
+                            backend. Time Requirement: <br />
+                            1 Hour a week <br />
+                            Position Requirements: <br />
+                            Experience with Node js, Python or C <br />
+                            Preferred - Experience with front and backend
+                            development React Programer Work in React to build
+                            the frontend Sophia component for
+                            LeftistMediaGroup.org <br />
+                            Time Requirement: <br />
+                            1 Hour a week <br />
+                            Position Requirements: <br />
+                            Experience with React, CSS, HTML, or Node js
+                            Preferred - Experience with front and backend
+                            development
+                          </div>
+
+                          <div className="col">
+                            <p>2 volunteers</p>
+                            <p>? Tasks </p>
+                          </div>
                         </div>
-
-                        <div className="col">
-                          <Dropdown>
-                            <Dropdown.Toggle
-                              variant="btn btn-primary"
-                              id="dropdownMenuButton1"
-                            >
-                              Positions Available{" "}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                              <Dropdown.Header>
-                                Positions & Information
-                              </Dropdown.Header>
-                              <Dropdown.Divider />
-
-                              <Dropdown.Item>
-                                <Dropdown.Header>
-                                  Node js Programer
-                                </Dropdown.Header>
-                                Work in Node js to build the backend for
-                                LeftistMediaGroup.org. <br />
-                                Design and implement Wade components into
-                                website backend. Time Requirement: <br />
-                                1 Hour a week <br />
-                                Position Requirements: <br />
-                                Experience with Node js, Python or C <br />
-                                Preferred - Experience with front and backend
-                                development
-                              </Dropdown.Item>
-
-                              <Dropdown.Item>
-                                <Dropdown.Header>
-                                  React Programer
-                                </Dropdown.Header>
-                                Work in React to build the frontend Sophia
-                                component for LeftistMediaGroup.org <br />
-                                Time Requirement: <br />
-                                1 Hour a week <br />
-                                Position Requirements: <br />
-                                Experience with React, CSS, HTML, or Node js
-                                Preferred - Experience with front and backend
-                                development
-                              </Dropdown.Item>
-
-                              <Dropdown.Item></Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
-                        </div>
-
-                        <div className="col">
-                          <p>0 volunteers</p>
-                          <p>? Tasks </p>
-                          <p>? Issues</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
               </div>
 
@@ -314,37 +258,16 @@ export class Home extends Component {
                         </div>
 
                         <div className="col">
-                          <Dropdown>
-                            <Dropdown.Toggle
-                              variant="btn btn-primary"
-                              id="dropdownMenuButton1"
-                            >
-                              Positions Available{" "}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                              <Dropdown.Header>
-                                Positions & Information
-                              </Dropdown.Header>
-                              <Dropdown.Divider />
-
-                              <Dropdown.Item>
-                                <Dropdown.Header>
-                                  Node js Programer
-                                </Dropdown.Header>
-                                Work in Node js to build the backend for
-                                LeftistMediaGroup.org. <br />
-                                Design and implement Wade components into
-                                website backend. Time Requirement: <br />
-                                1 Hour a week <br />
-                                Position Requirements: <br />
-                                Experience with Node js, Python or C <br />
-                                Preferred - Experience with front and backend
-                                development
-                              </Dropdown.Item>
-
-                              <Dropdown.Item></Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
+                          Positions Available Positions & Information Node js
+                          Programer Work in Node js to build the backend for
+                          LeftistMediaGroup.org. <br />
+                          Design and implement Wade components into website
+                          backend. Time Requirement: <br />
+                          1 Hour a week <br />
+                          Position Requirements: <br />
+                          Experience with Node js, Python or C <br />
+                          Preferred - Experience with front and backend
+                          development
                         </div>
 
                         <div className="col-md-4">
@@ -371,37 +294,15 @@ export class Home extends Component {
                         </div>
 
                         <div className="row">
-                          <Dropdown>
-                            <Dropdown.Toggle
-                              variant="btn btn-primary"
-                              id="dropdownMenuButton1"
-                            >
-                              Positions Available{" "}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                              <Dropdown.Header>
-                                Positions & Information
-                              </Dropdown.Header>
-                              <Dropdown.Divider />
-
-                              <Dropdown.Item>
-                                <Dropdown.Header>
-                                  React Programer
-                                </Dropdown.Header>
-                                Work in React to build the frontend music player
-                                component for LeftistMediaGroup.org <br />
-                                Time Requirement: <br />
-                                1 Hour a week <br />
-                                Position Requirements: <br />
-                                Experience with React, CSS, HTML, or Node js{" "}
-                                <br />
-                                Preferred - Experience with front and backend
-                                development
-                              </Dropdown.Item>
-
-                              <Dropdown.Item></Dropdown.Item>
-                            </Dropdown.Menu>
-                          </Dropdown>
+                          Positions Available Positions & Information React
+                          Programer Work in React to build the frontend music
+                          player component for LeftistMediaGroup.org <br />
+                          Time Requirement: <br />
+                          1 Hour a week <br />
+                          Position Requirements: <br />
+                          Experience with React, CSS, HTML, or Node js <br />
+                          Preferred - Experience with front and backend
+                          development
                         </div>
 
                         <div className="col">
@@ -536,7 +437,7 @@ export class Home extends Component {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card variant="outlined">
             <CardContent>
               <div className="row-centered">
                 <h1>Sophia - Knowledge sharing form</h1>

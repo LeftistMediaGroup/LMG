@@ -22,6 +22,7 @@
     "os": "^0.1.2",
     "path": "^0.12.7",
     "react": "^18.2.0",
+    "react-axios": "^2.0.6",
     "react-bootstrap": "^2.8.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
@@ -44,7 +45,6 @@
     "build": "webpack --mode=production --node-env=production --config webpack.config.js",
     "serve": "webpack --mode=production --node-env=production --config webpack.config.js",
     "dev": "webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
-
   },
   "eslintConfig": {
     "extends": [
