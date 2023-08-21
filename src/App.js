@@ -15,6 +15,21 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
   },
+  components: {
+    // Name of the component
+    MuiCard: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          borderColor: "red",
+          borderRadius: 2,
+          position: "relative",
+          zIndex: 0,
+        },
+      },
+    },
+  },
 });
 
 function App() {

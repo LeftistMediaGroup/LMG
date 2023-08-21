@@ -4,6 +4,7 @@ import WhatIsCapitalism from "./education/What_is_Capitalism.js";
 import WhatIsAnarchism from "./education/What_is_Anarchism.js";
 import Revolution from "./education/Revolution.js";
 import { Card, CardContent } from "@mui/material";
+import Library from "./education/Library/Library.js";
 
 export class Education extends Component {
   render() {
@@ -92,6 +93,8 @@ export class Education extends Component {
           <WhatIsAnarchism />
 
           <Revolution />
+
+          <Library></Library>
         </div>
       </>
     );
