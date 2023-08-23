@@ -5,6 +5,7 @@ import { Dropdown } from "react-bootstrap";
 
 import SignUpForm from "./SignUpForm.js";
 import { Card, CardContent } from "@mui/material";
+import { Padding } from "@mui/icons-material";
 
 export class Home extends Component {
   constructor(props) {
@@ -121,7 +122,7 @@ export class Home extends Component {
               </p>
 
               <div className="row">
-                <div className="col">
+                <div className="col" style={{ padding: 15 }}>
                   <Card>
                     <CardContent>
                       <div style={{ textAlign: "center" }}>
@@ -170,7 +171,7 @@ export class Home extends Component {
                   </Card>
                 </div>
 
-                <div className="col">
+                <div className="col" style={{ padding: 15 }}>
                   <Card>
                     <CardContent>
                       <div style={{ textAlign: "center" }}>
@@ -224,7 +225,7 @@ export class Home extends Component {
                 </div>
               </div>
 
-              <div className="col">
+              <div className="col" style={{ padding: 15 }}>
                 <Card>
                   <CardContent>
                     <div style={{ textAlign: "center" }}>
@@ -238,6 +239,44 @@ export class Home extends Component {
 
                     <br />
 
+                    <div className="row">
+                      <div className="col">
+                        Premises can be answered or escalated into a formal
+                        debate with Debate Blocks.{" "}
+                      </div>
+
+                      <div className="col">
+                        Within traditional debate, you have a thesis or main
+                        point, and that's made up of premises or single
+                        arguments. <br /> <br />
+                        Within Sophia, things are the same, but a bit different,
+                        Sophia uses rectangular blocks to visualize
+                        argumentation.{" "}
+                      </div>
+
+                      <div className="col">
+                        Each block is a 2D rectangle covered in text. <br />{" "}
+                        <br />
+                        Blocks are divided into a thesis (purple), supporting
+                        (green), neutral (grey), or opposing (red). <br />{" "}
+                        <br />
+                        Multiple premises can connected to a thesis.
+                      </div>
+
+                      <div className="col">
+                        If someone has thoughts on your premise, they can post a
+                        thought, or add a premise to your premise that either
+                        supports, opposes or is neutral to your premise.
+                      </div>
+                    </div>
+
+                    <div className="row-centered">
+                      <br />
+                      Sophia will generate meaningful, thought progressing ideas
+                      and Praxis.
+                    </div>
+                    <br />
+
                     <div style={{ textAlign: "center" }}>Positions</div>
 
                     <div className="row">
@@ -245,11 +284,11 @@ export class Home extends Component {
                         <Card variant="outlined">
                           <CardContent>
                             <div style={{ textAlign: "center" }}>
-                              <h4>Social Media Manager</h4>
+                              <h4> Node js Programer</h4>
                             </div>
                             <div style={{ textAlign: "center" }}>
-                              Build and refine the online presence of
-                              LeftistMediaGroup.org
+                              Work in Node js to build the backend for
+                              LeftistMediaGroup.org and Sophia
                               <br />
                             </div>
 
@@ -262,8 +301,7 @@ export class Home extends Component {
                               Position Requirements:
                               <ul>
                                 <li>
-                                  Facebook, Instagram, Reddit, Media Trends,
-                                  Brand Building, or social media managing
+                                  Experience with front and backend development
                                 </li>
                               </ul>
                             </div>
@@ -276,83 +314,65 @@ export class Home extends Component {
               </div>
 
               <div className="row">
-                <div className="col">
-                  <Card variant="outlined">
-                    <CardContent>
-                      <div className="col">
-                        Positions Available Positions & Information Node js
-                        Programer Work in Node js to build the backend for
-                        LeftistMediaGroup.org. <br />
-                        Design and implement Wade components into website
-                        backend. Time Requirement: <br />
-                        1 Hour a week <br />
-                        Position Requirements: <br />
-                        Experience with Node js, Python or C <br />
-                        Preferred - Experience with front and backend
-                        development React Programer Work in React to build the
-                        frontend Sophia component for LeftistMediaGroup.org{" "}
-                        <br />
-                        Time Requirement: <br />
-                        1 Hour a week <br />
-                        Position Requirements: <br />
-                        Experience with React, CSS, HTML, or Node js Preferred -
-                        Experience with front and backend development
-                      </div>
-
-                      <div className="col">
-                        <p>2 volunteers</p>
-                        <p>? Tasks </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col">
+                <div className="col" style={{ padding: 15 }}>
                   <Card>
                     <CardContent>
-                      <h6>Wade</h6>
+                      <div style={{ textAlign: "center" }}>
+                        <h4>Wade</h4>
+                      </div>
+
+                      <div style={{ textAlign: "center" }}>
+                        Community response system made to assist with the
+                        development, design, and organization of protests
+                      </div>
 
                       <div className="row">
-                        <div className="col-md-4">
-                          <p>
-                            Community response system made to assist with the
-                            development, design, and organization of protests.
-                          </p>
-                        </div>
-
-                        <div className="col-md-4">
+                        <div className="col" style={{ textAlign: "center" }}>
                           <Doughnut
                             data={this.state.WadeData}
                             options={this.state.WadeOptions}
                           />
                         </div>
+                      </div>
 
+                      <div style={{ textAlign: "center" }}>Positions</div>
+
+                      <div className="row">
                         <div className="col">
-                          Positions Available Positions & Information Node js
-                          Programer Work in Node js to build the backend for
-                          LeftistMediaGroup.org. <br />
-                          Design and implement Wade components into website
-                          backend. Time Requirement: <br />
-                          1 Hour a week <br />
-                          Position Requirements: <br />
-                          Experience with Node js, Python or C <br />
-                          Preferred - Experience with front and backend
-                          development
-                        </div>
+                          <Card variant="outlined">
+                            <CardContent>
+                              <div style={{ textAlign: "center" }}>
+                                <h4> Node js Programer</h4>
+                              </div>
+                              <div style={{ textAlign: "center" }}>
+                                Work in Node js to build the backend for
+                                LeftistMediaGroup.org and Sophia
+                                <br />
+                              </div>
 
-                        <div className="col-md-4">
-                          <p>0 volunteers</p>
-                          <p>? Tasks </p>
-                          <p>? Issues</p>
+                              <div style={{ textAlign: "left" }}>
+                                <br />
+                                Time Requirement: <br />
+                                <ul>
+                                  <li>1 Hour a week</li>
+                                </ul>
+                                Position Requirements:
+                                <ul>
+                                  <li>
+                                    Experience with front and backend
+                                    development
+                                  </li>
+                                </ul>
+                              </div>
+                            </CardContent>
+                          </Card>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
                 </div>
 
-                <div className="col">
+                <div className="col" style={{ padding: 15 }}>
                   <Card>
                     <CardContent>
                       <h6>Leftism Through Music</h6>
@@ -509,52 +529,6 @@ export class Home extends Component {
                 </CardContent>
               </Card>
 
-              <Card variant="outlined">
-                <CardContent>
-                  <div className="row-centered">
-                    <h1>Sophia - Knowledge sharing form</h1>
-
-                    <p>
-                      Ask Leftist questions to be answered, discussed, or
-                      debated.
-                    </p>
-                  </div>
-
-                  <div className="row">
-                    <div className="col">
-                      Premises can be answered or escalated into a formal debate
-                      with Debate Blocks.{" "}
-                    </div>
-
-                    <div className="col">
-                      Within traditional debate, you have a thesis or main
-                      point, and that's made up of premises or single arguments.{" "}
-                      <br />
-                      Within Sophia, things are the same, but a bit different,
-                      Sophia uses rectangular blocks to visualize argumentation.{" "}
-                    </div>
-
-                    <div className="col">
-                      Each block is a 2D rectangle covered in text. <br />
-                      Blocks are divided into a thesis (purple), supporting
-                      (green), neutral (grey), or opposing (red). <br />
-                      Multiple premises can connected to a thesis.
-                    </div>
-
-                    <div className="col">
-                      If someone has thoughts on your premise, they can post a
-                      thought, or add a premise to your premise that either
-                      supports, opposes or is neutral to your premise.
-                    </div>
-                  </div>
-
-                  <div className="row-centered">
-                    <br />
-                    Sophia will generate meaningful, thought progressing ideas
-                    and Praxis.
-                  </div>
-                </CardContent>
-              </Card>
               <div className="row-centerd">
                 <Card>
                   <CardContent>
