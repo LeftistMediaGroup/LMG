@@ -10,28 +10,10 @@ import Volunteering from "./basic/volunteering/Volunteering.js";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import SignUpForm from "./basic/SignUpForm";
-import { red } from "@mui/material/colors";
 
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
-    primary: red,
-  },
-  components: {
-    // Name of the component
-    MuiCard: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          // Some CSS
-          borderColor: "red",
-          borderRadius: 2,
-          position: "relative",
-          zIndex: 0,
-        },
-      },
-    },
   },
 });
 
@@ -76,23 +58,6 @@ function App() {
                   Education
                 </MenuItem>
               </div>
-
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/signup" />}
-                >
-                  {" "}
-                  Sign up
-                </MenuItem>
-              </div>
             </Menu>
           </Sidebar>
         </div>
@@ -104,8 +69,7 @@ function App() {
               path="/volunteering"
               element={<Volunteering></Volunteering>}
             ></Route>
-            <Route exact path="/" element={<Home></Home>} />
-            <Route exact path="/signup" element={<SignUpForm></SignUpForm>} />
+            <Route exact path="/" element={<Home></Home>} />/
           </Routes>
         </div>
       </div>

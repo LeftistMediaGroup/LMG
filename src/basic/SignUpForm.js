@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
-import { Button } from "@mui/material";
-import axios from "axios";
-
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -16,31 +13,29 @@ export class SignUpForm extends Component {
     };
   }
 
-  submit = () => {
-    console.log(`Submit`);
-
+  submit() {
     if (this.state.password === this.state.password2) {
-      let email = this.state.email;
-      let username = this.state.username;
-      let password = this.state.password;
+      let bodyOut = {
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password,
+      };
 
-      console.log(`Data out`);
+      console.log(`Data: ${JSON.stringify(bodyOut)}`);
 
-      axios
-        .post("https://wade.leftistmediagroup.org/system/register_admin", {
-          username: username,
-          password: password,
-        })
-        .then(function (result) {
-          console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
-        })
-        .catch((err) => {
-          console.log(`Error: ${err}`);
-        });
+      fetch(`https://${process.env.backend}/register/submit/`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bodyOut),
+      });
     } else {
       console.log("Passwords don't match, please try again.");
     }
-  };
+  }
 
   usernameChange(event) {
     let username = event.target.value;
@@ -100,7 +95,13 @@ export class SignUpForm extends Component {
           <div className="col-md-6 grid-margin stretch-card">
             <div className="card">
               <div className="card-body">
-                <form>
+                <form
+                  className="forms-sample"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    this.submit();
+                  }}
+                >
                   <Form.Group>
                     <label htmlFor="InputEmail">Email</label>
                     <Form.Control
@@ -146,23 +147,18 @@ export class SignUpForm extends Component {
 
                   <br />
 
-                  <Button
-                    color="primary"
-                    variant="outlined"
-                    onClick={() => {
-                      console.log("Clicked!");
-                      this.submit();
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
+                  <button type="submit" className="btn btn-primary mr-2">
                     Submit
-                  </Button>
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+
+        <Mail></Mail>
+
+
       </div>
     );
   }
