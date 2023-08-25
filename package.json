@@ -44,7 +44,7 @@
     "start": "set HTTPS=true&&webpack --config webpack.config.js",
     "build": "webpack --mode=production --node-env=production --config webpack.config.js",
     "serve": "webpack --mode=production --node-env=production --config webpack.config.js",
-    "dev": "webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
+    "dev": "webpack-dev-server --mode=production --node-env=production --config webpack.config.js --https"
   },
   "eslintConfig": {
     "extends": [
