@@ -7,6 +7,8 @@ import SignUpForm from "./SignUpForm.js";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 
+import { LMG_memes } from "./home/LMG_memes.js";
+
 export class Home extends Component {
   constructor(props) {
     super(props);
@@ -123,52 +125,7 @@ export class Home extends Component {
 
               <div className="row">
                 <div className="col" style={{ padding: 15 }}>
-                  <Card>
-                    <CardContent>
-                      <div style={{ textAlign: "center" }}>
-                        <h4>LMG - Memes</h4>
-                      </div>
-
-                      <div style={{ textAlign: "center" }}>
-                        A facebook page for sharing leftist propaganda
-                      </div>
-
-                      <br />
-
-                      <div style={{ textAlign: "center" }}>Positions</div>
-
-                      <div className="row">
-                        <div className="col">
-                          <Card variant="outlined">
-                            <CardContent>
-                              <div style={{ textAlign: "center" }}>
-                                <h4>Meme Distributer</h4>
-                              </div>
-                              <div style={{ textAlign: "center" }}>
-                                Share Leftist Memes on a dedicated Facebook page{" "}
-                                <br />
-                              </div>
-
-                              <div style={{ textAlign: "left" }}>
-                                <br />
-                                Time Requirement: <br />
-                                <ul>
-                                  <li>1 Hour a week</li>
-                                </ul>
-                                Position Requirements:
-                                <ul>
-                                  <li>Experience with Facebook</li>
-                                  <li>
-                                    Preferred - Experience with Facebook Pages
-                                  </li>
-                                </ul>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <LMG_memes/>
                 </div>
 
                 <div className="col" style={{ padding: 15 }}>
