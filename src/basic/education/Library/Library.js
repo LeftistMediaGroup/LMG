@@ -44,7 +44,7 @@ class Library extends Component {
 
   render() {
     return (
-      <Card>
+      <Card variant="outlined">
         <CardContent>
           <h4>Library</h4>
           <Card style={{overflow: "auto"}}>

@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export class Revolution extends Component {
   render() {
     return (
-      <Card>
+      <Card variant="outlined">
         <CardContent>
           <h1>Revolution</h1>
 

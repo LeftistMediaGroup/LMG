@@ -187,37 +187,35 @@ export class Home extends Component {
                       <div style={{ textAlign: "center" }}>Positions</div>
 
                       <div className="row">
-                        <div className="row">
-                          <div className="col">
-                            <Card variant="outlined">
-                              <CardContent>
-                                <div style={{ textAlign: "center" }}>
-                                  <h4>Social Media Manager</h4>
-                                </div>
-                                <div style={{ textAlign: "center" }}>
-                                  Build and refine the online presence of
-                                  LeftistMediaGroup.org
-                                  <br />
-                                </div>
+                        <div className="col">
+                          <Card variant="outlined">
+                            <CardContent>
+                              <div style={{ textAlign: "center" }}>
+                                <h4>Social Media Manager</h4>
+                              </div>
+                              <div style={{ textAlign: "center" }}>
+                                Build and refine the online presence of
+                                LeftistMediaGroup.org
+                                <br />
+                              </div>
 
-                                <div style={{ textAlign: "left" }}>
-                                  <br />
-                                  Time Requirement: <br />
-                                  <ul>
-                                    <li>1 Hour a week</li>
-                                  </ul>
-                                  Position Requirements:
-                                  <ul>
-                                    <li>
-                                      Facebook, Instagram, Reddit, Media Trends,
-                                      Brand Building, or social media managing
-                                      intrest or experience
-                                    </li>
-                                  </ul>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          </div>
+                              <div style={{ textAlign: "left" }}>
+                                <br />
+                                Time Requirement: <br />
+                                <ul>
+                                  <li>1 Hour a week</li>
+                                </ul>
+                                Position Requirements:
+                                <ul>
+                                  <li>
+                                    Facebook, Instagram, Reddit, Media Trends,
+                                    Brand Building, or social media managing
+                                    intrest or experience
+                                  </li>
+                                </ul>
+                              </div>
+                            </CardContent>
+                          </Card>
                         </div>
                       </div>
                     </CardContent>
@@ -375,7 +373,9 @@ export class Home extends Component {
                 <div className="col" style={{ padding: 15 }}>
                   <Card>
                     <CardContent>
-                      <h6>Leftism Through Music</h6>
+                      <div style={{ textAlign: "center" }}>
+                        <h4>Leftism Through Music</h4>
+                      </div>
 
                       <div className="row">
                         <div className="col">
@@ -385,23 +385,39 @@ export class Home extends Component {
                             reflect on centered around leftist topics.
                           </p>
                         </div>
+                      </div>
 
-                        <div className="row">
-                          Positions Available Positions & Information React
-                          Programer Work in React to build the frontend music
-                          player component for LeftistMediaGroup.org <br />
-                          Time Requirement: <br />
-                          1 Hour a week <br />
-                          Position Requirements: <br />
-                          Experience with React, CSS, HTML, or Node js <br />
-                          Preferred - Experience with front and backend
-                          development
-                        </div>
+                      <div style={{ textAlign: "center" }}>Positions</div>
 
+                      <div className="row">
                         <div className="col">
-                          <p>0 Volunteers</p>
-                          <p>? Tasks</p>
-                          <p>? Issues</p>
+                          <Card variant="outlined">
+                            <CardContent>
+                              <div style={{ textAlign: "center" }}>
+                                <h4> Node js Programer</h4>
+                              </div>
+                              <div style={{ textAlign: "center" }}>
+                                Work in Node js to build the backend for
+                                LeftistMediaGroup.org and Sophia
+                                <br />
+                              </div>
+
+                              <div style={{ textAlign: "left" }}>
+                                <br />
+                                Time Requirement: <br />
+                                <ul>
+                                  <li>1 Hour a week</li>
+                                </ul>
+                                Position Requirements:
+                                <ul>
+                                  <li>
+                                    Experience with front and backend
+                                    development
+                                  </li>
+                                </ul>
+                              </div>
+                            </CardContent>
+                          </Card>
                         </div>
                       </div>
                     </CardContent>
@@ -409,169 +425,204 @@ export class Home extends Component {
                 </div>
               </div>
 
-              <Card>
-                <CardContent>
-                  <h4>Leftist Media Group for social media</h4>
-                  <br />
-                  <div className="row-centered">
-                    <Card variant="outlined">
-                      <CardContent>
-                        <p>
-                          All users assigned randomized username. DO NOT SHARE
-                          PERSONAL DETAILS assume everyone is a cop
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  <br />
-                  <div className="row-centered">
-                    <h3>Community</h3>
-                  </div>
-                  <br />
-                  <div className="row">
-                    <div className="col">
-                      <h4>Mentorship </h4>
-
-                      <p>
-                        Leftist mentors find connect with new Leftists and share
-                        knowledge and experience.
-                      </p>
+              <div className="col" style={{ padding: 15 }}>
+                <Card>
+                  <CardContent>
+                    <div style={{ textAlign: "center" }}>
+                      <h4>Leftist Media Group for social media</h4>
                     </div>
-
-                    <div className="col">
-                      <h4> Music </h4>
-
-                      <p>
-                        Create and share playlists of leftist music tailored to
-                        your friends
-                      </p>
-                    </div>
-
-                    <div className="col">
-                      <h4> Education </h4>
-                      <p>Intro to Leftistm guides.</p>
-                      <p>Library of leftist texts.</p>
-                    </div>
-                  </div>
-
-                  <div className="row-centered">
-                    <h4> Organization </h4>
 
                     <br />
-
-                    <div className="row">
-                      <div className="row-centered">
-                        <h4>local Praxis meets </h4>
-
-                        <div className="row">
-                          <div className="col">
-                            <p>Choose public place in the city you live.</p>
-                          </div>
-
-                          <div className="col">
-                            <p>
-                              Choose a community praxis task (garbage cleanup,
-                              protest, unhoused assistance, ect){" "}
-                            </p>
-                          </div>
-
-                          <div className="col">
-                            <p>
-                              Others in your city rsvp to event and organize
-                              goals and supplies
-                            </p>
-                          </div>
-
-                          <div className="col">
-                            <p>Task gets accomplished </p>
-                          </div>
-                        </div>
-
-                        <div className="row-centered">
-                          <p className="font-weight-bold">
-                            Achievement unlocked, Praxis
+                    <div className="row-centered">
+                      <Card variant="outlined">
+                        <CardContent>
+                          <p>
+                            All users assigned randomized username. DO NOT SHARE
+                            PERSONAL DETAILS assume everyone is a cop
                           </p>
-                        </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    <br />
+                    <div className="row-centered">
+                      <h2>Community</h2>
+                    </div>
+                    <br />
+                    <div className="row">
+                      <div className="col">
+                        <h4>Mentorship </h4>
 
-                        <div className="row">
-                          <div className="col">
-                            <h4> Emergency Fund </h4>
+                        <p>
+                          Leftist mentors find connect with new Leftists and
+                          share knowledge and experience.
+                        </p>
+                      </div>
 
-                            <div className="row-centered">
+                      <div className="col">
+                        <h4> Music </h4>
+
+                        <p>
+                          Create and share playlists of leftist music tailored
+                          to your friends
+                        </p>
+                      </div>
+
+                      <div className="col">
+                        <h4> Education </h4>
+                        <p>Intro to Leftistm guides.</p>
+                        <p>Library of leftist texts.</p>
+                      </div>
+                    </div>
+
+                    <div className="row-centered">
+                      <h2> Organization </h2>
+
+                      <br />
+
+                      <div className="row">
+                        <div className="row-centered">
+                          <h4>local Praxis meets </h4>
+
+                          <div className="row">
+                            <div className="col">
+                              <p>Choose public place in the city you live.</p>
+                            </div>
+
+                            <div className="col">
                               <p>
-                                Directly send money to those in need. <br />
-                                Recipient posts a request for assistance,
-                                specifying situation.
+                                Choose a community praxis task (garbage cleanup,
+                                protest, unhoused assistance, ect){" "}
                               </p>
                             </div>
 
-                            <div className="row">
-                              <div className="col">
-                                <p>LMG verifies recipient is real person.</p>
-                              </div>
-                              <div className="col">
+                            <div className="col">
+                              <p>
+                                Others in your city rsvp to event and organize
+                                goals and supplies
+                              </p>
+                            </div>
+
+                            <div className="col">
+                              <p>Task gets accomplished </p>
+                            </div>
+                          </div>
+
+                          <div className="row-centered">
+                            <p className="font-weight-bold">
+                              Achievement unlocked, Praxis
+                            </p>
+                          </div>
+
+                          <div className="row">
+                            <div className="col">
+                              <h2> Emergency Fund </h2>
+
+                              <div className="row-centered">
                                 <p>
-                                  Donor selects post, then is given preferred
-                                  money transfer details for recipient.{" "}
+                                  Directly send money to those in need. <br />
+                                  Recipient posts a request for assistance,
+                                  specifying situation.
                                 </p>
                               </div>
-                              <div className="col">
-                                Upon successful transaction, recipient may
-                                choose to open a chat with the donor to thank
-                                them. <p />{" "}
+
+                              <div className="row">
+                                <div className="col">
+                                  <p>LMG verifies recipient is real person.</p>
+                                </div>
+                                <div className="col">
+                                  <p>
+                                    Donor selects post, then is given preferred
+                                    money transfer details for recipient.{" "}
+                                  </p>
+                                </div>
+                                <div className="col">
+                                  Upon successful transaction, recipient may
+                                  choose to open a chat with the donor to thank
+                                  them. <p />{" "}
+                                </div>
+                              </div>
+
+                              <div style={{ textAlign: "center" }}>
+                                Positions
+                              </div>
+
+                              <div className="row">
+                                <div className="col">
+                                  <Card variant="outlined">
+                                    <CardContent>
+                                      <div style={{ textAlign: "center" }}>
+                                        <h4> Node js Programer</h4>
+                                      </div>
+                                      <div style={{ textAlign: "center" }}>
+                                        Work in Node js to build the backend for
+                                        LeftistMediaGroup.org and Sophia
+                                        <br />
+                                      </div>
+
+                                      <div style={{ textAlign: "left" }}>
+                                        <br />
+                                        Time Requirement: <br />
+                                        <ul>
+                                          <li>1 Hour a week</li>
+                                        </ul>
+                                        Position Requirements:
+                                        <ul>
+                                          <li>
+                                            Experience with front and backend
+                                            development
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </CardContent>
+                                  </Card>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </div>
 
-              <div className="row-centerd">
+              <div className="row-centerd" tyle={{ padding: 15 }}>
                 <Card>
                   <CardContent>
                     <h4>Contact</h4>
                     <p>Leftist Media Group</p>
 
-                    <div className="row">
-                      <div className="col">
-                        <Card>
-                          <CardContent>
-                            <p className="font-weight-bold">Coverage</p>
+                    <div className="row-centerd">
+                      <Card variant="outlined">
+                        <CardContent>
+                          <p className="font-weight-bold"> E-mail </p>
+                          <p className="mb-2"> LeftistMediaGroup@gmail.com </p>
+                          <p className="font-weight-bold"> Web</p>
+                          <p> LeftistMediaGroup.org </p>
+                          <p className="font-weight-bold"> Facebook</p>
+                          <p>Facebook.com/LMG</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    <div className="row-centerd">
+                      <Card variant="outlined">
+                        <CardContent>
+                          <p className="font-weight-bold">Coverage</p>
 
-                            <div className="row">
-                              <div className="col">
-                                <p>USA</p>
-                              </div>
-                              <div className="col">
-                                <p>Europe</p>
-                              </div>
-
-                              <div className="col">
-                                <p>Australia</p>
-                              </div>
+                          <div className="row">
+                            <div className="col">
+                              <p>USA</p>
                             </div>
-                          </CardContent>
-                        </Card>
-                      </div>
+                            <div className="col">
+                              <p>Europe</p>
+                            </div>
 
-                      <div className="col">
-                        <Card>
-                          <CardContent>
-                            <p className="font-weight-bold"> E-mail </p>
-                            <p className="mb-2">
-                              {" "}
-                              LeftistMediaGroup@Gmail.com{" "}
-                            </p>
-                            <p className="font-weight-bold"> Web</p>
-                            <p> LeftistMediaGroup.org </p>
-                            <p className="font-weight-bold"> Facebook</p>
-                            <p>Facebook.com/LMG</p>
-                          </CardContent>
-                        </Card>
-                      </div>
+                            <div className="col">
+                              <p>Australia</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
                     </div>
                   </CardContent>
                 </Card>
