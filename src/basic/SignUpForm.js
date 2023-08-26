@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
+import axios from "axios";
 
 export class SignUpForm extends Component {
   constructor(props) {
@@ -155,9 +156,30 @@ export class SignUpForm extends Component {
             </div>
           </div>
         </div>
+        <body>
 
-        <Mail></Mail>
+          <script src="https://www.paypal.com/sdk/js?client-id=AVb0jGnEsKCgdkte_DIMbGrljX1TCjaKl6lMEqsnnla1_DqbKMHdLiZxxgmX1qdV-m1PM1Cs3nuNKpYd&currency=USD"></script>
+          <div id="paypal-button-container"></div>
+          <script>
+            paypal.Buttons({
+              createOrder = () => {
 
+                axios.post("/my-server/create-paypal-order", {
+
+                  cart: [
+                    {
+                      sku: "YOUR_PRODUCT_STOCK_KEEPING_UNIT",
+                      quantity: "YOUR_PRODUCT_QUANTITY",
+                    },
+                  ]
+                })
+                  .then((response) => response.json())
+                  .then((order) => order.id);
+
+              }
+            }).render('#paypal-button-container');
+          </script>
+        </body>
 
       </div>
     );
