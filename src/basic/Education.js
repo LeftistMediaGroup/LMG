@@ -4,6 +4,7 @@ import WhatIsCapitalism from "./education/What_is_Capitalism.js";
 import WhatIsAnarchism from "./education/What_is_Anarchism.js";
 import Revolution from "./education/Revolution.js";
 import { Card, CardContent } from "@mui/material";
+import Library from "./education/Library/Library.js";
 
 export class Education extends Component {
   render() {
@@ -26,38 +27,23 @@ export class Education extends Component {
             </nav>
           </div>
 
-          <div className="proBanner">
-            <div>
-              <span className="d-flex align-items-center purchase-popup">
-                <p>Sign up to volunteer with us!</p>
-                <a
-                  href="leftistmediagroup.com/volunteering"
-                  className="btn btn-sm purchase-button ml-auto"
-                >
-                  Volunteer Now
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <Card>
+          <Card variant="outlined">
             <CardContent>
               <div className="row-centered">
                 <h4>Lets Overthrow Capitalism together</h4>
-                <p>
-                  The goal of overthrowing Capitalism will require many
-                  subtasks, as the only way to defeat it is through the power of
-                  love, or in other words, a multifaceted attack from every
-                  angle possible.
-                </p>
+                <Card>
+                  <CardContent>
+                    The goal of overthrowing Capitalism will require many
+                    subtasks, as the only way to defeat it is through the power
+                    of love, or in other words, a multifaceted attack from every
+                    angle possible.
+                  </CardContent>
+                </Card>
               </div>
-              <button className="btn btn-outline-light btn-rounded get-started-btn">
-                See Projects
-              </button>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card variant="outlined">
             <CardContent>
               <h4>Topics to explore</h4>
 
@@ -92,6 +78,8 @@ export class Education extends Component {
           <WhatIsAnarchism />
 
           <Revolution />
+
+          <Library></Library>
         </div>
       </>
     );

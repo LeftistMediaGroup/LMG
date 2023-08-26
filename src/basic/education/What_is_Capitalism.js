@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export class WhatIsCapitalism extends Component {
   render() {
     return (
-      <Card>
+      <Card variant="outlined">
         <CardContent>
           <h4>What is Capitalism?</h4>
           
