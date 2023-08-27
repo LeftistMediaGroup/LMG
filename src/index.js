@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom";
 
+export const MainContext = React.createContext();
+
+let allData = "Test"
+
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <MainContext.Provider value={allData}>
+      <App />
+    </MainContext.Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );
