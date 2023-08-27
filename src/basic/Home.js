@@ -14,6 +14,7 @@ import Wade from "./home/Wade.js";
 import Music from "./home/Music.js";
 import Mentorship from "./home/Mentorship.js";
 import Contact from "./home/Contact.js";
+import Programmer from "./home/Programmer.js";
 
 export class Home extends Component {
   
@@ -103,6 +104,10 @@ export class Home extends Component {
                 </div>
               </div>
 
+              <div className="col" style={{ padding: 15 }}>
+                <Programmer/>
+              </div>
+              
               <div className="col" style={{ padding: 15 }}>
                 <Sophia/>
               </div>
