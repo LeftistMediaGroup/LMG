@@ -16,7 +16,7 @@ export class Account extends Component {
 
   getStatus() {
     axios
-      .get(`https://localhost:3001/system/is_loggedin`)
+      .get(`${process.env.Wade_host}/system/is_loggedin`)
       .then((returned) => {
         this.setState({ is_loggedin: returned });
       })
