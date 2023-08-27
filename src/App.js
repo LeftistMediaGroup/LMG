@@ -7,6 +7,7 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import Home from "./basic/Home.js";
 import Education from "./basic/Education.js";
 import Volunteering from "./basic/volunteering/Volunteering.js";
+import Account from "./basic/account/Account.js";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -93,6 +94,23 @@ function App() {
                   Sign up
                 </MenuItem>
               </div>
+
+              <div className="sidebar-btn-wrapper">
+                <MenuItem
+                  rootStyles={{
+                    marginLeft: 15,
+                    marginRight: 105,
+                    marginTop: 5,
+                    marginBottom: 5,
+                    backgroundColor: "silver",
+                    borderRadius: 10,
+                  }}
+                  component={<Link to="/account" />}
+                >
+                  {" "}
+                  Account
+                </MenuItem>
+              </div>
             </Menu>
           </Sidebar>
         </div>
@@ -106,6 +124,7 @@ function App() {
             ></Route>
             <Route exact path="/" element={<Home></Home>} />
             <Route exact path="/signup" element={<SignUpForm></SignUpForm>} />
+            <Route exact path="/account" element={<Account />} />
           </Routes>
         </div>
       </div>
