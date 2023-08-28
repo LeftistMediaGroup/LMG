@@ -39,7 +39,7 @@ export class Account extends Component {
             <CardContent>
               <h1>Account</h1>
 
-              <p> is_Loggedin: {this.state.is_loggedin}</p>
+              <p> is_Loggedin: {JSON.stringify(this.state.is_loggedin, null, 2)}</p>
             </CardContent>
           </Card>
         </div>
