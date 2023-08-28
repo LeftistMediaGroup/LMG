@@ -14,7 +14,7 @@ export class Account extends Component {
     };
   }
 
-  async getStatus() {
+  getStatus = () => {
     axios
       .get(`https://Wade.LeftistMediaGroup.org/system/is_loggedin`, {
         withCredentials: true,
