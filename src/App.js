@@ -14,7 +14,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import SignUpForm from "./basic/SignUpForm";
 import { red } from "@mui/material/colors";
 
-import {BrowserView, MobileView} from 'react-device-detect';
+import { BrowserView, MobileView } from "react-device-detect";
 
 const darkTheme = createTheme({
   palette: {
@@ -45,150 +45,149 @@ function App() {
       <div className="App">
         <div className="sidebar">
           <Sidebar>
-          <BrowserView>
+            <BrowserView>
+              <Menu>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 15,
+                      marginRight: 5,
+                      textAlign: "left",
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/" />}
+                  >
+                    {" "}
+                    Home
+                  </MenuItem>
+                </div>
 
-            <Menu>
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 5                    textAlign: "left",
-                    ,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/" />}
-                >
-                  {" "}
-                  Home
-                </MenuItem>
-              </div>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 15,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/education" />}
+                  >
+                    {" "}
+                    Education
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/education" />}
-                >
-                  {" "}
-                  Education
-                </MenuItem>
-              </div>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 15,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/signup" />}
+                  >
+                    {" "}
+                    Sign up
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/signup" />}
-                >
-                  {" "}
-                  Sign up
-                </MenuItem>
-              </div>
-
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/account" />}
-                >
-                  {" "}
-                  Account
-                </MenuItem>
-              </div>
-            </Menu>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 15,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/account" />}
+                  >
+                    {" "}
+                    Account
+                  </MenuItem>
+                </div>
+              </Menu>
             </BrowserView>
 
             <MobileView>
-            <Menu>
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/" />}
-                >
-                  {" "}
-                  Home
-                </MenuItem>
-              </div>
+              <Menu>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/" />}
+                  >
+                    {" "}
+                    Home
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/education" />}
-                >
-                  {" "}
-                  Education
-                </MenuItem>
-              </div>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/education" />}
+                  >
+                    {" "}
+                    Education
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/signup" />}
-                >
-                  {" "}
-                  Sign up
-                </MenuItem>
-              </div>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/signup" />}
+                  >
+                    {" "}
+                    Sign up
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/account" />}
-                >
-                  {" "}
-                  Account
-                </MenuItem>
-              </div>
-            </Menu>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/account" />}
+                  >
+                    {" "}
+                    Account
+                  </MenuItem>
+                </div>
+              </Menu>
             </MobileView>
           </Sidebar>
         </div>
