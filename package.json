@@ -26,6 +26,7 @@
     "react-axios": "^2.0.6",
     "react-bootstrap": "^2.8.0",
     "react-chartjs-2": "^5.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-folder-tree": "^5.1.1",
