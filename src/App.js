@@ -116,7 +116,7 @@ function App() {
                 </MenuItem>
               </div>
             </Menu>
-            <BrowserView>
+            </BrowserView>
 
             <MobileView>
             <Menu>
