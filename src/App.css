@@ -3,6 +3,13 @@
   margin-left: 160px;
 }
 
+@media (max-width: 1000px) {
+  .App {
+    text-align: center;
+    margin-left: 60px;
+  }
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

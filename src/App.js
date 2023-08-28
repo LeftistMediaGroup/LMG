@@ -123,8 +123,8 @@ function App() {
               <div className="sidebar-btn-wrapper">
                 <MenuItem
                   rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
+                    marginLeft: 5,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
@@ -140,8 +140,8 @@ function App() {
               <div className="sidebar-btn-wrapper">
                 <MenuItem
                   rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
+                    marginLeft: 5,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
@@ -157,8 +157,8 @@ function App() {
               <div className="sidebar-btn-wrapper">
                 <MenuItem
                   rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
+                    marginLeft: 5,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
@@ -174,8 +174,8 @@ function App() {
               <div className="sidebar-btn-wrapper">
                 <MenuItem
                   rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
+                    marginLeft: 5,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
