@@ -16,7 +16,9 @@ export class Account extends Component {
 
   async getStatus() {
     axios
-      .get(`https://Wade.LeftistMediaGroup.org/system/is_loggedin`)
+      .get(`https://Wade.LeftistMediaGroup.org/system/is_loggedin`, {
+        withCredentials: true,
+      })
       .then((returned) => {
         this.setState({ is_loggedin: returned });
       })
