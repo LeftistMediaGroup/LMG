@@ -52,7 +52,8 @@ function App() {
                 <MenuItem
                   rootStyles={{
                     marginLeft: 15,
-                    marginRight: 105,
+                    marginRight: 5                    textAlign: "left",
+                    ,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
@@ -69,7 +70,7 @@ function App() {
                 <MenuItem
                   rootStyles={{
                     marginLeft: 15,
-                    marginRight: 105,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
@@ -86,7 +87,7 @@ function App() {
                 <MenuItem
                   rootStyles={{
                     marginLeft: 15,
-                    marginRight: 105,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
@@ -103,7 +104,7 @@ function App() {
                 <MenuItem
                   rootStyles={{
                     marginLeft: 15,
-                    marginRight: 105,
+                    marginRight: 5,
                     marginTop: 5,
                     marginBottom: 5,
                     backgroundColor: "silver",
