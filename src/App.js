@@ -74,7 +74,6 @@ function App() {
                     marginBottom: 5,
                     backgroundColor: "silver",
                     borderRadius: 10,
-                    textAlign: "left",
                   }}
                   component={<Link to="/education" />}
                 >
