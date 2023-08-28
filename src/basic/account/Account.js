@@ -20,7 +20,8 @@ export class Account extends Component {
         withCredentials: true,
       })
       .then((returned) => {
-        this.setState({ is_loggedin: returned.data });
+        console.log(JSON.stringify(returned, null, 2));
+        //this.setState({ is_loggedin: returned.data });
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
