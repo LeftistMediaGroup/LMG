@@ -14,11 +14,14 @@ export class Account extends Component {
     };
   }
 
-  async getStatus() {
+  getStatus = () => {
     axios
-      .get(`https://Wade.LeftistMediaGroup.org/system/is_loggedin`)
+      .get(`https://Wade.LeftistMediaGroup.org/system/is_loggedin`, {
+        withCredentials: true,
+      })
       .then((returned) => {
-        this.setState({ is_loggedin: returned });
+        console.log(JSON.stringify(returned, null, 2));
+        //this.setState({ is_loggedin: returned.data });
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
@@ -37,7 +40,7 @@ export class Account extends Component {
             <CardContent>
               <h1>Account</h1>
 
-              <p> is_Loggedin: {this.state.is_loggedin}</p>
+              <p> is_Loggedin: {JSON.stringify(this.state.is_loggedin, null, 2)}</p>
             </CardContent>
           </Card>
         </div>
