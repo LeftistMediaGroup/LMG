@@ -43,4 +43,5 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(240, 2, 2);
+  max-width: 160px;
 }

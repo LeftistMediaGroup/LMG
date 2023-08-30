@@ -7,11 +7,14 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import Home from "./basic/Home.js";
 import Education from "./basic/Education.js";
 import Volunteering from "./basic/volunteering/Volunteering.js";
+import Account from "./basic/account/Account.js";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import SignUpForm from "./basic/SignUpForm";
 import { red } from "@mui/material/colors";
+
+import { BrowserView, MobileView } from "react-device-detect";
 
 const darkTheme = createTheme({
   palette: {
@@ -40,60 +43,152 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <div className="sidebar">
+        <div className="sidebar" >
           <Sidebar>
-            <Menu>
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/" />}
-                >
-                  {" "}
-                  Home
-                </MenuItem>
-              </div>
+            <BrowserView>
+              <Menu >
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      textAlign: "left",
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/" />}
+                  >
+                    {" "}
+                    Home
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/education" />}
-                >
-                  {" "}
-                  Education
-                </MenuItem>
-              </div>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/education" />}
+                  >
+                    {" "}
+                    Education
+                  </MenuItem>
+                </div>
 
-              <div className="sidebar-btn-wrapper">
-                <MenuItem
-                  rootStyles={{
-                    marginLeft: 15,
-                    marginRight: 105,
-                    marginTop: 5,
-                    marginBottom: 5,
-                    backgroundColor: "silver",
-                    borderRadius: 10,
-                  }}
-                  component={<Link to="/signup" />}
-                >
-                  {" "}
-                  Sign up
-                </MenuItem>
-              </div>
-            </Menu>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/signup" />}
+                  >
+                    {" "}
+                    Sign up
+                  </MenuItem>
+                </div>
+
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/account" />}
+                  >
+                    {" "}
+                    Account
+                  </MenuItem>
+                </div>
+              </Menu>
+            </BrowserView>
+
+            <MobileView>
+              <Menu>
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/" />}
+                  >
+                    {" "}
+                    Home
+                  </MenuItem>
+                </div>
+
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/education" />}
+                  >
+                    {" "}
+                    Education
+                  </MenuItem>
+                </div>
+
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/signup" />}
+                  >
+                    {" "}
+                    Sign up
+                  </MenuItem>
+                </div>
+
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/account" />}
+                  >
+                    {" "}
+                    Account
+                  </MenuItem>
+                </div>
+              </Menu>
+            </MobileView>
           </Sidebar>
         </div>
 
@@ -106,6 +201,7 @@ function App() {
             ></Route>
             <Route exact path="/" element={<Home></Home>} />
             <Route exact path="/signup" element={<SignUpForm></SignUpForm>} />
+            <Route exact path="/account" element={<Account />} />
           </Routes>
         </div>
       </div>
