@@ -44,7 +44,7 @@ export class Account extends Component {
 
   getStatus = () => {
     axios
-      .get(`https://localhost:3001/system/is_loggedin`, {
+      .get(`https://wade.leftistmediagroup.org/system/is_loggedin`, {
         withCredentials: true,
       })
       .then((returned) => {
