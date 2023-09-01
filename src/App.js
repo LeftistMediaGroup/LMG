@@ -43,14 +43,14 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <div className="sidebar">
+        <div className="sidebar" >
           <Sidebar>
             <BrowserView>
-              <Menu>
+              <Menu >
                 <div className="sidebar-btn-wrapper">
                   <MenuItem
                     rootStyles={{
-                      marginLeft: 15,
+                      marginLeft: 5,
                       marginRight: 5,
                       textAlign: "left",
                       marginTop: 5,
@@ -68,7 +68,7 @@ function App() {
                 <div className="sidebar-btn-wrapper">
                   <MenuItem
                     rootStyles={{
-                      marginLeft: 15,
+                      marginLeft: 5,
                       marginRight: 5,
                       marginTop: 5,
                       marginBottom: 5,
@@ -85,7 +85,7 @@ function App() {
                 <div className="sidebar-btn-wrapper">
                   <MenuItem
                     rootStyles={{
-                      marginLeft: 15,
+                      marginLeft: 5,
                       marginRight: 5,
                       marginTop: 5,
                       marginBottom: 5,
@@ -102,7 +102,7 @@ function App() {
                 <div className="sidebar-btn-wrapper">
                   <MenuItem
                     rootStyles={{
-                      marginLeft: 15,
+                      marginLeft: 5,
                       marginRight: 5,
                       marginTop: 5,
                       marginBottom: 5,
