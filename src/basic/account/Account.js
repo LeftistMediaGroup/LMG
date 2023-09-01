@@ -14,19 +14,47 @@ export class Account extends Component {
     };
   }
 
+  account = () => {
+    if (
+      this.state.is_loggedin === "Not logged in" ||
+      this.state.is_loggedin === "Not initalized yet"
+    ) {
+      return (
+        <Card>
+          <CardContent>
+            <h3>You are not logged in</h3>
+            <p>Please sign up or log in to continue</p>
+          </CardContent>
+        </Card>
+      );
+    } else {
+      return (
+        <>
+          <Card>
+            <CardContent>
+              <h3>Profile</h3>
+
+              <p> Username: {this.state.is_loggedin}</p>
+            </CardContent>
+          </Card>
+        </>
+      );
+    }
+  };
+
   getStatus = () => {
     axios
-      .get(`https://Wade.LeftistMediaGroup.org/system/is_loggedin`, {
+      .get(`https://localhost:3001/system/is_loggedin`, {
         withCredentials: true,
       })
       .then((returned) => {
         console.log(JSON.stringify(returned, null, 2));
-        //this.setState({ is_loggedin: returned.data });
+        this.setState({ is_loggedin: returned.data.username });
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
-  }
+  };
 
   componentDidMount() {
     this.getStatus();
@@ -39,8 +67,7 @@ export class Account extends Component {
           <Card>
             <CardContent>
               <h1>Account</h1>
-
-              <p> is_Loggedin: {JSON.stringify(this.state.is_loggedin, null, 2)}</p>
+              {this.account()}
             </CardContent>
           </Card>
         </div>
