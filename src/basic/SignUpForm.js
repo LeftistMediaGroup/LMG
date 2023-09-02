@@ -27,9 +27,10 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       axios
-        .post(`https://james.tail5cd89.ts.net/system/register_admin`, {
+        .post(`https://james.tail5cd89.ts.net/system/register_user`, {
           username: username,
           password: password,
+          email: email
         })
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
