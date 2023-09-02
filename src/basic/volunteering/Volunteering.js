@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown } from "react-bootstrap";
 
-import SignUpForm from "../SignUpForm";
+import SignUpForm from "../home/SignUpForm";
 import { Card, CardContent } from "@mui/material";
 
 export class Volunteering extends Component {
