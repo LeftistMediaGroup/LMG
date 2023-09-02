@@ -15,6 +15,7 @@ import SignUpForm from "./basic/SignUpForm";
 import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
+import Map from "./basic/Map/Map.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -43,10 +44,10 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
-        <div className="sidebar" >
+        <div className="sidebar">
           <Sidebar>
             <BrowserView>
-              <Menu >
+              <Menu>
                 <div className="sidebar-btn-wrapper">
                   <MenuItem
                     rootStyles={{
@@ -79,6 +80,23 @@ function App() {
                   >
                     {" "}
                     Education
+                  </MenuItem>
+                </div>
+
+                <div className="sidebar-btn-wrapper">
+                  <MenuItem
+                    rootStyles={{
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginTop: 5,
+                      marginBottom: 5,
+                      backgroundColor: "silver",
+                      borderRadius: 10,
+                    }}
+                    component={<Link to="/map" />}
+                  >
+                    {" "}
+                    Map
                   </MenuItem>
                 </div>
 
@@ -201,6 +219,8 @@ function App() {
             ></Route>
             <Route exact path="/" element={<Home></Home>} />
             <Route exact path="/signup" element={<SignUpForm></SignUpForm>} />
+            <Route exact path="/map" element={<Map></Map>} />
+
             <Route exact path="/account" element={<Account />} />
           </Routes>
         </div>
