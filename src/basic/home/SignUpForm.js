@@ -27,11 +27,21 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       axios
-        .put('https://localhost-0.tail5cd89.ts.net/system/register_user', {
-          username: username,
-          password: password,
-          email: email,
-        })
+        .put(
+          "https://localhost-0.tail5cd89.ts.net/system/register_user",
+          {
+            username: username,
+            password: password,
+            email: email,
+          },
+          {
+            headers: {
+              Authorization: "Bearer token",
+              "Access-Control-Allow-Origin": "*",
+              mode: "cors",
+            },
+          }
+        )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
         })
@@ -88,83 +98,83 @@ export class SignUpForm extends Component {
   render() {
     return (
       <div className="row-centered">
+        <div className="row-centered">
+          <div className="page-header">
+            <h4>Volunteering</h4>
+            <h5>Sign up</h5>
 
-      <div className="row-centered">
-        <div className="page-header">
-          <h4>Volunteering</h4>
-          <h5>Sign up</h5>
+            <p>
+              Leftist Media Group is recruiting for volunteers to spread
+              revolutionary propaganda.
+            </p>
+          </div>
+          <div className="row-centered" style={{ maxWidth: 500 }}>
+            <Card>
+              <CardContent>
+                <form className="row-centered">
+                  <Form.Group>
+                    <label htmlFor="InputEmail">Email</label>
+                    <Form.Control
+                      type="email"
+                      id="InputEmail"
+                      placeholder="Email"
+                      onChange={this.emailChange.bind(this)}
+                    />
+                  </Form.Group>
 
-          <p>
-            Leftist Media Group is recruiting for volunteers to spread
-            revolutionary propaganda.
-          </p>
-        </div>
-        <div className="row-centered" style={{maxWidth: 500}}>
-          <Card >
-            <CardContent>
-              <form className="row-centered">
-                <Form.Group>
-                  <label htmlFor="InputEmail">Email</label>
-                  <Form.Control
-                    type="email"
-                    id="InputEmail"
-                    placeholder="Email"
-                    onChange={this.emailChange.bind(this)}
-                  />
-                </Form.Group>
+                  <Form.Group>
+                    <label htmlFor="InputUsername">Username</label>
+                    <Form.Control
+                      type="text"
+                      id="InputUsername"
+                      placeholder="Username"
+                      onChange={this.usernameChange.bind(this)}
+                    />
+                  </Form.Group>
 
-                <Form.Group>
-                  <label htmlFor="InputUsername">Username</label>
-                  <Form.Control
-                    type="text"
-                    id="InputUsername"
-                    placeholder="Username"
-                    onChange={this.usernameChange.bind(this)}
-                  />
-                </Form.Group>
+                  <Form.Group>
+                    <label htmlFor="exampleInputPassword1">Password</label>
+                    <Form.Control
+                      type="password"
+                      id="InputPassword"
+                      placeholder="Password"
+                      onChange={this.passwordChange.bind(this)}
+                    />
+                  </Form.Group>
 
-                <Form.Group>
-                  <label htmlFor="exampleInputPassword1">Password</label>
-                  <Form.Control
-                    type="password"
-                    id="InputPassword"
-                    placeholder="Password"
-                    onChange={this.passwordChange.bind(this)}
-                  />
-                </Form.Group>
+                  <Form.Group>
+                    <label htmlFor="InputConfirmPassword">
+                      Confirm Password
+                    </label>
+                    <Form.Control
+                      type="password"
+                      className="form-control"
+                      id="InputConfirmPassword"
+                      placeholder="Password"
+                      onChange={this.password2Change.bind(this)}
+                    />
+                  </Form.Group>
 
-                <Form.Group>
-                  <label htmlFor="InputConfirmPassword">Confirm Password</label>
-                  <Form.Control
-                    type="password"
-                    className="form-control"
-                    id="InputConfirmPassword"
-                    placeholder="Password"
-                    onChange={this.password2Change.bind(this)}
-                  />
-                </Form.Group>
+                  <br />
 
-                <br />
-
-                <Button
-                  color="primary"
-                  variant="outlined"
-                  onClick={() => {
-                    console.log("Clicked!");
-                    this.submit();
-                  }}
-                  role="button"
-                  tabIndex={0}
-                >
-                  Submit
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    onClick={() => {
+                      console.log("Clicked!");
+                      this.submit();
+                    }}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    Submit
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
-      </div>
-
     );
   }
 }
