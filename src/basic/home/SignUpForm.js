@@ -37,7 +37,7 @@ export class SignUpForm extends Component {
           {
             headers: {
               Authorization: "Bearer token",
-              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Origin": "https://leftistmediagroup.org",
               mode: "cors",
             },
           }
