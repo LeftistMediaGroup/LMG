@@ -11,7 +11,7 @@ import Account from "./basic/account/Account.js";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import SignUpForm from "./basic/SignUpForm";
+import SignUpForm from "./basic/home/SignUpForm.js";
 import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
