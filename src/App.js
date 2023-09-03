@@ -100,22 +100,7 @@ function App() {
                   </MenuItem>
                 </div>
 
-                <div className="sidebar-btn-wrapper">
-                  <MenuItem
-                    rootStyles={{
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 5,
-                      marginBottom: 5,
-                      backgroundColor: "silver",
-                      borderRadius: 10,
-                    }}
-                    component={<Link to="/account" />}
-                  >
-                    {" "}
-                    Account
-                  </MenuItem>
-                </div>
+                
               </Menu>
             </BrowserView>
 
@@ -172,22 +157,7 @@ function App() {
                   </MenuItem>
                 </div>
 
-                <div className="sidebar-btn-wrapper">
-                  <MenuItem
-                    rootStyles={{
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 5,
-                      marginBottom: 5,
-                      backgroundColor: "silver",
-                      borderRadius: 10,
-                    }}
-                    component={<Link to="/account" />}
-                  >
-                    {" "}
-                    Account
-                  </MenuItem>
-                </div>
+
               </Menu>
             </MobileView>
           </Sidebar>
