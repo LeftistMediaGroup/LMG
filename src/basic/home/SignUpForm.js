@@ -27,21 +27,11 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       axios
-        .put(
-          "https://localhost-0.tail5cd89.ts.net/system/register_user",
-          {
-            username: username,
-            password: password,
-            email: email,
-          },
-          {
-            headers: {
-              Authorization: "Bearer token",
-              "Access-Control-Allow-Origin": "https://leftistmediagroup.org",
-              mode: "cors",
-            },
-          }
-        )
+        .put("https://localhost-0.tail5cd89.ts.net/system/register_user", {
+          username: username,
+          password: password,
+          email: email,
+        })
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
         })
