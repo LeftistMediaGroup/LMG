@@ -27,7 +27,7 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       axios
-        .put(`https://localhost-0.tail5cd89.ts.net/system/register_user`, {
+        .put('https://localhost-0.tail5cd89.ts.net/system/register_user', {
           username: username,
           password: password,
           email: email,
