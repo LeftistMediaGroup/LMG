@@ -31,7 +31,7 @@ export class SignUpForm extends Component {
           username: username,
           password: password,
           email: email,
-        })
+        },{ withCredentials: true })
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
         })
