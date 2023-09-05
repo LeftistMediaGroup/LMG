@@ -43,6 +43,8 @@ export class Account extends Component {
   };
 
   getStatus = () => {
+    axios.defaults.withCredentials = true;
+    
     axios
       .get(`https://localhost-0.tail5cd89.ts.net/system/is_loggedin`, {
         withCredentials: true,

@@ -26,6 +26,8 @@ export class SignUpForm extends Component {
 
       console.log(`Data out`);
 
+      axios.defaults.withCredentials = true
+      
       axios
         .put("https://localhost-0.tail5cd89.ts.net/system/register_user", {
           username: username,
