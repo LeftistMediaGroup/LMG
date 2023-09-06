@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { VectorMap } from "react-jvectormap";
 
-import Chat from "../chat/Chat.js";
+import Chat from "./chat/Chat.js";
 import Calendar1 from "./Calendar.js";
 import Stats from "./stats/Stats.js";
 import Music from "./music/Music.js";

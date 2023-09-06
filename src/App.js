@@ -17,6 +17,7 @@ import { red } from "@mui/material/colors";
 import { BrowserView, MobileView } from "react-device-detect";
 import { allContext } from "./contexts";
 import Register_Admin from "./basic/account/Register_admin";
+import Login from "./basic/account/Login";
 
 const darkTheme = createTheme({
   palette: {
@@ -62,25 +63,44 @@ function renderAccount() {
     );
   } else {
     return (
-      <div className="sidebar-btn-wrapper">
-        <MenuItem
-          rootStyles={{
-            marginLeft: 5,
-            marginRight: 5,
-            marginTop: 5,
-            marginBottom: 5,
-            backgroundColor: "silver",
-            borderRadius: 10,
-          }}
-          component={<Link to="/signup" />}
-        >
-          {" "}
-          Sign up
-        </MenuItem>
-      </div>
+      <>
+        <div className="sidebar-btn-wrapper">
+          <MenuItem
+            rootStyles={{
+              marginLeft: 5,
+              marginRight: 5,
+              marginTop: 5,
+              marginBottom: 5,
+              backgroundColor: "silver",
+              borderRadius: 10,
+            }}
+            component={<Link to="/signup" />}
+          >
+            {" "}
+            Sign up
+          </MenuItem>
+        </div>
+
+        <div className="sidebar-btn-wrapper">
+          <MenuItem
+            rootStyles={{
+              marginLeft: 5,
+              marginRight: 5,
+              marginTop: 5,
+              marginBottom: 5,
+              backgroundColor: "silver",
+              borderRadius: 10,
+            }}
+            component={<Link to="/login" />}
+          >
+            {" "}
+            Log in
+          </MenuItem>
+        </div>
+      </>
     );
   }
-};
+}
 
 function App() {
   return (
@@ -185,7 +205,7 @@ function App() {
 
             <Route exact path="/account" element={<Account />} />
             <Route exact path="/register_admin" element={<Register_Admin />} />
-          
+            <Route exact path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>
