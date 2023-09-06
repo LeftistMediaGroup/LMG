@@ -15,7 +15,6 @@ import SignUpForm from "./basic/home/SignUpForm.js";
 import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
-import Map from "./basic/Map/Map.js";
 import { allContext } from "./contexts";
 import Register_Admin from "./basic/account/Register_admin";
 
