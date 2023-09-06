@@ -5,6 +5,7 @@ import { Dropdown } from "react-bootstrap";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 import axios from "axios";
+import { allContext } from "../../contexts";
 
 export class Account extends Component {
   constructor(props) {
@@ -43,13 +44,18 @@ export class Account extends Component {
   };
 
   getStatus = () => {
+    axios.defaults.withCredentials = true;
+
     axios
       .get(`https://wade.leftistmediagroup.org/system/is_loggedin`, {
         withCredentials: true,
       })
       .then((returned) => {
-        console.log(JSON.stringify(returned, null, 2));
         this.setState({ is_loggedin: returned.data.username });
+        
+        if (returned.data.username !== "undefined") {
+        allContext.Provider({is_loggedin: true})
+        }
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
