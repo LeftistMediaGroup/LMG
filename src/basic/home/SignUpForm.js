@@ -27,7 +27,7 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       axios
-        .post(`https://wade.leftistmediagroup.org/system/register_admin`, {
+        .post(`https://wade.leftistmediagroup.org/system/register_user`, {
           username: username,
           password: password,
         })
