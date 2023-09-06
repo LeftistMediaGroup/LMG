@@ -16,6 +16,8 @@ import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
 import Map from "./basic/Map/Map.js";
+import { allContext } from "./contexts";
+import Register_Admin from "./basic/account/Register_admin";
 
 const darkTheme = createTheme({
   palette: {
@@ -38,6 +40,48 @@ const darkTheme = createTheme({
     },
   },
 });
+
+function renderAccount() {
+  if (allContext.Consumer.is_loggedin === true) {
+    return (
+      <div className="sidebar-btn-wrapper">
+        <MenuItem
+          rootStyles={{
+            marginLeft: 5,
+            marginRight: 5,
+            marginTop: 5,
+            marginBottom: 5,
+            backgroundColor: "silver",
+            borderRadius: 10,
+          }}
+          component={<Link to="/account" />}
+        >
+          {" "}
+          Account
+        </MenuItem>
+      </div>
+    );
+  } else {
+    return (
+      <div className="sidebar-btn-wrapper">
+        <MenuItem
+          rootStyles={{
+            marginLeft: 5,
+            marginRight: 5,
+            marginTop: 5,
+            marginBottom: 5,
+            backgroundColor: "silver",
+            borderRadius: 10,
+          }}
+          component={<Link to="/signup" />}
+        >
+          {" "}
+          Sign up
+        </MenuItem>
+      </div>
+    );
+  }
+};
 
 function App() {
   return (
@@ -83,41 +127,7 @@ function App() {
                   </MenuItem>
                 </div>
 
-                <div className="sidebar-btn-wrapper">
-                  <MenuItem
-                    rootStyles={{
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 5,
-                      marginBottom: 5,
-                      backgroundColor: "silver",
-                      borderRadius: 10,
-                    }}
-                    component={<Link to="/signup" />}
-                  >
-                    {" "}
-                    Sign up
-                  </MenuItem>
-                </div>
-
-                <div className="sidebar-btn-wrapper">
-                  <MenuItem
-                    rootStyles={{
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 5,
-                      marginBottom: 5,
-                      backgroundColor: "silver",
-                      borderRadius: 10,
-                    }}
-                    component={<Link to="/account" />}
-                  >
-                    {" "}
-                    Account
-                  </MenuItem>
-                </div>
-
-                
+                {renderAccount()}
               </Menu>
             </BrowserView>
 
@@ -157,24 +167,7 @@ function App() {
                   </MenuItem>
                 </div>
 
-                <div className="sidebar-btn-wrapper">
-                  <MenuItem
-                    rootStyles={{
-                      marginLeft: 5,
-                      marginRight: 5,
-                      marginTop: 5,
-                      marginBottom: 5,
-                      backgroundColor: "silver",
-                      borderRadius: 10,
-                    }}
-                    component={<Link to="/signup" />}
-                  >
-                    {" "}
-                    Sign up
-                  </MenuItem>
-                </div>
-
-
+                {renderAccount()}
               </Menu>
             </MobileView>
           </Sidebar>
@@ -192,6 +185,8 @@ function App() {
             <Route exact path="/map" element={<Map></Map>} />
 
             <Route exact path="/account" element={<Account />} />
+            <Route exact path="/register_admin" element={<Register_Admin />} />
+          
           </Routes>
         </div>
       </div>
