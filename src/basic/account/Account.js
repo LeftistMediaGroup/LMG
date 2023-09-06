@@ -6,6 +6,7 @@ import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 import axios from "axios";
 import { allContext } from "../../contexts";
+import Dashboard from "../dashboard/Dashboard";
 
 export class Account extends Component {
   constructor(props) {
@@ -36,6 +37,8 @@ export class Account extends Component {
               <h3>Profile</h3>
 
               <p> Username: {this.state.is_loggedin}</p>
+
+              <Dashboard />
             </CardContent>
           </Card>
         </>
@@ -52,9 +55,9 @@ export class Account extends Component {
       })
       .then((returned) => {
         this.setState({ is_loggedin: returned.data.username });
-        
+
         if (returned.data.username !== "undefined") {
-        allContext.Provider({is_loggedin: true})
+          allContext.Provider({ is_loggedin: true });
         }
       })
       .catch((err) => {
