@@ -9,7 +9,7 @@ export class Login extends Component {
     super(props);
 
     this.state = {
-      email: null,
+      username: null,
       password: null,
       password2: null,
     };
@@ -19,7 +19,7 @@ export class Login extends Component {
     console.log(`Submit`);
 
     if (this.state.password === this.state.password2) {
-      let email = this.state.email;
+      let username = this.state.username;
       let password = this.state.password;
 
       console.log(`Data out`);
@@ -28,11 +28,11 @@ export class Login extends Component {
       
       axios
         .put("https://localhost-0.tail5cd89.ts.net/system/login", {
+          username: username,
           password: password,
-          email: email,
         },{ withCredentials: true })
         .then((result) => {
-          console.log(`Axios update: ${JSON.stringify(result)}`);
+          console.log(`Login update: ${JSON.stringify(result)}`);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
@@ -42,12 +42,12 @@ export class Login extends Component {
     }
   };
 
-  emailChange(event) {
-    let email = event.target.value;
+  usernameChange(event) {
+    let username = event.target.value;
 
-    if (email !== this.state.email) {
+    if (username !== this.state.username) {
       this.setState({
-        email: email,
+        username: username,
       });
     }
   }
@@ -89,12 +89,12 @@ export class Login extends Component {
               <CardContent>
                 <form className="row-centered">
                   <Form.Group>
-                    <label htmlFor="InputEmail">Email</label>
+                    <label htmlFor="Inputusername">username</label>
                     <Form.Control
-                      type="email"
-                      id="InputEmail"
-                      placeholder="Email"
-                      onChange={this.emailChange.bind(this)}
+                      type="username"
+                      id="Inputusername"
+                      placeholder="username"
+                      onChange={this.usernameChange.bind(this)}
                     />
                   </Form.Group>
 
