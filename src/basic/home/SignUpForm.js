@@ -21,12 +21,11 @@ export class SignUpForm extends Component {
     if (this.state.password === this.state.password2) {
       let email = this.state.email;
       let password = this.state.password;
-
       console.log(`Data out`);
 
       axios
         .post(`https://wade.leftistmediagroup.org/system/register_user`, {
-          username: username,
+          email: email,
           password: password,
         }, {withCredentials: true})
         .then((result) => {
