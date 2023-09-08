@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
 
-import { allContext } from "../../contexts";
+import { allContext } from "../../contexts.js";
 const [context, setContext] = useContext(allContext);
 
 
