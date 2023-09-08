@@ -16,6 +16,9 @@ import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
 import { loginContext } from "./contexts.js";
+
+import { useContext } from "react";
+
 const [context, setContext] = useContext(allContext);
 
 import Register_Admin from "./basic/account/Register_admin";
