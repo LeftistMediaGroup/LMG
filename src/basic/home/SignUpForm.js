@@ -37,7 +37,7 @@ export class SignUpForm extends Component {
         },{ withCredentials: true })
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);          
-          setContext(allData:{{is_loggedin: result.data.is_loggedin, username: result.data.username}})
+          setContext({allData:{{is_loggedin: result.data.is_loggedin, username: result.data.username}}})
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
