@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Form } from "react-bootstrap";
 
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
 
 import { allContext } from "../../contexts";
+const [context, setContext] = useContext(allContext);
+
 
 export class SignUpForm extends Component {
   constructor(props) {
@@ -12,7 +14,6 @@ export class SignUpForm extends Component {
 
     this.state = {
       email: null,
-      username: null,
       password: null,
       password2: null,
     };
@@ -35,8 +36,8 @@ export class SignUpForm extends Component {
           email: email,
         },{ withCredentials: true })
         .then((result) => {
-          console.log(`Axios update: ${JSON.stringify(result)}`);
-          allContext.Provider({is_loggedin: result.data.is_loggedin, username: result.data.username})
+          console.log(`Axios update: ${JSON.stringify(result)}`);          
+          setContext(allData:{{is_loggedin: result.data.is_loggedin, username: result.data.username}})
         })
         .catch((err) => {
           console.log(`Error: ${err}`);

@@ -15,7 +15,9 @@ import SignUpForm from "./basic/home/SignUpForm.js";
 import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
-import { allContext } from "./contexts";
+import { loginContext } from "./contexts";
+const [context, setContext] = useContext(allContext);
+
 import Register_Admin from "./basic/account/Register_admin";
 import Login from "./basic/account/Login";
 
@@ -42,7 +44,8 @@ const darkTheme = createTheme({
 });
 
 function renderAccount() {
-  if (allContext.Consumer.is_loggedin === true) {
+  console.log(`Context: ${JSON.stringify(context, null, 2)}`);
+  if (context.allData.is_loggedin === true) {
     return (
       <div className="sidebar-btn-wrapper">
         <MenuItem
