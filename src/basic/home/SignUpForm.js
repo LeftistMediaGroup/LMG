@@ -12,13 +12,17 @@ export class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
+    const [context, setContext] = useContext(allContext);
+
     this.state = {
+      context: context,
+      setContext: setContext,
       email: null,
       password: null,
       password2: null,
     };
+
   }
-  const [context, setContext] = useContext(allContext);
 
 
   submit = () => {
@@ -43,7 +47,7 @@ export class SignUpForm extends Component {
         )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
-          setContext({
+          this.state.setContext({
             allData: {
               is_loggedin: result.data.is_loggedin,
               username: result.data.username,
