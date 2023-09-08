@@ -7,7 +7,6 @@ import axios from "axios";
 import { allContext } from "../../contexts.js";
 const [context, setContext] = useContext(allContext);
 
-
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -28,16 +27,25 @@ export class SignUpForm extends Component {
 
       console.log(`Data out`);
 
-      axios.defaults.withCredentials = true
-      
+      axios.defaults.withCredentials = true;
+
       axios
-        .put("https://localhost-0.tail5cd89.ts.net/system/register_user", {
-          password: password,
-          email: email,
-        },{ withCredentials: true })
+        .put(
+          "https://localhost-0.tail5cd89.ts.net/system/register_user",
+          {
+            password: password,
+            email: email,
+          },
+          { withCredentials: true }
+        )
         .then((result) => {
-          console.log(`Axios update: ${JSON.stringify(result)}`);          
-          setContext({allData:{{is_loggedin: result.data.is_loggedin, username: result.data.username}}})
+          console.log(`Axios update: ${JSON.stringify(result)}`);
+          setContext({
+            allData: {
+              is_loggedin: result.data.is_loggedin,
+              username: result.data.username,
+            }
+          });
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
