@@ -12,9 +12,9 @@ const [context, setContext] = useState({allData: {}});
 
 ReactDOM.render(
   <BrowserRouter>
-      <Context.Provider value={[context, setContext]}>
+      <allContext.Provider value={[context, setContext]}>
       <App />
-      </Context.Provider>
+      </allContext.Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );
