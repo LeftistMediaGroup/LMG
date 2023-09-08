@@ -21,7 +21,6 @@ export class SignUpForm extends Component {
 
     if (this.state.password === this.state.password2) {
       let email = this.state.email;
-      let username = this.state.username;
       let password = this.state.password;
 
       console.log(`Data out`);
@@ -30,7 +29,6 @@ export class SignUpForm extends Component {
       
       axios
         .put("https://localhost-0.tail5cd89.ts.net/system/register_user", {
-          username: username,
           password: password,
           email: email,
         },{ withCredentials: true })
@@ -44,18 +42,6 @@ export class SignUpForm extends Component {
       console.log("Passwords don't match, please try again.");
     }
   };
-
-  usernameChange(event) {
-    let username = event.target.value;
-
-    console.log(`Username: ${username}`);
-
-    if (username !== this.state.username) {
-      this.setState({
-        username: username,
-      });
-    }
-  }
 
   emailChange(event) {
     let email = event.target.value;
@@ -111,16 +97,6 @@ export class SignUpForm extends Component {
                       id="InputEmail"
                       placeholder="Email"
                       onChange={this.emailChange.bind(this)}
-                    />
-                  </Form.Group>
-
-                  <Form.Group>
-                    <label htmlFor="InputUsername">Username</label>
-                    <Form.Control
-                      type="text"
-                      id="InputUsername"
-                      placeholder="Username"
-                      onChange={this.usernameChange.bind(this)}
                     />
                   </Form.Group>
 
