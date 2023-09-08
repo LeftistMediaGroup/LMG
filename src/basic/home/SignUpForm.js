@@ -7,7 +7,6 @@ import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
 
 import { allContext } from "../../contexts.js";
-const [context, setContext] = useContext(allContext);
 
 export class SignUpForm extends Component {
   constructor(props) {
@@ -19,6 +18,8 @@ export class SignUpForm extends Component {
       password2: null,
     };
   }
+  const [context, setContext] = useContext(allContext);
+
 
   submit = () => {
     console.log(`Submit`);

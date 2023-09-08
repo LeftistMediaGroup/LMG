@@ -19,7 +19,6 @@ import { loginContext } from "./contexts.js";
 
 import { useContext } from "react";
 
-const [context, setContext] = useContext(allContext);
 
 import Register_Admin from "./basic/account/Register_admin";
 import Login from "./basic/account/Login";
@@ -47,6 +46,8 @@ const darkTheme = createTheme({
 });
 
 function renderAccount() {
+  const [context, setContext] = useContext(allContext);
+
   console.log(`Context: ${JSON.stringify(context, null, 2)}`);
   if (context.allData.is_loggedin === true) {
     return (
