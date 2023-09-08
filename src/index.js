@@ -6,8 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom";
 
-import { allContext } from "./Context.js";
-
+import { allContext } from "./contexts.js";
 
 const [context, setContext] = useState({allData: {}});
 
