@@ -4,6 +4,8 @@ import { Form } from "react-bootstrap";
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
 
+import { allContext } from "../../contexts";
+
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,7 @@ export class SignUpForm extends Component {
         },{ withCredentials: true })
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
+          allContext.Provider({is_loggedin: result.data.is_loggedin, username: result.data.username})
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
