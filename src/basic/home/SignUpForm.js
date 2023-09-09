@@ -41,8 +41,8 @@ export class SignUpForm extends Component {
         )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
-          props.setIs_loggedin(result.data.is_loggedin);
-          props.setUsername(result.data.username);
+          this.props.setIs_loggedin(result.data.is_loggedin);
+          this.props.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
