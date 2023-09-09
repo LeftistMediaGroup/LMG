@@ -5,13 +5,15 @@ import { Form } from "react-bootstrap";
 
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
 
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
-    console.log(`Props: ${JSON.stringify(props, null, 2)}`);
+    let functions = useParams();
+    console.log(`Functions: ${JSON.stringify(functions, null, 2)}`);
 
     this.state = {
       email: null,
@@ -44,8 +46,8 @@ export class SignUpForm extends Component {
         )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
-          this.setIs_loggedin(result.data.is_loggedin);
-          this.setUsername(result.data.username);
+          props.setIs_loggedin(result.data.is_loggedin);
+          props.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
