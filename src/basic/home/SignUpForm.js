@@ -12,15 +12,18 @@ export class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
-    let functions = useParams();
-    console.log(`Functions: ${JSON.stringify(functions, null, 2)}`);
-
     this.state = {
       email: null,
       password: null,
       password2: null,
     };
 
+    this.getParams();
+  }
+
+  getParams() {
+    let functions = useParams();
+    console.log(`Functions: ${JSON.stringify(functions, null, 2)}`);
   }
 
 
