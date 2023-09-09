@@ -19,8 +19,8 @@ export class SignUpForm extends Component {
       password2: null,
     };
 
-    this.setIs_loggedin = this.props.setIs_loggedin;
-    this.setUsername = this.props.setUsername;
+    this.setIs_loggedin = this.props.setIs_loggedin.bind(this);
+    this.setUsername = this.props.setUsername.bind(this);
   }
 
 
