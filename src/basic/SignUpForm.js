@@ -27,12 +27,12 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       axios
-        .post(`${process.env.Wade_host}/system/register_admin`, {
+        .post(`https://james.tail5cd89.ts.net/system/register_admin`, {
           username: username,
           password: password,
         })
-        .then(function (result) {
-          console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
+        .then((result) => {
+          console.log(`Axios update: ${JSON.stringify(result)}`);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
