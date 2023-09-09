@@ -17,11 +17,18 @@ import { red } from "@mui/material/colors";
 import { BrowserView, MobileView } from "react-device-detect";
 import { loginContext } from "./contexts.js";
 
-import { useContext } from "react";
-
-
 import Register_Admin from "./basic/account/Register_admin";
 import Login from "./basic/account/Login";
+
+let state = { is_loggedin: "Not initalized", username: "Not initalized" };
+
+function setIs_loggedin(is_loggedin) {
+  state.is_loggedin = is_loggedin;
+};
+
+function setUsername(username) {
+  state.username = username;
+};
 
 const darkTheme = createTheme({
   palette: {
@@ -46,10 +53,7 @@ const darkTheme = createTheme({
 });
 
 function renderAccount() {
-  const [context, setContext] = useContext(allContext);
-
-  console.log(`Context: ${JSON.stringify(context, null, 2)}`);
-  if (context.allData.is_loggedin === true) {
+  if (state.is_loggedin === true) {
     return (
       <div className="sidebar-btn-wrapper">
         <MenuItem
@@ -207,12 +211,56 @@ function App() {
               element={<Volunteering></Volunteering>}
             ></Route>
             <Route exact path="/" element={<Home></Home>} />
-            <Route exact path="/signup" element={<SignUpForm></SignUpForm>} />
+            <Route
+              exact
+              path="/signup"
+              element={
+                <SignUpForm
+                  is_loggedin={state.is_loggedin}
+                  username={state.username}
+                  setIs_loggedin={setIs_loggedin()}
+                  setUsername={setUsername()}
+                />
+              }
+            />
             <Route exact path="/map" element={<Map></Map>} />
 
-            <Route exact path="/account" element={<Account />} />
-            <Route exact path="/register_admin" element={<Register_Admin />} />
-            <Route exact path="/login" element={<Login />} />
+            <Route
+              exact
+              path="/account"
+              element={
+                <Account
+                  is_loggedin={state.is_loggedin}
+                  username={state.username}
+                  setIs_loggedin={setIs_loggedin()}
+                  setUsername={setUsername()}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/register_admin"
+              element={
+                <Register_Admin
+                  is_loggedin={state.is_loggedin}
+                  username={state.username}
+                  setIs_loggedin={setIs_loggedin()}
+                  setUsername={setUsername()}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/login"
+              element={
+                <Login
+                  is_loggedin={state.is_loggedin}
+                  username={state.username}
+                  setIs_loggedin={setIs_loggedin()}
+                  setUsername={setUsername()}
+                />
+              }
+            />
           </Routes>
         </div>
       </div>

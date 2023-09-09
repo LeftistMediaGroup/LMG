@@ -5,12 +5,14 @@ import { Dropdown } from "react-bootstrap";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 import axios from "axios";
-import { allContext } from "../../contexts";
 import Dashboard from "../dashboard/Dashboard";
 
 export class Account extends Component {
   constructor(props) {
     super(props);
+
+    console.log(`Props: ${props}`);
+
     this.state = {
       is_loggedin: "Not initalized yet",
     };

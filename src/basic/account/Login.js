@@ -8,6 +8,9 @@ export class Login extends Component {
   constructor(props) {
     super(props);
 
+    console.log(`Props: ${props}`);
+
+
     this.state = {
       username: null,
       password: null,

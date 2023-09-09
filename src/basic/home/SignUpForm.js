@@ -6,17 +6,14 @@ import { Form } from "react-bootstrap";
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
 
-import { allContext } from "../../contexts.js";
 
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
-    const [context, setContext] = useContext(allContext);
+    console.log(`Props: ${JSON.stringify(props, null, 2)}`);
 
     this.state = {
-      context: context,
-      setContext: setContext,
       email: null,
       password: null,
       password2: null,
@@ -47,12 +44,8 @@ export class SignUpForm extends Component {
         )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
-          this.state.setContext({
-            allData: {
-              is_loggedin: result.data.is_loggedin,
-              username: result.data.username,
-            }
-          });
+          this.props.setIs_loggedin(result.data.is_loggedin);
+          this.props.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
