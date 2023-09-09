@@ -6,15 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom";
 
-export const MainContext = React.createContext();
-
-let allData = "Test"
 
 ReactDOM.render(
   <BrowserRouter>
-    <MainContext.Provider value={allData}>
       <App />
-    </MainContext.Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -5,10 +5,14 @@ import { Dropdown } from "react-bootstrap";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 import axios from "axios";
+import Dashboard from "../dashboard/Dashboard";
 
 export class Account extends Component {
   constructor(props) {
     super(props);
+
+    console.log(`Props: ${props}`);
+
     this.state = {
       is_loggedin: "Not initalized yet",
     };
@@ -35,6 +39,8 @@ export class Account extends Component {
               <h3>Profile</h3>
 
               <p> Username: {this.state.is_loggedin}</p>
+
+              <Dashboard />
             </CardContent>
           </Card>
         </>
@@ -43,13 +49,18 @@ export class Account extends Component {
   };
 
   getStatus = () => {
+    axios.defaults.withCredentials = true;
+
     axios
-      .get(`https://localhost:3001/system/is_loggedin`, {
+      .get(`https://localhost-0.tail5cd89.ts.net/system/is_loggedin`, {
         withCredentials: true,
       })
       .then((returned) => {
-        console.log(JSON.stringify(returned, null, 2));
         this.setState({ is_loggedin: returned.data.username });
+
+        if (returned.data.username !== "undefined") {
+          allContext.Provider({ is_loggedin: true });
+        }
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
