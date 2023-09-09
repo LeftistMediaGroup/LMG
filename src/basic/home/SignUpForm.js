@@ -5,9 +5,7 @@ import { Form } from "react-bootstrap";
 
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
-
-
+import withRouter from "../../withRouter";
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -18,14 +16,8 @@ export class SignUpForm extends Component {
       password2: null,
     };
 
-    this.getParams();
+    console.log(`Props: ${JSON.stringify(props, null, 2)}`)
   }
-
-  getParams() {
-    let functions = useParams();
-    console.log(`Functions: ${JSON.stringify(functions, null, 2)}`);
-  }
-
 
   submit = () => {
     console.log(`Submit`);
@@ -164,4 +156,4 @@ export class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);
