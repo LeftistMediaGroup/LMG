@@ -19,6 +19,8 @@ export class SignUpForm extends Component {
       password2: null,
     };
 
+    this.setIs_loggedin = this.props.setIs_loggedin;
+    this.setUsername = this.props.setUsername;
   }
 
 
@@ -44,8 +46,8 @@ export class SignUpForm extends Component {
         )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
-          this.props.setIs_loggedin(result.data.is_loggedin);
-          this.props.setUsername(result.data.username);
+          this.setIs_loggedin(result.data.is_loggedin);
+          this.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
