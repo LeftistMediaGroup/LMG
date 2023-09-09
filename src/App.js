@@ -24,11 +24,11 @@ let state = { is_loggedin: "Not initalized", username: "Not initalized" };
 
 function setIs_loggedin(is_loggedin) {
   state.is_loggedin = is_loggedin;
-};
+}
 
 function setUsername(username) {
   state.username = username;
-};
+}
 
 const darkTheme = createTheme({
   palette: {
@@ -218,8 +218,8 @@ function App() {
                 <SignUpForm
                   is_loggedin={state.is_loggedin}
                   username={state.username}
-                  setIs_loggedin={setIs_loggedin()}
-                  setUsername={setUsername()}
+                  setIs_loggedin={() => setIs_loggedin}
+                  setUsername={() => setUsername}
                 />
               }
             />
@@ -232,8 +232,8 @@ function App() {
                 <Account
                   is_loggedin={state.is_loggedin}
                   username={state.username}
-                  setIs_loggedin={setIs_loggedin()}
-                  setUsername={setUsername()}
+                  setIs_loggedin={setIs_loggedin}
+                  setUsername={setUsername}
                 />
               }
             />
@@ -244,8 +244,8 @@ function App() {
                 <Register_Admin
                   is_loggedin={state.is_loggedin}
                   username={state.username}
-                  setIs_loggedin={setIs_loggedin()}
-                  setUsername={setUsername()}
+                  setIs_loggedin={setIs_loggedin}
+                  setUsername={setUsername}
                 />
               }
             />
@@ -256,8 +256,8 @@ function App() {
                 <Login
                   is_loggedin={state.is_loggedin}
                   username={state.username}
-                  setIs_loggedin={setIs_loggedin()}
-                  setUsername={setUsername()}
+                  setIs_loggedin={setIs_loggedin}
+                  setUsername={setUsername}
                 />
               }
             />
