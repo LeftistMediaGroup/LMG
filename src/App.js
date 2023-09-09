@@ -28,6 +28,7 @@ function setIs_loggedin(is_loggedin) {
 
 function setUsername(username) {
   state.username = username;
+  console.log(`Username: ${username}`);
 }
 
 const darkTheme = createTheme({
