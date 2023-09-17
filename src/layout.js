@@ -12,13 +12,11 @@ import SignUpForm from "./basic/home/SignUpForm.js";
 import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
-import { loginContext } from "./contexts.js";
 
 import Register_Admin from "./basic/account/Register_admin.js";
 import Login from "./basic/account/Login.js";
 import React from "react";
 import SideBar from "./SideBar.js";
-import { ThirtyFpsSelect } from "@mui/icons-material";
 
 const darkTheme = createTheme({
   palette: {
