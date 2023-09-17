@@ -31,6 +31,26 @@ export class Dashboard extends Component {
   render() {
     return (
       <div>
+        <Music></Music>
+      </div>
+    );
+  }
+}
+
+export default Dashboard;
+
+/*
+        <Calendar1></Calendar1>
+
+        <ProSidebarProvider>
+          <Chat></Chat>
+        </ProSidebarProvider>
+
+
+        <Stats></Stats>
+
+        <Sync></Sync>
+
         <VectorMap
           map={"world_mill"}
           backgroundColor="transparent" //change it to ocean blue: #0077be
@@ -52,23 +72,4 @@ export class Dashboard extends Component {
             ],
           }}
         />
-      </div>
-    );
-  }
-}
-
-export default Dashboard;
-
-/*
-        <Calendar1></Calendar1>
-
-        <ProSidebarProvider>
-          <Chat></Chat>
-        </ProSidebarProvider>
-
-        <Music></Music>
-
-        <Stats></Stats>
-
-        <Sync></Sync>
 */
