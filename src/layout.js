@@ -62,7 +62,7 @@ export default class Layout extends React.Component {
     } else if (this.state.component === "LogIn") {
       return <Login />;
     } else if (this.state.component === "Account") {
-      return <Account username={this.props.username}/>;
+      return <Account username={this.state.username}/>;
     }
   };
 
