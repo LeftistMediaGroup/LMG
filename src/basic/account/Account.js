@@ -38,7 +38,7 @@ export class Account extends Component {
             <CardContent>
               <h3>Profile</h3>
 
-              <p> Username: {this.state.is_loggedin}</p>
+              <p> Username: {this.props.username}</p>
 
               <Dashboard />
             </CardContent>
