@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Card, CardContent } from "@mui/material";
 import React, { Component } from "react";
 
 import { Dropdown } from "react-bootstrap";
@@ -16,7 +16,7 @@ export class Music extends Component {
       urls: [],
       queue: [],
     };
-  }  
+  }
 
   getUrls(song) {
     return song.URL;
@@ -24,52 +24,51 @@ export class Music extends Component {
 
   songCard(song, SongLibrary) {
     SongLibrary.push(
-      <div className="col-md grid-margin stretch-card">
-        <div className="card">
-          <div className="card-body">
-            <div className="col-md grid-margin stretch-card">
-              <div className="card">
-                <div className="card-body"></div>
-                <h4 className="card-title">Player</h4>
+      <>
+        <Card>
+          <CardContent>
+            <h4>Player</h4>
+            <br />
+            <ReactPlayer url={this.state.urls} />
+            <Card>
+              <CardContent>
+                <h1>{song.Title}</h1>
+                Buttons Don't work yet
+                <Button>Play {song.Title} Now</Button>
+                <Button
+                  onClick={(song) => {
+                    this.state.queue.push(song.Title);
+                  }}
+                >
+                  Add {song.Title} to queue
+                </Button>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="btn btn-primary"
+                    id="dropdownMenuButton1"
+                  >
+                    Song Info
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Header>{song.Title}</Dropdown.Header>
 
-                <ReactPlayer url={this.state.urls} />
-              </div>
-            </div>
-            <h4 className="card-title">{song.Title}</h4>
-            Buttons Don't work yet
-            <Button>Play {song.Title} Now</Button>
-            <Button
-              onClick={(song) => {
-                this.state.queue.push(song.Title);
-              }}
-            >
-              Add {song.Title} to queue
-            </Button>
-            <Dropdown>
-              <Dropdown.Toggle
-                variant="btn btn-primary"
-                id="dropdownMenuButton1"
-              >
-                Song Info
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Header>{song.Title}</Dropdown.Header>
+                    <Dropdown.Item>
+                      Song Summary: <br />
+                      {song.Summary}
+                    </Dropdown.Item>
 
-                <Dropdown.Item>
-                  Song Summary: <br />
-                  {song.Summary}
-                </Dropdown.Item>
-
-                <Dropdown.Item>
-                  {" "}
-                  Lyrics: <br />
-                  Coming soon
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-        </div>
-      </div>
+                    <Dropdown.Item>
+                      {" "}
+                      Lyrics: <br />
+                      Coming soon
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </CardContent>
+            </Card>
+          </CardContent>
+        </Card>
+      </>
     );
   }
 
