@@ -18,59 +18,6 @@ export class Account extends Component {
     };
   }
 
-  account = () => {
-    if (
-      this.state.is_loggedin === "Not logged in" ||
-      this.state.is_loggedin === "Not initalized yet"
-    ) {
-      return (
-        <Card>
-          <CardContent>
-            <h3>You are not logged in</h3>
-            <p>Please sign up or log in to continue</p>
-          </CardContent>
-        </Card>
-      );
-    } else {
-      return (
-        <>
-          <Card>
-            <CardContent>
-              <h3>Profile</h3>
-
-              <p> Username: {this.props.username}</p>
-
-              <Dashboard />
-            </CardContent>
-          </Card>
-        </>
-      );
-    }
-  };
-
-  getStatus = () => {
-    axios.defaults.withCredentials = true;
-
-    axios
-      .get(`https://localhost-0.tail5cd89.ts.net/system/is_loggedin`, {
-        withCredentials: true,
-      })
-      .then((returned) => {
-        this.setState({ is_loggedin: returned.data.username });
-
-        if (returned.data.username !== "undefined") {
-          allContext.Provider({ is_loggedin: true });
-        }
-      })
-      .catch((err) => {
-        console.log(`Error: ${err}`);
-      });
-  };
-
-  componentDidMount() {
-    this.getStatus();
-  }
-
   render() {
     return (
       <>
@@ -78,7 +25,15 @@ export class Account extends Component {
           <Card>
             <CardContent>
               <h1>Account</h1>
-              {this.account()}
+              <Card>
+                <CardContent>
+                  <h3>Profile</h3>
+
+                  <p> Username: {this.props.username}</p>
+
+                  <Dashboard />
+                </CardContent>
+              </Card>
             </CardContent>
           </Card>
         </div>
