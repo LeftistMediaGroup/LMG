@@ -74,27 +74,18 @@ export class Music extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md grid-margin stretch-card">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="card-title">Music</h4>
+      <Card>
+        <CardContent>
+          <h1> Music </h1>
 
-              <div className="row">
-                <div className="col-md grid-margin stretch-card">
-                  <div className="card">
-                    <div className="card-body">
-                      <h4 className="card-title">Library</h4>
-
-                      {this.state.SongLibrary}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <Card>
+            <CardContent>
+              <h4>Library</h4>
+              {this.state.SongLibrary}
+            </CardContent>
+          </Card>
+        </CardContent>
+      </Card>
     );
   }
 }
