@@ -5,7 +5,6 @@ import { Form } from "react-bootstrap";
 
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
-import withRouter from "../../withRouter";
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -156,4 +155,4 @@ export class SignUpForm extends Component {
   }
 }
 
-export default withRouter(SignUpForm);
+export default SignUpForm;
