@@ -82,7 +82,7 @@ export default class Layout extends React.Component {
   };
 
   setIs_loggedin = (is_loggedin) => {
-    this.state.is_loggedin = is_loggedin;
+    this.setState({is_loggedin: is_loggedin});
   };
 
   setUsername = (username) => {
