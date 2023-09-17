@@ -59,7 +59,8 @@ export default class Layout extends React.Component {
     } else if (this.state.component === "Education") {
       return <Education />;
     } else if (this.state.component === "SignUp") {
-      return <SignUpForm setIs_loggedin={this.setIs_loggedin} />;
+      return <SignUpForm setIs_loggedin={this.setIs_loggedin}
+      setUsername={this.setUsername} />;
     } else if (this.state.component === "LogIn") {
       return <Login />;
     } else if (this.state.component === "Account") {
