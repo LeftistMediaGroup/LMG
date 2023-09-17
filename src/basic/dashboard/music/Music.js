@@ -27,9 +27,6 @@ export class Music extends Component {
       <>
         <Card>
           <CardContent>
-            <h4>Player</h4>
-            <br />
-            <ReactPlayer url={this.state.urls} />
             <Card>
               <CardContent>
                 <h1>{song.Title}</h1>
@@ -78,10 +75,18 @@ export class Music extends Component {
         <CardContent>
           <h1> Music </h1>
 
+          <h4>Player</h4>
+          <br />
+          <ReactPlayer
+            width="100%"
+            height="90%"
+            controls
+            light
+            url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
+          />
           <Card>
             <CardContent>
               <h4>Library</h4>
-              {this.state.SongLibrary}
             </CardContent>
           </Card>
         </CardContent>

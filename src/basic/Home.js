@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import { Dropdown } from "react-bootstrap";
 
-import SignUpForm from "./home/SignUpForm.js";
+import SignUpForm from "./account/SignUpForm.js";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 

@@ -1,18 +1,25 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
+const webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "build"),
-    publicPath: '/'
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
       favicon: "./public/favicon.ico",
       filename: "index.html",
+    }),
+    new Dotenv(),
+    // fix "process is not defined" error:
+    new webpack.ProvidePlugin({
+      process: "process/browser",
     }),
   ],
   devServer: {
@@ -43,6 +50,6 @@ module.exports = {
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
-}
+    maxAssetSize: 512000,
+  },
 };

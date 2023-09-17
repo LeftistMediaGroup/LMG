@@ -8,7 +8,7 @@ import Account from "./basic/account/Account.js";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import SignUpForm from "./basic/home/SignUpForm.js";
+import SignUpForm from "./basic/account/SignUpForm.js";
 import { red } from "@mui/material/colors";
 
 import { BrowserView, MobileView } from "react-device-detect";
