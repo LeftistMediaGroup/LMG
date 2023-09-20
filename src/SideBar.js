@@ -8,6 +8,8 @@ export default class SideBar extends React.Component {
     super(props);
 
     this.state = {};
+
+    console.log(`Props SideBar: ${JSON.stringify(this.props, null, 2)}`)
   }
 
   returnComponent = (component) => {
@@ -15,42 +17,54 @@ export default class SideBar extends React.Component {
   };
 
   renderAccount = () => {
-    if (this.props.is_loggedin === true) {
+    if (this.props.admin_created === false) {
+      if (this.props.is_loggedin === true) {
+        return (
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Account");
+              }
+            }}
+          >
+            Account
+          </Button>
+        );
+      } else {
+        return (
+          <>
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("SignUp");
+                }
+              }}
+            >
+              {" "}
+              SignUp
+            </Button>
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("LogIn");
+                }
+              }}
+            >
+              {" "}
+              Login
+            </Button>
+          </>
+        );
+      }
+    } else {
       return (
         <Button
           onClick={() => {
             if (this.state) {
-              this.returnComponent("Account");
+              this.returnComponent("RegisterAdmin");
             }
           }}
-        >
-          Account
-        </Button>
-      );
-    } else {
-      return (
-        <>
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("SignUp");
-              }
-            }}
-          >
-            {" "}
-            SignUp
-          </Button>
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("LogIn");
-              }
-            }}
-          >
-            {" "}
-            Login
-          </Button>
-        </>
+        ></Button>
       );
     }
   };

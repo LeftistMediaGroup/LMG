@@ -17,6 +17,7 @@ import Register_Admin from "./basic/account/Register_admin.js";
 import Login from "./basic/account/Login.js";
 import React from "react";
 import SideBar from "./SideBar.js";
+import axios from "axios";
 
 const darkTheme = createTheme({
   palette: {
@@ -48,6 +49,7 @@ export default class Layout extends React.Component {
       is_loggedin: "Not initalized",
       username: "Not initalized",
       component: "Home",
+      admin_created: false,
     };
   }
 
@@ -57,12 +59,18 @@ export default class Layout extends React.Component {
     } else if (this.state.component === "Education") {
       return <Education />;
     } else if (this.state.component === "SignUp") {
-      return <SignUpForm setIs_loggedin={this.setIs_loggedin}
-      setUsername={this.setUsername} />;
+      return (
+        <SignUpForm
+          setIs_loggedin={this.setIs_loggedin}
+          setUsername={this.setUsername}
+        />
+      );
     } else if (this.state.component === "LogIn") {
       return <Login />;
     } else if (this.state.component === "Account") {
-      return <Account username={this.state.username}/>;
+      return <Account username={this.state.username} />;
+    } else if (this.state.component === "RegisterAdmin") {
+      return <Register_Admin />;
     }
   };
 
@@ -77,11 +85,30 @@ export default class Layout extends React.Component {
       this.setState({ component: "LogIn" });
     } else if (component === "Account") {
       this.setState({ component: "Account" });
+    } else if (component === "RegisterAdmin") {
+      this.setState({ component: "RegisterAdmin" });
     }
   };
 
+  admin_created = () => {
+    axios
+      .get("https://wade.leftistmediagroup.org/system/admin_created", {
+        withCredentials: true,
+      })
+      .then((result) => {
+        if (result.data.admin_created === "true") {
+          this.setState({ admin_created: true });
+        } else {
+          this.setState({ admin_created: false });
+        }
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
+  };
+
   setIs_loggedin = (is_loggedin) => {
-    this.setState({is_loggedin: is_loggedin});
+    this.setState({ is_loggedin: is_loggedin });
   };
 
   setUsername = (username) => {
@@ -97,6 +124,7 @@ export default class Layout extends React.Component {
         <SideBar
           getComponent={this.getComponent}
           is_loggedin={this.state.is_loggedin}
+          admin_created={this.state.admin_created}
         />
       </ThemeProvider>
     );

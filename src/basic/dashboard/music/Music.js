@@ -20,7 +20,13 @@ export class Music extends Component {
 
   getUrls(song) {
     return song.URL;
-  }
+  };
+
+  getLibrary = () => {
+    for (song of Library) {
+      console.log(`Song: ${song.Title}`)
+    };
+  };
 
   songCard(song, SongLibrary) {
     SongLibrary.push(
@@ -79,7 +85,7 @@ export class Music extends Component {
           <br />
           <ReactPlayer
             width="100%"
-            height="90%"
+            height="10%"
             controls
             light
             url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
