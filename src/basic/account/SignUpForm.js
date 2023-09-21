@@ -31,7 +31,7 @@ export class SignUpForm extends Component {
 
       axios
         .put(
-          `https://wade.leftistmediagroup.org/system/register_user`,
+          `${process.env.Wade_Host}/system/register_user`,
           {
             password: password,
             email: email,
