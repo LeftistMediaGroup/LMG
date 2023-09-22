@@ -22,51 +22,51 @@ export class Music extends Component {
     return song.URL;
   }
 
-  songCards() {
+  songCards = () => {
     let cards = Object.values(Library).map((song) => {
-      return (
-        <>
-          <Card>
-            <CardContent>
-              <Card>
-                <CardContent>
-                  <h1>{song.Title}</h1>
+      <>
+        <Card>
+          <CardContent>
+            <Card>
+              <CardContent>
+                <h1>{song.Title}</h1>
 
-                  <Button>Play {song.Title} Now</Button>
+                <Button>Play {song.Title} Now</Button>
+                <br />
+
+                <Button
+                  onClick={(song) => {
+                    this.state.queue.push(song.Title);
+                  }}
+                >
+                  Add {song.Title} to queue
+                </Button>
+                <br />
+
+                <p> Song Info </p>
+                <br />
+
+                <p>
+                  Song Summary: <br />
+                </p>
+                <br />
+
+                <p>
+                  Lyrics:
                   <br />
-
-                  <Button
-                    onClick={(song) => {
-                      this.state.queue.push(song.Title);
-                    }}
-                  >
-                    Add {song.Title} to queue
-                  </Button>
-                  <br />
-
-                  <p> Song Info </p>
-                  <br />
-
-                  <p>
-                    Song Summary: <br />
-                  </p>
-                  <br />
-
-                  <p>
-                    Lyrics:
-                    <br />
-                    Coming soon
-                  </p>
-                </CardContent>
-              </Card>
-            </CardContent>
-          </Card>
-        </>
-      );
+                  Coming soon
+                </p>
+              </CardContent>
+            </Card>
+          </CardContent>
+        </Card>
+      </>;
 
       this.setState({ SongLibrary: cards });
+
+      console.log(`Cards: ${JSON.stringify(this.state.SongLibrary, null, 2)}`);
     });
-  }
+  };
 
   componetDidMount() {
     this.songCards();
