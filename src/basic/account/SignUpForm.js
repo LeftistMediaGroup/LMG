@@ -1,19 +1,21 @@
 import React, { Component } from "react";
+import { useContext } from "react";
+
 import { Form } from "react-bootstrap";
 
-import { Button } from "@mui/material";
+import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
-
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: null,
-      username: null,
       password: null,
       password2: null,
     };
+
+    console.log(`Props: ${JSON.stringify(props, null, 2)}`)
   }
 
   submit = () => {
@@ -21,18 +23,25 @@ export class SignUpForm extends Component {
 
     if (this.state.password === this.state.password2) {
       let email = this.state.email;
-      let username = this.state.username;
       let password = this.state.password;
 
       console.log(`Data out`);
 
+      axios.defaults.withCredentials = true;
+
       axios
-        .post(`https://james.tail5cd89.ts.net/system/register_admin`, {
-          username: username,
-          password: password,
-        })
+        .put(
+          `https://wade.leftistmediagroup.org/system/register_user`,
+          {
+            password: password,
+            email: email,
+          },
+          { withCredentials: true }
+        )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
+          this.props.setIs_loggedin(result.data.is_loggedin);
+          this.props.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
@@ -41,18 +50,6 @@ export class SignUpForm extends Component {
       console.log("Passwords don't match, please try again.");
     }
   };
-
-  usernameChange(event) {
-    let username = event.target.value;
-
-    console.log(`Username: ${username}`);
-
-    if (username !== this.state.username) {
-      this.setState({
-        username: username,
-      });
-    }
-  }
 
   emailChange(event) {
     let email = event.target.value;
@@ -87,20 +84,20 @@ export class SignUpForm extends Component {
   render() {
     return (
       <div className="row-centered">
-        <div className="page-header">
-          <h4>Volunteering</h4>
-          <h5>Sign up</h5>
+        <div className="row-centered">
+          <div className="page-header">
+            <h4>Volunteering</h4>
+            <h5>Sign up</h5>
 
-          <p>
-            Leftist Media Group is recruiting for volunteers to spread
-            revolutionary propaganda.
-          </p>
-        </div>
-        <div className="row">
-          <div className="col-md-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <form>
+            <p>
+              Leftist Media Group is recruiting for volunteers to spread
+              revolutionary propaganda.
+            </p>
+          </div>
+          <div className="row-centered" style={{ maxWidth: 500 }}>
+            <Card>
+              <CardContent>
+                <form className="row-centered">
                   <Form.Group>
                     <label htmlFor="InputEmail">Email</label>
                     <Form.Control
@@ -108,16 +105,6 @@ export class SignUpForm extends Component {
                       id="InputEmail"
                       placeholder="Email"
                       onChange={this.emailChange.bind(this)}
-                    />
-                  </Form.Group>
-
-                  <Form.Group>
-                    <label htmlFor="InputUsername">Username</label>
-                    <Form.Control
-                      type="text"
-                      id="InputUsername"
-                      placeholder="Username"
-                      onChange={this.usernameChange.bind(this)}
                     />
                   </Form.Group>
 
@@ -159,8 +146,8 @@ export class SignUpForm extends Component {
                     Submit
                   </Button>
                 </form>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
