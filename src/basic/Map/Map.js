@@ -1,37 +1,21 @@
-import React, { Component } from "react";
+import { Viewer, Entity, PointGraphics, EntityDescription } from "resium";
+import { Cartesian3, createWorldTerrain } from "cesium";
 
-import { Card, CardContent } from "@mui/material";
+const terrainProvider = createWorldTerrain();
+const position = Cartesian3.fromDegrees(-74.0707383, 40.7117244, 100);
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, PresentationControls } from "@react-three/drei";
-import { extend } from '@react-three/fiber';
-import { blue, grey } from "@mui/material/colors";
-import { MapView, OpenStreetMapsProvider } from "geo-three";
-
-
-export class Map extends Component {
-  render() {
-    return (
-      <>
-        <h1>Map</h1>
-        <div id="canvas-container">
-          <Canvas
-            camera={{ position: [2, 0, 12.25], fov: 15 }}
-            style={{
-              backgroundColor: "#808080",
-              width: "80vw",
-              height: "80vh",
-            }}
-          >
-            <PresentationControls>
-              <ambientLight intensity={0.5} />
-              <directionalLight color="red" position={[0, 0, 5]} />
-            </PresentationControls>
-          </Canvas>
-        </div>
-      </>
-    );
-  }
+function App() {
+  return (
+    <Viewer full terrainProvider={terrainProvider}>
+      <Entity position={position} name="Tokyo">
+        <PointGraphics pixelSize={10} />
+        <EntityDescription>
+          <h1>Hello, world.</h1>
+          <p>JSX is available here!</p>
+        </EntityDescription>
+      </Entity>
+    </Viewer>
+  );
 }
 
-export default Map;
+export default App;
