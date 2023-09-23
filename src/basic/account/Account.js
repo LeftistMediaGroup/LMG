@@ -5,10 +5,14 @@ import { Dropdown } from "react-bootstrap";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 import axios from "axios";
+import Dashboard from "../dashboard/Dashboard";
 
 export class Account extends Component {
   constructor(props) {
     super(props);
+
+    console.log(`Props: ${props}`);
+
     this.state = {
       is_loggedin: "Not initalized yet",
     };
@@ -67,7 +71,15 @@ export class Account extends Component {
           <Card>
             <CardContent>
               <h1>Account</h1>
-              {this.account()}
+              <Card>
+                <CardContent>
+                  <h3>Profile</h3>
+
+                  <p> Username: {this.props.username}</p>
+
+                  <Dashboard />
+                </CardContent>
+              </Card>
             </CardContent>
           </Card>
         </div>
