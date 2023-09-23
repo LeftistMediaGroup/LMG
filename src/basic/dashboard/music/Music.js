@@ -22,14 +22,14 @@ export class Music extends Component {
     return song.URL;
   }
 
-  songCards = () => {
-    let cards = Object.values(Library).map((song) => {
-      <>
+  render() {
+    let cards = Object.values(Library).map((song) => (
+      <div class="col-sm-auto">
         <Card>
           <CardContent>
             <Card>
               <CardContent>
-                <h1>{song.Title}</h1>
+                <h4>{song.Title}</h4>
 
                 <Button>Play {song.Title} Now</Button>
                 <br />
@@ -44,10 +44,11 @@ export class Music extends Component {
                 <br />
 
                 <p> Song Info </p>
-                <br />
+                <p> {song.Artist}</p>
 
                 <p>
-                  Song Summary: <br />
+                  Song Summary
+                  {song.Summary}
                 </p>
                 <br />
 
@@ -60,44 +61,36 @@ export class Music extends Component {
             </Card>
           </CardContent>
         </Card>
-      </>;
+      </div>
+    ));
 
-      this.setState({ SongLibrary: cards });
-
-      console.log(`Cards: ${JSON.stringify(this.state.SongLibrary, null, 2)}`);
-    });
-  };
-
-  componetDidMount() {
-    this.songCards();
-  }
-
-  render() {
     return (
-      <Card>
-        <CardContent>
-          <h1> Music </h1>
+      <div class="container">
+        <Card>
+          <CardContent>
+            <h1> Music </h1>
 
-          <h4>Player</h4>
-          <br />
-          <ReactPlayer
-            width="100%"
-            height="10%"
-            controls
-            light
-            url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
-          />
-          <Card>
-            <CardContent>
-              <h4>Library</h4>
+            <h4>Player</h4>
+            <br />
+            <ReactPlayer
+              width="100%"
+              height="10%"
+              controls
+              light
+              url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
+            />
+            <Card>
+              <CardContent>
+                <h4>Library</h4>
 
-              <Card>
-                <CardContent>{this.state.SongLibrary}</CardContent>
-              </Card>
-            </CardContent>
-          </Card>
-        </CardContent>
-      </Card>
+                <Card>
+                  <CardContent>{cards}</CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 }
