@@ -18,6 +18,7 @@ import Login from "./basic/account/Login.js";
 import React from "react";
 import SideBar from "./SideBar.js";
 import axios from "axios";
+import Resources from "./basic/Resources/resources.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -71,6 +72,8 @@ export default class Layout extends React.Component {
       return <Account username={this.state.username} />;
     } else if (this.state.component === "RegisterAdmin") {
       return <Register_Admin />;
+    } else if (this.state.component === "Resources") {
+      return <Resources />;
     }
   };
 
@@ -87,6 +90,8 @@ export default class Layout extends React.Component {
       this.setState({ component: "Account" });
     } else if (component === "RegisterAdmin") {
       this.setState({ component: "RegisterAdmin" });
+    } else if (component === "Resources") {
+      this.setState({ component: "Resources" });
     }
   };
 
