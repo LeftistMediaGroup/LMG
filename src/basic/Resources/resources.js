@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, CardMedia } from "@mui/material";
 import ResourceList from "./resourceList.json";
 
 export class Resources extends Component {
@@ -14,9 +14,14 @@ export class Resources extends Component {
   render() {
     const resourceListItems = Object.values(this.state.ResourceList).map(
       (item) => (
-        <Card variant="outlined">
-          <CardContent>{item.name}</CardContent>
-        </Card>
+        <>
+          <Card variant="outlined">
+            <CardContent>
+              {item.name}
+              <img src={item.url} />
+            </CardContent>
+          </Card>
+        </>
       )
     );
 

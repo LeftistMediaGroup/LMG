@@ -1,5 +1,5 @@
 {
-  "Alabama": { "name": "Alabama" },
+  "Alabama": { "name": "Alabama", "url": "http://localhost:3001/StateIcons/alabama.svg" },
   "Alaska": { "name": "Alaska" },
   "Arizona": { "name": "Arizona" },
   "Arkansas": { "name": "Arkansas" },
