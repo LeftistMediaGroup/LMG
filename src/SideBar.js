@@ -95,6 +95,16 @@ export default class SideBar extends React.Component {
               Education
             </Button>
 
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Resources");
+                }
+              }}
+            >
+              Resources
+            </Button>
+
             {this.renderAccount()}
           </div>
         </BrowserView>
