@@ -46,10 +46,8 @@ export class Music extends Component {
                 <p> Song Info </p>
                 <p> {song.Artist}</p>
 
-                <p>
-                  Song Summary
-                  {song.Summary}
-                </p>
+                <p>Song Summary</p>
+                <p>{song.Summary}</p>
                 <br />
 
                 <p>
@@ -72,22 +70,28 @@ export class Music extends Component {
 
             <h4>Player</h4>
             <br />
-            <ReactPlayer
-              width="100%"
-              height="10%"
-              controls
-              light
-              url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
-            />
-            <Card>
-              <CardContent>
-                <h4>Library</h4>
 
-                <Card>
-                  <CardContent>{cards}</CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+            <div className="col" style={{ width: "40%" }}>
+              <Card>
+                <CardContent>
+                  <h4>Library</h4>
+
+                  <Card>
+                    <CardContent>{cards}</CardContent>
+                  </Card>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="col" style={{ width: "60%" }}>
+              <ReactPlayer
+                width="100%"
+                height="10%"
+                controls
+                light
+                url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
+              />
+            </div>
           </CardContent>
         </Card>
       </div>

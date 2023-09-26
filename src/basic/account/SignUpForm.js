@@ -15,7 +15,7 @@ export class SignUpForm extends Component {
       password2: null,
     };
 
-    console.log(`Props: ${JSON.stringify(props, null, 2)}`)
+    console.log(`Props: ${JSON.stringify(props, null, 2)}`);
   }
 
   submit = () => {
@@ -40,6 +40,7 @@ export class SignUpForm extends Component {
         )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
+
           this.props.setIs_loggedin(result.data.is_loggedin);
           this.props.setUsername(result.data.username);
         })

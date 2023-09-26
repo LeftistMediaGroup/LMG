@@ -67,12 +67,17 @@ export default class Layout extends React.Component {
         />
       );
     } else if (this.state.component === "LogIn") {
-      return <Login />;
+      return (
+        <Login
+          setIs_loggedin={this.setIs_loggedin}
+          setUsername={this.setUsername}
+        />
+      );
     } else if (this.state.component === "Account") {
       return <Account username={this.state.username} />;
     } else if (this.state.component === "RegisterAdmin") {
       return <Register_Admin />;
-    }  else if (this.state.component === "Resources") {
+    } else if (this.state.component === "Resources") {
       return <ResourceMap />;
     }
   };
@@ -90,7 +95,7 @@ export default class Layout extends React.Component {
       this.setState({ component: "Account" });
     } else if (component === "RegisterAdmin") {
       this.setState({ component: "RegisterAdmin" });
-    }  else if (component === "Resources") {
+    } else if (component === "Resources") {
       this.setState({ component: "Resources" });
     }
   };

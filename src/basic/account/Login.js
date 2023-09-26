@@ -10,7 +10,6 @@ export class Login extends Component {
 
     console.log(`Props: ${props}`);
 
-
     this.state = {
       username: null,
       password: null,
@@ -27,15 +26,18 @@ export class Login extends Component {
 
       console.log(`Data out`);
 
-      axios.defaults.withCredentials = true
-      
+      axios.defaults.withCredentials = true;
+
       axios
-        .put("https://localhost-0.tail5cd89.ts.net/system/login", {
+        .post(`${process.env.Wade_Host}/system/login`, {
           username: username,
           password: password,
-        },{ withCredentials: true })
+        })
         .then((result) => {
           console.log(`Login update: ${JSON.stringify(result)}`);
+
+          this.props.setIs_loggedin(result.data.is_loggedin);
+          this.props.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
@@ -94,9 +96,8 @@ export class Login extends Component {
                   <Form.Group>
                     <label htmlFor="Inputusername">username</label>
                     <Form.Control
-                      type="username"
                       id="Inputusername"
-                      placeholder="username"
+                      placeholder="Username"
                       onChange={this.usernameChange.bind(this)}
                     />
                   </Form.Group>
