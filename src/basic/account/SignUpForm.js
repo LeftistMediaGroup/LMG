@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { useContext } from "react";
+
 import { Form } from "react-bootstrap";
 
-import { Button } from "@mui/material";
+import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
-
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,8 @@ export class SignUpForm extends Component {
       password: null,
       password2: null,
     };
+
+    console.log(`Props: ${JSON.stringify(props, null, 2)}`)
   }
 
   submit = () => {
@@ -24,14 +27,21 @@ export class SignUpForm extends Component {
 
       console.log(`Data out`);
 
-      axios.defaults.withCredentials = true
+      axios.defaults.withCredentials = true;
 
       axios
-        .put("https://localhost-0.tail5cd89.ts.net/system/register_user", {
-          password: password,
-        })
+        .put(
+          `${process.env.Wade_Host}/system/register_user`,
+          {
+            password: password,
+            email: email,
+          },
+          { withCredentials: true }
+        )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
+          this.props.setIs_loggedin(result.data.is_loggedin);
+          this.props.setUsername(result.data.username);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
@@ -74,20 +84,20 @@ export class SignUpForm extends Component {
   render() {
     return (
       <div className="row-centered">
-        <div className="page-header">
-          <h4>Volunteering</h4>
-          <h5>Sign up</h5>
+        <div className="row-centered">
+          <div className="page-header">
+            <h4>Volunteering</h4>
+            <h5>Sign up</h5>
 
-          <p>
-            Leftist Media Group is recruiting for volunteers to spread
-            revolutionary propaganda.
-          </p>
-        </div>
-        <div className="row">
-          <div className="col-md-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <form>
+            <p>
+              Leftist Media Group is recruiting for volunteers to spread
+              revolutionary propaganda.
+            </p>
+          </div>
+          <div className="row-centered" style={{ maxWidth: 500 }}>
+            <Card>
+              <CardContent>
+                <form className="row-centered">
                   <Form.Group>
                     <label htmlFor="InputEmail">Email</label>
                     <Form.Control
@@ -97,7 +107,6 @@ export class SignUpForm extends Component {
                       onChange={this.emailChange.bind(this)}
                     />
                   </Form.Group>
-
 
                   <Form.Group>
                     <label htmlFor="exampleInputPassword1">Password</label>
@@ -137,8 +146,8 @@ export class SignUpForm extends Component {
                     Submit
                   </Button>
                 </form>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

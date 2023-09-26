@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import { Dropdown } from "react-bootstrap";
 
-import SignUpForm from "./SignUpForm.js";
+import SignUpForm from "./account/SignUpForm.js";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 
@@ -14,6 +14,7 @@ import Wade from "./home/Wade.js";
 import Music from "./home/Music.js";
 import Mentorship from "./home/Mentorship.js";
 import Contact from "./home/Contact.js";
+import Programmer from "./home/Programmer.js";
 
 export class Home extends Component {
   
@@ -104,6 +105,10 @@ export class Home extends Component {
               </div>
 
               <div className="col" style={{ padding: 15 }}>
+                <Programmer/>
+              </div>
+              
+              <div className="col" style={{ padding: 15 }}>
                 <Sophia/>
               </div>
 
@@ -120,6 +125,10 @@ export class Home extends Component {
               <div className="col" style={{ padding: 15 }}>
                 <Mentorship/>
               </div>
+
+              <div className="row-centered">
+                <SignUpForm/>
+                </div>
 
               <div className="row-centerd" tyle={{ padding: 15 }}>
                 <Contact/>
