@@ -27,12 +27,14 @@ export class Register_Admin extends Component {
       axios.defaults.withCredentials = true
       
       axios
-        .put("https://localhost-0.tail5cd89.ts.net/system/register_admin", {
+        .put(`${process.env.Wade_Host}/system/register_admin`, {
           password: password,
           email: email,
         },{ withCredentials: true })
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
+
+          this.props.admin_created();
         })
         .catch((err) => {
           console.log(`Error: ${err}`);
@@ -77,12 +79,7 @@ export class Register_Admin extends Component {
       <div className="row-centered">
         <div className="row-centered">
           <div className="page-header">
-            <h5>Sign up - Admin</h5>
-
-            <p>
-              Leftist Media Group is recruiting for volunteers to spread
-              revolutionary propaganda.
-            </p>
+            <h5>Register - Admin</h5>
           </div>
           <div className="row-centered" style={{ maxWidth: 500 }}>
             <Card>

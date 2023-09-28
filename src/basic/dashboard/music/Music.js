@@ -24,7 +24,7 @@ export class Music extends Component {
 
   render() {
     let cards = Object.values(Library).map((song) => (
-      <div class="col-sm-auto">
+      <div class="col">
         <Card>
           <CardContent>
             <Card>
@@ -71,26 +71,26 @@ export class Music extends Component {
             <h4>Player</h4>
             <br />
 
-            <div className="col" style={{ width: "40%" }}>
+            <ReactPlayer
+              width="100%"
+              height="10%"
+              controls
+              light
+              url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
+            />
+
+            <div className="col">
               <Card>
                 <CardContent>
                   <h4>Library</h4>
 
                   <Card>
-                    <CardContent>{cards}</CardContent>
+                    <CardContent>
+                      <div class="row">{cards}</div>
+                    </CardContent>
                   </Card>
                 </CardContent>
               </Card>
-            </div>
-
-            <div className="col" style={{ width: "60%" }}>
-              <ReactPlayer
-                width="100%"
-                height="10%"
-                controls
-                light
-                url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
-              />
             </div>
           </CardContent>
         </Card>

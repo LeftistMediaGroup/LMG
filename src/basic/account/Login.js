@@ -8,8 +8,6 @@ export class Login extends Component {
   constructor(props) {
     super(props);
 
-    console.log(`Props: ${props}`);
-
     this.state = {
       username: null,
       password: null,
@@ -38,6 +36,7 @@ export class Login extends Component {
 
           this.props.setIs_loggedin(result.data.is_loggedin);
           this.props.setUsername(result.data.username);
+          this.props.setIs_admin(result.data.is_admin);
         })
         .catch((err) => {
           console.log(`Error: ${err}`);

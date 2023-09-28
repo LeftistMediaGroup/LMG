@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  margin-left: 160px;
 }
 
 
@@ -22,26 +21,12 @@
 
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #000000; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 50px;
   text-align: left;
-}
-
-.row-centered{
-  justify-content: center;
-}
-
-
-.sidebar-btn-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(240, 2, 2);
-  max-width: 160px;
+  float:left;
 }

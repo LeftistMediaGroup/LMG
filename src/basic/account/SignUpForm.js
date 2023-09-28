@@ -14,8 +14,6 @@ export class SignUpForm extends Component {
       password: null,
       password2: null,
     };
-
-    console.log(`Props: ${JSON.stringify(props, null, 2)}`);
   }
 
   submit = () => {

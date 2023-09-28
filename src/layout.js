@@ -15,10 +15,11 @@ import { BrowserView, MobileView } from "react-device-detect";
 
 import Register_Admin from "./basic/account/Register_admin.js";
 import Login from "./basic/account/Login.js";
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "./SideBar.js";
 import axios from "axios";
 import ResourceMap from "./basic/Resources/ResourceMap.js";
+import AdminDashboard from "./basic/dashboard/AdminDashboard.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -50,9 +51,13 @@ export default class Layout extends React.Component {
       is_loggedin: "Not initalized",
       username: "Not initalized",
       component: "Home",
-      admin_created: false,
+      is_admin: null,
     };
   }
+
+  setIs_admin = (is_admin) => {
+    this.setState({ is_admin: is_admin });
+  };
 
   renderComponent = () => {
     if (this.state.component === "Home") {
@@ -71,14 +76,17 @@ export default class Layout extends React.Component {
         <Login
           setIs_loggedin={this.setIs_loggedin}
           setUsername={this.setUsername}
+          setIs_admin={this.setIs_admin}
         />
       );
     } else if (this.state.component === "Account") {
       return <Account username={this.state.username} />;
     } else if (this.state.component === "RegisterAdmin") {
-      return <Register_Admin />;
+      return <Register_Admin admin_created={this.admin_created} />;
     } else if (this.state.component === "Resources") {
       return <ResourceMap />;
+    } else if (this.state.component === "AdminDashboard") {
+      return <AdminDashboard username={this.state.username} />;
     }
   };
 
@@ -97,19 +105,21 @@ export default class Layout extends React.Component {
       this.setState({ component: "RegisterAdmin" });
     } else if (component === "Resources") {
       this.setState({ component: "Resources" });
+    } else if (component === "AdminDashboard") {
+      this.setState({ component: "AdminDashboard" });
     }
   };
 
   admin_created = () => {
     axios
-      .get("https://wade.leftistmediagroup.org/system/admin_created", {
+      .get(`${process.env.Wade_Host}/system/admin_created`, {
         withCredentials: true,
       })
       .then((result) => {
-        if (result.data.admin_created === "true") {
-          this.setState({ admin_created: true });
+        if (result.data.admin_created === true) {
+          this.props.setadmin_created(true);
         } else {
-          this.setState({ admin_created: false });
+          this.props.setadmin_created(false);
         }
       })
       .catch((err) => {
@@ -123,20 +133,43 @@ export default class Layout extends React.Component {
 
   setUsername = (username) => {
     this.state.username = username;
-    console.log(`Username: ${username}`);
   };
+
+  componentDidMount() {
+    this.admin_created();
+
+    console.log(`admin_created: ${this.props.admin_created}`);
+  }
+
+  componentDidUpdate() {
+    console.log(`admin_created: ${this.props.admin_created}`);
+  }
 
   render() {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div className="App">{this.renderComponent()}</div>
-        <SideBar
-          getComponent={this.getComponent}
-          is_loggedin={this.state.is_loggedin}
-          admin_created={this.state.admin_created}
-        />
+        <div class="container" style={{padding: 0}}>
+          <div class="row" style={{padding: 0}}>
+            <div className="col-sm-3" style={{backgroundColor: "#282c34", maxWidth: 150}}>
+              <SideBar
+                getComponent={this.getComponent}
+                is_loggedin={this.state.is_loggedin}
+                admin_created={this.props.admin_created}
+                is_admin={this.state.is_admin}
+              />
+            </div>
+
+            <div class="col">
+              <div className="App">{this.renderComponent()}</div>
+            </div>
+          </div>
+        </div>
       </ThemeProvider>
     );
   }
 }
+
+/*
+
+*/

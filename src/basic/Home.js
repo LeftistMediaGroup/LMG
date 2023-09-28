@@ -17,8 +17,6 @@ import Contact from "./home/Contact.js";
 import Programmer from "./home/Programmer.js";
 
 export class Home extends Component {
-  
-
   render() {
     return (
       <>

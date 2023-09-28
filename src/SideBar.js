@@ -8,8 +8,6 @@ export default class SideBar extends React.Component {
     super(props);
 
     this.state = {};
-
-    console.log(`Props SideBar: ${JSON.stringify(this.props, null, 2)}`)
   }
 
   returnComponent = (component) => {
@@ -17,22 +15,22 @@ export default class SideBar extends React.Component {
   };
 
   renderAccount = () => {
-    if (this.props.admin_created === false) {
-      if (this.props.is_loggedin === true) {
-        return (
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Account");
-              }
-            }}
-          >
-            Account
-          </Button>
-        );
-      } else {
-        return (
-          <>
+    if (this.props.is_loggedin === true) {
+      return (
+        <Button
+          onClick={() => {
+            if (this.state) {
+              this.returnComponent("Account");
+            }
+          }}
+        >
+          Account
+        </Button>
+      );
+    } else {
+      return (
+        <>
+          <div className="col">
             <Button
               onClick={() => {
                 if (this.state) {
@@ -43,6 +41,9 @@ export default class SideBar extends React.Component {
               {" "}
               SignUp
             </Button>
+          </div>
+
+          <div className="col">
             <Button
               onClick={() => {
                 if (this.state) {
@@ -53,88 +54,91 @@ export default class SideBar extends React.Component {
               {" "}
               Login
             </Button>
-          </>
-        );
-      }
-    } else {
+          </div>
+        </>
+      );
+    }
+  };
+
+  renderCreateAdmin = () => {
+    if (this.props.admin_created === false) {
       return (
-        <Button
-          onClick={() => {
-            if (this.state) {
-              this.returnComponent("RegisterAdmin");
-            }
-          }}
-        ></Button>
+        <div className="col">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("RegisterAdmin");
+              }
+            }}
+          >
+            Register-Admin
+          </Button>
+        </div>
+      );
+    }
+  };
+
+  renderAdminDashboard = () => {
+    if (this.props.is_admin === true) {
+      return (
+        <div className="col">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("AdminDashboard");
+              }
+            }}
+          >
+            Admin Dashboard
+          </Button>
+        </div>
       );
     }
   };
 
   render() {
     return (
-      <div className="sidebar">
-        <BrowserView>
-          <div>
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Home");
-                }
-              }}
-            >
-              {" "}
-              Home
-            </Button>
+      <div class="container" style={{padding: 0}}>
+        <div class="col">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Home");
+              }
+            }}
+          >
+            {" "}
+            Home
+          </Button>
+        </div>
 
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Education");
-                }
-              }}
-            >
-              Education
-            </Button>
+        <div className="col">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Education");
+              }
+            }}
+          >
+            Education
+          </Button>
+        </div>
 
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Resources");
-                }
-              }}
-            >
-              Resources
-            </Button>
+        <div className="col">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Resources");
+              }
+            }}
+          >
+            Resources
+          </Button>
+        </div>
 
-            {this.renderAccount()}
-          </div>
-        </BrowserView>
-
-        <MobileView>
-          <div>
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Home");
-                }
-              }}
-            >
-              {" "}
-              Home
-            </Button>
-
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Education");
-                }
-              }}
-            >
-              Education
-            </Button>
-
-            {this.renderAccount()}
-          </div>
-        </MobileView>
+        {this.renderAccount()}
+        {this.renderAdminDashboard()}
+        {this.renderCreateAdmin()}
       </div>
     );
   }
