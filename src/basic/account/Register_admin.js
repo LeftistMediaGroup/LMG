@@ -24,13 +24,17 @@ export class Register_Admin extends Component {
 
       console.log(`Data out`);
 
-      axios.defaults.withCredentials = true
-      
+      axios.defaults.withCredentials = true;
+
       axios
-        .put(`${process.env.Wade_Host}/system/register_admin`, {
-          password: password,
-          email: email,
-        },{ withCredentials: true })
+        .put(
+          `${process.env.Wade_Host}/system/register_admin`,
+          {
+            password: password,
+            email: email,
+          },
+          { withCredentials: true }
+        )
         .then((result) => {
           console.log(`Axios update: ${JSON.stringify(result)}`);
 
@@ -78,15 +82,13 @@ export class Register_Admin extends Component {
     return (
       <div className="row-centered">
         <div className="row-centered">
-          <div className="page-header">
-            <h5>Register - Admin</h5>
-          </div>
           <div className="row-centered" style={{ maxWidth: 500 }}>
             <Card>
               <CardContent>
+                <h5>Register - Admin</h5>
+
                 <form className="row-centered">
                   <Form.Group>
-                    <label htmlFor="InputEmail">Email</label>
                     <Form.Control
                       type="email"
                       id="InputEmail"
@@ -96,7 +98,6 @@ export class Register_Admin extends Component {
                   </Form.Group>
 
                   <Form.Group>
-                    <label htmlFor="exampleInputPassword1">Password</label>
                     <Form.Control
                       type="password"
                       id="InputPassword"
@@ -106,9 +107,6 @@ export class Register_Admin extends Component {
                   </Form.Group>
 
                   <Form.Group>
-                    <label htmlFor="InputConfirmPassword">
-                      Confirm Password
-                    </label>
                     <Form.Control
                       type="password"
                       className="form-control"

@@ -2,7 +2,6 @@ import { Routes, Route, Link } from "react-router-dom";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
 import Home from "./basic/Home.js";
-import Education from "./basic/Education.js";
 import Volunteering from "./basic/volunteering/Volunteering.js";
 import Account from "./basic/account/Account.js";
 
@@ -11,8 +10,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import SignUpForm from "./basic/account/SignUpForm.js";
 import { red } from "@mui/material/colors";
 
-import { BrowserView, MobileView } from "react-device-detect";
-
 import Register_Admin from "./basic/account/Register_admin.js";
 import Login from "./basic/account/Login.js";
 import React, { useEffect } from "react";
@@ -20,6 +17,10 @@ import SideBar from "./SideBar.js";
 import axios from "axios";
 import ResourceMap from "./basic/Resources/ResourceMap.js";
 import AdminDashboard from "./basic/dashboard/AdminDashboard.js";
+import TopBar from "./Topbar.js";
+import Dashboard from "./basic/dashboard/Dashboard.js";
+import { Margin } from "@mui/icons-material";
+import Education from "./basic/Education.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -52,8 +53,19 @@ export default class Layout extends React.Component {
       username: "Not initalized",
       component: "Home",
       is_admin: null,
+      topComponent: null,
     };
   }
+
+  renderTopComponent = () => {
+    if (this.state.is_loggedin === true) {
+      return (
+        <div className="row" style={{ backgroundColor: "#000000" }}>
+          <TopBar getTopComponent={this.getTopComponent} />
+        </div>
+      );
+    }
+  };
 
   setIs_admin = (is_admin) => {
     this.setState({ is_admin: is_admin });
@@ -79,12 +91,17 @@ export default class Layout extends React.Component {
           setIs_admin={this.setIs_admin}
         />
       );
-    } else if (this.state.component === "Account") {
-      return <Account username={this.state.username} />;
     } else if (this.state.component === "RegisterAdmin") {
       return <Register_Admin admin_created={this.admin_created} />;
     } else if (this.state.component === "Resources") {
       return <ResourceMap />;
+    } else if (this.state.component === "Dashboard") {
+      return (
+        <Dashboard
+          username={this.state.username}
+          topComponent={this.state.topComponent}
+        />
+      );
     } else if (this.state.component === "AdminDashboard") {
       return <AdminDashboard username={this.state.username} />;
     }
@@ -99,14 +116,24 @@ export default class Layout extends React.Component {
       this.setState({ component: "SignUp" });
     } else if (component === "LogIn") {
       this.setState({ component: "LogIn" });
-    } else if (component === "Account") {
-      this.setState({ component: "Account" });
+    } else if (component === "Dashboard") {
+      this.setState({ component: "Dashboard" });
     } else if (component === "RegisterAdmin") {
       this.setState({ component: "RegisterAdmin" });
     } else if (component === "Resources") {
       this.setState({ component: "Resources" });
     } else if (component === "AdminDashboard") {
       this.setState({ component: "AdminDashboard" });
+    }
+  };
+
+  getTopComponent = (component) => {
+    if (component === "Music") {
+      this.setState({ topComponent: "Music" });
+    } else if (component === "Messages") {
+      this.setState({ topComponent: "Messages" });
+    } else if (component === "RSS") {
+      this.setState({ topComponent: "RSS" });
     }
   };
 
@@ -149,19 +176,21 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container" style={{padding: 0}}>
-          <div class="row" style={{padding: 0}}>
-            <div className="col-sm-3" style={{backgroundColor: "#282c34", maxWidth: 150}}>
-              <SideBar
-                getComponent={this.getComponent}
-                is_loggedin={this.state.is_loggedin}
-                admin_created={this.props.admin_created}
-                is_admin={this.state.is_admin}
-              />
+        <div class="container">
+          <div class="row ">
+            <div class="row" style={{ margin: 0 }}>
+              {this.renderTopComponent()}
             </div>
 
-            <div class="col">
-              <div className="App">{this.renderComponent()}</div>
+            <SideBar
+              getComponent={this.getComponent}
+              is_loggedin={this.state.is_loggedin}
+              admin_created={this.props.admin_created}
+              is_admin={this.state.is_admin}
+            />
+
+            <div class="col" style={{ top: 60 }}>
+              {this.renderComponent()}
             </div>
           </div>
         </div>
@@ -169,7 +198,3 @@ export default class Layout extends React.Component {
     );
   }
 }
-
-/*
-
-*/

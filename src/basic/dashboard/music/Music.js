@@ -29,9 +29,9 @@ export class Music extends Component {
           <CardContent>
             <Card>
               <CardContent>
-                <h4>{song.Title}</h4>
+                <h5>{song.Title}</h5>
 
-                <Button>Play {song.Title} Now</Button>
+                <Button>Play</Button>
                 <br />
 
                 <Button
@@ -39,17 +39,14 @@ export class Music extends Component {
                     this.state.queue.push(song.Title);
                   }}
                 >
-                  Add {song.Title} to queue
+                  Add to queue
                 </Button>
                 <br />
 
                 <p> Song Info </p>
                 <p> {song.Artist}</p>
-
                 <p>Song Summary</p>
                 <p>{song.Summary}</p>
-                <br />
-
                 <p>
                   Lyrics:
                   <br />

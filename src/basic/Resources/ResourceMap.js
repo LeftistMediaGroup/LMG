@@ -62,21 +62,26 @@ export default class ResourceMap extends React.Component {
     ));
 
     return (
-      <Card>
+      <Card variant="outlined">
         <CardContent>
           <h3> Resource Map</h3>
           <br />
 
-          <p> DISCLAMER:</p>
-          <p>
-            {" "}
-            Leftist Media Group has not vetted any of the sources on this page
-          </p>
-          <p>
-            {" "}
-            This dataset is from <link href="MutualAid.Wiki"></link>
-            MutualAid.Wiki
-          </p>
+          <Card variant="outlined">
+            <CardContent>
+              <p> DISCLAMER:</p>
+              <p>
+                {" "}
+                Leftist Media Group has not vetted any of the sources on this
+                page
+              </p>
+              <p>
+                {" "}
+                This dataset is from <link href="MutualAid.Wiki"></link>
+                MutualAid.Wiki
+              </p>
+            </CardContent>
+          </Card>
 
           <Card sx={{ minHeight: 800 }}>
             <CardContent>

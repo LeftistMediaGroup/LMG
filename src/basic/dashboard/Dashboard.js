@@ -7,30 +7,46 @@ import Music from "./music/Music.js";
 import Sync from "./sync/Sync.js";
 import Kanban1 from "./kanban/kanban.js";
 
-import { ProSidebarProvider } from "react-pro-sidebar";
+import Account from "../account/Account.js";
 
 
 export class Dashboard extends Component {
-  render() {
-    return (
-      <div>
+  constructor(props) {
+    super(props);
+    
+    this.state = {};
+  };
+
+
+  renderComponent = (component) => {
+    if (component === null) {
+      return (
+        <Account username={this.props.username}/>
+      )
+    } else if (component === "Music") {
+      return (
         <Music></Music>
-      </div>
-    );
+      );
+    }
+  };
+  
+  render() {
+    this.renderComponent(this.props.topComponent)
   }
 }
 
 export default Dashboard;
 
 /*
-        <Calendar1></Calendar1>
+<Calendar1></Calendar1>
 
-        <ProSidebarProvider>
-          <Chat></Chat>
-        </ProSidebarProvider>
+<ProSidebarProvider>
+  <Chat></Chat>
+</ProSidebarProvider>
 
 
-        <Stats></Stats>
+<Stats></Stats>
 
-        <Sync></Sync>
+<Sync></Sync>
 */
+

@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import React from "react";
-import { BrowserView, MobileView } from "react-device-detect";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 
 export default class SideBar extends React.Component {
@@ -17,20 +16,22 @@ export default class SideBar extends React.Component {
   renderAccount = () => {
     if (this.props.is_loggedin === true) {
       return (
-        <Button
-          onClick={() => {
-            if (this.state) {
-              this.returnComponent("Account");
-            }
-          }}
-        >
-          Account
-        </Button>
+        <div class=" row">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Dashboard");
+              }
+            }}
+          >
+            Dashboard
+          </Button>
+        </div>
       );
     } else {
       return (
         <>
-          <div className="col">
+          <div class="row ">
             <Button
               onClick={() => {
                 if (this.state) {
@@ -43,7 +44,7 @@ export default class SideBar extends React.Component {
             </Button>
           </div>
 
-          <div className="col">
+          <div class="row ">
             <Button
               onClick={() => {
                 if (this.state) {
@@ -63,7 +64,7 @@ export default class SideBar extends React.Component {
   renderCreateAdmin = () => {
     if (this.props.admin_created === false) {
       return (
-        <div className="col">
+        <div class="row ">
           <Button
             onClick={() => {
               if (this.state) {
@@ -81,7 +82,7 @@ export default class SideBar extends React.Component {
   renderAdminDashboard = () => {
     if (this.props.is_admin === true) {
       return (
-        <div className="col">
+        <div class="row ">
           <Button
             onClick={() => {
               if (this.state) {
@@ -98,48 +99,48 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div class="container" style={{padding: 0}}>
-        <div class="col">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Home");
-              }
-            }}
-          >
-            {" "}
-            Home
-          </Button>
-        </div>
+      <div class="col-sm-3 sidebar">
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Home");
+                }
+              }}
+            >
+              {" "}
+              Home
+            </Button>
+          </div>
 
-        <div className="col">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Education");
-              }
-            }}
-          >
-            Education
-          </Button>
-        </div>
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Education");
+                }
+              }}
+            >
+              Education
+            </Button>
+          </div>
 
-        <div className="col">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Resources");
-              }
-            }}
-          >
-            Resources
-          </Button>
-        </div>
+          <div className="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Resources");
+                }
+              }}
+            >
+              Resources
+            </Button>
+          </div>
 
-        {this.renderAccount()}
-        {this.renderAdminDashboard()}
-        {this.renderCreateAdmin()}
-      </div>
+          {this.renderAccount()}
+          {this.renderAdminDashboard()}
+          {this.renderCreateAdmin()}
+        </div>
     );
   }
 }

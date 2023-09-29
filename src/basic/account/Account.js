@@ -19,22 +19,20 @@ export class Account extends Component {
   render() {
     return (
       <>
-        <div>
-          <Card>
-            <CardContent>
-              <h1>Account</h1>
-              <Card>
-                <CardContent>
-                  <h3>Profile</h3>
+        <Card>
+          <CardContent>
+            <h1>Account</h1>
+            <Card>
+              <CardContent>
+                <h3>Profile</h3>
 
-                  <p> Username: {this.props.username}</p>
+                <p> Username: {this.props.username}</p>
 
-                  <Dashboard />
-                </CardContent>
-              </Card>
-            </CardContent>
-          </Card>
-        </div>
+                <Dashboard />
+              </CardContent>
+            </Card>
+          </CardContent>
+        </Card>
       </>
     );
   }

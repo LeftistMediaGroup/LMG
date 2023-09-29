@@ -55,7 +55,7 @@ export class AdminDashboard extends Component {
 
     return (
       <div>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
             <h1> Admin Dashboard</h1>
 

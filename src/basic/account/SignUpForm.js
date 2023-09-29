@@ -82,74 +82,73 @@ export class SignUpForm extends Component {
 
   render() {
     return (
-      <div className="row-centered">
-        <div className="row-centered">
-          <div className="page-header">
-            <h4>Volunteering</h4>
-            <h5>Sign up</h5>
+      <Card variant="outlined">
+        <CardContent>
+          <div class="row-centered">
+            <div class="row-centered">
+              <div class="page-header">
+                <h5>Sign up</h5>
 
-            <p>
-              Leftist Media Group is recruiting for volunteers to spread
-              revolutionary propaganda.
-            </p>
+                <p>
+                  Leftist Media Group is recruiting for volunteers to spread
+                  revolutionary propaganda.
+                </p>
+              </div>
+              <div class="row-centered" style={{ maxWidth: 500 }}>
+                <Card>
+                  <CardContent>
+                    <form class="row-centered">
+                      <Form.Group>
+                        <Form.Control
+                          type="email"
+                          id="InputEmail"
+                          placeholder="Email"
+                          onChange={this.emailChange.bind(this)}
+                        />
+                      </Form.Group>
+
+                      <Form.Group>
+                        <Form.Control
+                          type="password"
+                          id="InputPassword"
+                          placeholder="Password"
+                          onChange={this.passwordChange.bind(this)}
+                        />
+                      </Form.Group>
+
+                      <Form.Group>
+
+                        <Form.Control
+                          type="password"
+                          class="form-control"
+                          id="InputConfirmPassword"
+                          placeholder="Password"
+                          onChange={this.password2Change.bind(this)}
+                        />
+                      </Form.Group>
+
+                      <br />
+
+                      <Button
+                        color="primary"
+                        variant="outlined"
+                        onClick={() => {
+                          console.log("Clicked!");
+                          this.submit();
+                        }}
+                        role="button"
+                        tabIndex={0}
+                      >
+                        Submit
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
-          <div className="row-centered" style={{ maxWidth: 500 }}>
-            <Card>
-              <CardContent>
-                <form className="row-centered">
-                  <Form.Group>
-                    <label htmlFor="InputEmail">Email</label>
-                    <Form.Control
-                      type="email"
-                      id="InputEmail"
-                      placeholder="Email"
-                      onChange={this.emailChange.bind(this)}
-                    />
-                  </Form.Group>
-
-                  <Form.Group>
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <Form.Control
-                      type="password"
-                      id="InputPassword"
-                      placeholder="Password"
-                      onChange={this.passwordChange.bind(this)}
-                    />
-                  </Form.Group>
-
-                  <Form.Group>
-                    <label htmlFor="InputConfirmPassword">
-                      Confirm Password
-                    </label>
-                    <Form.Control
-                      type="password"
-                      className="form-control"
-                      id="InputConfirmPassword"
-                      placeholder="Password"
-                      onChange={this.password2Change.bind(this)}
-                    />
-                  </Form.Group>
-
-                  <br />
-
-                  <Button
-                    color="primary"
-                    variant="outlined"
-                    onClick={() => {
-                      console.log("Clicked!");
-                      this.submit();
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    Submit
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     );
   }
 }

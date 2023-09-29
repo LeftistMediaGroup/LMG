@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 import { Dropdown } from "react-bootstrap";
 
 import SignUpForm from "./account/SignUpForm.js";
@@ -19,8 +18,8 @@ import Programmer from "./home/Programmer.js";
 export class Home extends Component {
   render() {
     return (
-      <>
-        <div>
+      <Card variant="outlined">
+        <CardContent>
           <div className="page-header">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
@@ -56,7 +55,7 @@ export class Home extends Component {
 
                 <div className="row">
                   <div className="col-sm">
-                    <Card>
+                    <Card variant="outlined">
                       <CardContent>
                         <p>
                           We are nearing the end of our fascist leadership path
@@ -67,7 +66,7 @@ export class Home extends Component {
                   </div>
 
                   <div className="col-sm">
-                    <Card>
+                    <Card variant="outlined">
                       <CardContent>
                         <p>
                           Overthrowing Capitalism will require a multifaceted
@@ -94,47 +93,47 @@ export class Home extends Component {
 
               <div className="row">
                 <div className="col" style={{ padding: 15 }}>
-                  <LMG_memes/>
+                  <LMG_memes />
                 </div>
 
                 <div className="col" style={{ padding: 15 }}>
-                  <Social_media/>
+                  <Social_media />
                 </div>
               </div>
 
               <div className="col" style={{ padding: 15 }}>
-                <Programmer/>
+                <Programmer />
               </div>
-              
+
               <div className="col" style={{ padding: 15 }}>
-                <Sophia/>
+                <Sophia />
               </div>
 
               <div className="row">
                 <div className="col" style={{ padding: 15 }}>
-                  <Wade/>
+                  <Wade />
                 </div>
 
                 <div className="col" style={{ padding: 15 }}>
-                <Music/>
+                  <Music />
                 </div>
               </div>
 
               <div className="col" style={{ padding: 15 }}>
-                <Mentorship/>
+                <Mentorship />
               </div>
 
               <div className="row-centered">
-                <SignUpForm/>
-                </div>
+                <SignUpForm />
+              </div>
 
               <div className="row-centerd" tyle={{ padding: 15 }}>
-                <Contact/>
+                <Contact />
               </div>
             </CardContent>
           </Card>
-        </div>
-      </>
+        </CardContent>
+      </Card>
     );
   }
 }
