@@ -99,7 +99,7 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div class="col sidebar">
+      <div className="col sidebar">
         <div class="row ">
           <Button
             onClick={() => {

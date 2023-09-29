@@ -183,7 +183,7 @@ export default class Layout extends React.Component {
             </div>
 
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-3 sidebarWrapper">
                 <SideBar
                   getComponent={this.getComponent}
                   is_loggedin={this.state.is_loggedin}
@@ -192,7 +192,7 @@ export default class Layout extends React.Component {
                 />
               </div>
 
-              <div class="col sidebarWrapper" style={{ top: 60 }}>
+              <div class="col" style={{ top: 60 }}>
                 {this.renderComponent()}
               </div>
             </div>
