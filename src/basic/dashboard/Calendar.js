@@ -141,7 +141,7 @@ class Calendar1 extends React.Component {
     switch (action) {
       case "update":
         axios
-          .post(`${process.env.Wade_host}/calendar/update_event`, {
+          .post(`${process.env.Wade_Host}/calendar/update_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
@@ -152,7 +152,7 @@ class Calendar1 extends React.Component {
 
       case "insert":
         axios
-          .post(`${process.env.Wade_host}/calendar/insert_event`, {
+          .post(`${process.env.Wade_Host}/calendar/insert_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
@@ -164,7 +164,7 @@ class Calendar1 extends React.Component {
 
       case "delete":
         axios
-          .post(`${process.env.Wade_host}/calendar/delete_event`, {
+          .post(`${process.env.Wade_Host}/calendar/delete_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
