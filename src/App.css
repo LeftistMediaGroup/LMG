@@ -3,13 +3,18 @@
 }
 
 .topbar {
-  background-color: "#000000";
-  width: 100%;
-  top: 10px;
+  background-color: #000000;
 }
 .bottombar {
-  background-color: "#000000";
+  background-color: #000000;
   width: 100%;
+  position: fixed;
+}
+
+.main {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0;
 }
 
 .App-header {
@@ -32,9 +37,10 @@
   padding-bottom: 50px;
   background-color: #121212;
   text-align: center;
-  top: 60px;
+  padding-top: 60;
   position: fixed;
 }
 .sidebarWrapper {
   height: 100%;
+  padding-top: 60;
 }

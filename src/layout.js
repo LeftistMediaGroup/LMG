@@ -70,11 +70,7 @@ export default class Layout extends React.Component {
 
   renderTopBar = () => {
     if (this.state.is_loggedin === true) {
-      return (
-        <div className="row" style={{ backgroundColor: "#000000" }}>
-          <TopBar getBottomComponent={this.getBottomComponent} />
-        </div>
-      );
+      return <TopBar getBottomComponent={this.getBottomComponent} />;
     }
   };
 
@@ -177,28 +173,24 @@ export default class Layout extends React.Component {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <div class="container">
-          <div class="row ">
-            <div class="row" style={{ margin: 0 }}>
-              {this.renderTopBar()}
-            </div>
-
-            <div class="row">
-              <div class="col-sm-3 sidebarWrapper">
-                <SideBar
-                  getComponent={this.getComponent}
-                  is_loggedin={this.state.is_loggedin}
-                  admin_created={this.props.admin_created}
-                  is_admin={this.state.is_admin}
-                />
-              </div>
-
-              <div class="col" style={{ top: 60 }}>
-                {this.renderComponent()}
-              </div>
-            </div>
-
-            <div class="row bottombar">{this.renderBottomBar()}</div>
+          <div class="row" style={{ paddingTop: 20 }}>
+            {this.renderTopBar()}
           </div>
+
+          <div class="row main" style={{ margin: 0 }}>
+            <div class="col-sm-3" style={{ margin: 0 }}>
+              <SideBar
+                getComponent={this.getComponent}
+                is_loggedin={this.state.is_loggedin}
+                admin_created={this.props.admin_created}
+                is_admin={this.state.is_admin}
+              />
+            </div>
+
+            <div class="col">{this.renderComponent()}</div>
+          </div>
+
+          <div class="row bottombar">{this.renderBottomBar()}</div>
         </div>
       </ThemeProvider>
     );

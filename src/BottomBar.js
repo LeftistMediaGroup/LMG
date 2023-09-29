@@ -25,6 +25,8 @@ export default class BottomBar extends React.Component {
   };
 
   render() {
-    return <div>{this.renderBottomComponent()}</div>;
+    return (
+      <div class="row position-fixed ">{this.renderBottomComponent()}</div>
+    );
   }
 }

@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
 import React from "react";
-import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 
 export default class TopBar extends React.Component {
   constructor(props) {
@@ -15,7 +14,7 @@ export default class TopBar extends React.Component {
 
   render() {
     return (
-      <>
+      <div class="row topbar position-sticky">
         <div class="col">
           <Button
             onClick={() => {
@@ -67,7 +66,7 @@ export default class TopBar extends React.Component {
             Notifications
           </Button>
         </div>
-      </>
+      </div>
     );
   }
 }
