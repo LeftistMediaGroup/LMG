@@ -99,48 +99,48 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div class="col-sm-3 sidebar">
-          <div class="row ">
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Home");
-                }
-              }}
-            >
-              {" "}
-              Home
-            </Button>
-          </div>
-
-          <div class="row ">
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Education");
-                }
-              }}
-            >
-              Education
-            </Button>
-          </div>
-
-          <div className="row ">
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("Resources");
-                }
-              }}
-            >
-              Resources
-            </Button>
-          </div>
-
-          {this.renderAccount()}
-          {this.renderAdminDashboard()}
-          {this.renderCreateAdmin()}
+      <div class="col sidebar">
+        <div class="row ">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Home");
+              }
+            }}
+          >
+            {" "}
+            Home
+          </Button>
         </div>
+
+        <div class="row ">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Education");
+              }
+            }}
+          >
+            Education
+          </Button>
+        </div>
+
+        <div className="row ">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Resources");
+              }
+            }}
+          >
+            Resources
+          </Button>
+        </div>
+
+        {this.renderAccount()}
+        {this.renderAdminDashboard()}
+        {this.renderCreateAdmin()}
+      </div>
     );
   }
 }

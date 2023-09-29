@@ -19,9 +19,10 @@ export class Dashboard extends Component {
 
 
   renderComponent = (component) => {
+    console.log(`Component: ${this.props.topComponent}`)
     if (component === null) {
       return (
-        <Account username={this.props.username}/>
+        <h1> Null </h1>
       )
     } else if (component === "Music") {
       return (
@@ -31,7 +32,9 @@ export class Dashboard extends Component {
   };
   
   render() {
-    this.renderComponent(this.props.topComponent)
+    return(
+      <Account username={this.props.username}/>
+    )
   }
 }
 

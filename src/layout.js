@@ -21,6 +21,7 @@ import TopBar from "./Topbar.js";
 import Dashboard from "./basic/dashboard/Dashboard.js";
 import { Margin } from "@mui/icons-material";
 import Education from "./basic/Education.js";
+import BottomBar from "./BottomBar.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -53,15 +54,25 @@ export default class Layout extends React.Component {
       username: "Not initalized",
       component: "Home",
       is_admin: null,
-      topComponent: null,
+      BottomBarComponent: null,
     };
   }
 
-  renderTopComponent = () => {
+  renderBottomBar = () => {
     if (this.state.is_loggedin === true) {
       return (
         <div className="row" style={{ backgroundColor: "#000000" }}>
-          <TopBar getTopComponent={this.getTopComponent} />
+          <BottomBar BottomBarComponent={this.state.BottomBarComponent} />
+        </div>
+      );
+    }
+  };
+
+  renderTopBar = () => {
+    if (this.state.is_loggedin === true) {
+      return (
+        <div className="row" style={{ backgroundColor: "#000000" }}>
+          <TopBar getBottomComponent={this.getBottomComponent} />
         </div>
       );
     }
@@ -96,12 +107,7 @@ export default class Layout extends React.Component {
     } else if (this.state.component === "Resources") {
       return <ResourceMap />;
     } else if (this.state.component === "Dashboard") {
-      return (
-        <Dashboard
-          username={this.state.username}
-          topComponent={this.state.topComponent}
-        />
-      );
+      return <Dashboard username={this.state.username} />;
     } else if (this.state.component === "AdminDashboard") {
       return <AdminDashboard username={this.state.username} />;
     }
@@ -127,13 +133,13 @@ export default class Layout extends React.Component {
     }
   };
 
-  getTopComponent = (component) => {
+  getBottomComponent = (component) => {
     if (component === "Music") {
-      this.setState({ topComponent: "Music" });
+      this.setState({ BottomBarComponent: "Music" });
     } else if (component === "Messages") {
-      this.setState({ topComponent: "Messages" });
+      this.setState({ BottomBarComponent: "Messages" });
     } else if (component === "RSS") {
-      this.setState({ topComponent: "RSS" });
+      this.setState({ BottomBarComponent: "RSS" });
     }
   };
 
@@ -164,12 +170,6 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     this.admin_created();
-
-    console.log(`admin_created: ${this.props.admin_created}`);
-  }
-
-  componentDidUpdate() {
-    console.log(`admin_created: ${this.props.admin_created}`);
   }
 
   render() {
@@ -179,19 +179,25 @@ export default class Layout extends React.Component {
         <div class="container">
           <div class="row ">
             <div class="row" style={{ margin: 0 }}>
-              {this.renderTopComponent()}
+              {this.renderTopBar()}
             </div>
 
-            <SideBar
-              getComponent={this.getComponent}
-              is_loggedin={this.state.is_loggedin}
-              admin_created={this.props.admin_created}
-              is_admin={this.state.is_admin}
-            />
+            <div class="row">
+              <div class="col-sm-3">
+                <SideBar
+                  getComponent={this.getComponent}
+                  is_loggedin={this.state.is_loggedin}
+                  admin_created={this.props.admin_created}
+                  is_admin={this.state.is_admin}
+                />
+              </div>
 
-            <div class="col" style={{ top: 60 }}>
-              {this.renderComponent()}
+              <div class="col sidebarWrapper" style={{ top: 60 }}>
+                {this.renderComponent()}
+              </div>
             </div>
+
+            <div class="row bottombar">{this.renderBottomBar()}</div>
           </div>
         </div>
       </ThemeProvider>

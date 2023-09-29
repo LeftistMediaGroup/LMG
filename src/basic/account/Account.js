@@ -1,25 +1,20 @@
 import React, { Component } from "react";
 
-import { Dropdown } from "react-bootstrap";
-
 import { Card, CardContent } from "@mui/material";
-import { Padding } from "@mui/icons-material";
 import axios from "axios";
-import Dashboard from "../dashboard/Dashboard";
+
 
 export class Account extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      is_loggedin: "Not initalized yet",
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
             <h1>Account</h1>
             <Card>
@@ -28,7 +23,6 @@ export class Account extends Component {
 
                 <p> Username: {this.props.username}</p>
 
-                <Dashboard />
               </CardContent>
             </Card>
           </CardContent>

@@ -5,6 +5,11 @@
 .topbar {
   background-color: "#000000";
   width: 100%;
+  top: 10px;
+}
+.bottombar {
+  background-color: "#000000";
+  width: 100%;
 }
 
 .App-header {
@@ -22,13 +27,14 @@
   color: #61dafb;
 }
 
-
 .sidebar {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #121212; 
+  background-color: #121212;
   text-align: center;
-  width: fit-content;
   top: 60px;
+  position: fixed;
+}
+.sidebarWrapper {
   height: 100%;
 }

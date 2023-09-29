@@ -10,7 +10,7 @@ export default class TopBar extends React.Component {
   }
 
   returnComponent = (component) => {
-    this.props.getTopComponent(component);
+    this.props.getBottomComponent(component);
   };
 
   render() {

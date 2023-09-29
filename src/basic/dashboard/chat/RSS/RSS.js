@@ -3,11 +3,7 @@ import React, { Component } from "react";
 
 import { Dropdown } from "react-bootstrap";
 
-import ReactPlayer from "react-player/lazy";
-
-import Library from "./Library/Library.json";
-
-export default class Music extends Component {
+export default class RSS extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +19,9 @@ export default class Music extends Component {
   }
 
   render() {
-    let cards = Object.values(Library).map((song) => (
+    let Feed = [];
+
+    let feed = Object.values(Feed).map((song) => (
       <div class="col">
         <Card>
           <CardContent>
@@ -63,27 +61,16 @@ export default class Music extends Component {
       <div class="container">
         <Card>
           <CardContent>
-            <h1> Music </h1>
+            <h1> RSS </h1>
 
-            <h4>Player</h4>
-            <br />
-
-            <ReactPlayer
-              width="100%"
-              height="10%"
-              controls
-              light
-              url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
-            />
-
-            <div className="row">
+            <div className="col">
               <Card>
                 <CardContent>
-                  <h4>Library</h4>
+                  <h4>Feed</h4>
 
                   <Card>
                     <CardContent>
-                      <div class="row">{cards}</div>
+                      <div class="row">{feed}</div>
                     </CardContent>
                   </Card>
                 </CardContent>
