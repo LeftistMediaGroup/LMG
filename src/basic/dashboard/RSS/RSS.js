@@ -11,7 +11,7 @@ export default class RSS extends Component {
       SongLibrary: [],
       urls: [],
       queue: [],
-      RSSRaw: null,
+      RSSRaw: [],
     };
   }
 
