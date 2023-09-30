@@ -73,7 +73,7 @@ export default class Music extends Component {
               height="10%"
               controls
               light
-              url={`${process.env.Wade_Host}/vidChunk?id=Fuck_the_Cistem`}
+              url={`https://localhost-0.tail5cd89.ts.net/vidChunk?id=Fuck_the_Cistem`}
             />
 
             <div className="row">

@@ -25,7 +25,7 @@ export class Login extends Component {
     axios.defaults.withCredentials = true;
 
     axios
-      .post(`${process.env.Wade_Host}/system/login`, {
+      .post(`https://localhost-0.tail5cd89.ts.net/system/login`, {
         username: username,
         password: password,
       })
