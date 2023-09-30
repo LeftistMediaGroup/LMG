@@ -20,7 +20,7 @@ export class AdminDashboard extends Component {
 
   getUserProfiles = () => {
     axios
-      .get(`https://localhost-0.tail5cd89.ts.net/admin/user_profiles`, {
+      .get(`http://localhost:3001/admin/user_profiles`, {
         withCredentials: true,
       })
       .then((result) => {

@@ -17,7 +17,7 @@ export default class RSS extends Component {
 
   getFeed = () => {
     axios
-      .get(`https://localhost-0.tail5cd89.ts.net/rss/get_rss`, {
+      .get(`http://localhost:3001/rss/get_rss`, {
         withCredentials: true,
       })
       .then((result) => {
@@ -36,7 +36,7 @@ export default class RSS extends Component {
   render() {
     let feed = [];
 
-    if (this.state.RSSRaw !== null) {
+    if (this.state.RSSRaw !== []) {
       feed = this.state.RSSRaw.map((story) => (
         <div class="col">
           <Card>

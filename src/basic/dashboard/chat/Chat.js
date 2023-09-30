@@ -14,13 +14,28 @@ export class Chat extends Component {
     super(props);
 
     this.state = {
-      showDiscussions: true,
-      showMessages: false,
+      showDiscussions: false,
+      showMessages: true,
+      Messages: [],
     };
 
     this.showDiscussions = this.showDiscussions.bind(this);
     this.showMessages = this.showMessages.bind(this);
-  }
+  };
+
+  getMessages = () =>{
+    axios
+    .get(`http://localhost:3001/messages/get_messages`, {
+      withCredentials: true,
+    })
+    .then((result) => {
+      console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
+      this.setState({ Messages: result });
+    })
+    .catch((err) => {
+      console.log(`Error: ${err}`);
+    });
+  };
 
   collapseSidebar() {}
 
@@ -38,79 +53,79 @@ export class Chat extends Component {
 
   Messages() {
     return (
-      <div className="col grid-margin ">
-        <div className="card">
-          <div className="card-body">
-            <div className="justify-content-between">
-              <h4 className="card-title">Messages</h4>
+      <div class="col grid-margin ">
+        <div class="card">
+          <div class="card-body">
+            <div class="justify-content-between">
+              <h4 class="card-title">Messages</h4>
 
-              <p className="text-muted mb-1 small">View all</p>
+              <p class="text-muted mb-1 small">View all</p>
             </div>
 
-            <div className="preview-list">
-              <div className="preview-item border-bottom">
-                <div className="preview-thumbnail"></div>
+            <div class="preview-list">
+              <div class="preview-item border-bottom">
+                <div class="preview-thumbnail"></div>
 
-                <div className="preview-item-content d-flex flex-grow">
-                  <div className="flex-grow">
-                    <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 className="preview-subject">Leonard</h6>
+                <div class="preview-item-content d-flex flex-grow">
+                  <div class="flex-grow">
+                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                      <h6 class="preview-subject">Leonard</h6>
 
-                      <p className="text-muted text-small">5 minutes ago</p>
+                      <p class="text-muted text-small">5 minutes ago</p>
                     </div>
 
-                    <p className="text-muted">
+                    <p class="text-muted">
                       Well, it seems to be working now.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="preview-item border-bottom">
-                <div className="preview-thumbnail"></div>
+              <div class="preview-item border-bottom">
+                <div class="preview-thumbnail"></div>
 
-                <div className="preview-item-content d-flex flex-grow">
-                  <div className="flex-grow">
-                    <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 className="preview-subject">Luella Mills</h6>
+                <div class="preview-item-content d-flex flex-grow">
+                  <div class="flex-grow">
+                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                      <h6 class="preview-subject">Luella Mills</h6>
 
-                      <p className="text-muted text-small">10 Minutes Ago</p>
+                      <p class="text-muted text-small">10 Minutes Ago</p>
                     </div>
 
-                    <p className="text-muted">
+                    <p class="text-muted">
                       Well, it seems to be working now.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="preview-item border-bottom">
-                <div className="preview-thumbnail"></div>
+              <div class="preview-item border-bottom">
+                <div class="preview-thumbnail"></div>
 
-                <div className="preview-item-content d-flex flex-grow">
-                  <div className="flex-grow">
-                    <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 className="preview-subject">Ethel Kelly</h6>
+                <div class="preview-item-content d-flex flex-grow">
+                  <div class="flex-grow">
+                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                      <h6 class="preview-subject">Ethel Kelly</h6>
 
-                      <p className="text-muted text-small">2 Hours Ago</p>
+                      <p class="text-muted text-small">2 Hours Ago</p>
                     </div>
-                    <p className="text-muted">Please review the tickets</p>
+                    <p class="text-muted">Please review the tickets</p>
                   </div>
                 </div>
               </div>
 
-              <div className="preview-item border-bottom">
-                <div className="preview-thumbnail"></div>
+              <div class="preview-item border-bottom">
+                <div class="preview-thumbnail"></div>
 
-                <div className="preview-item-content d-flex flex-grow">
-                  <div className="flex-grow">
-                    <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 className="preview-subject">Herman May</h6>
+                <div class="preview-item-content d-flex flex-grow">
+                  <div class="flex-grow">
+                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                      <h6 class="preview-subject">Herman May</h6>
 
-                      <p className="text-muted text-small">4 Hours Ago</p>
+                      <p class="text-muted text-small">4 Hours Ago</p>
                     </div>
 
-                    <p className="text-muted">
+                    <p class="text-muted">
                       Thanks a lot. It was easy to fix it .
                     </p>
                   </div>
@@ -121,16 +136,20 @@ export class Chat extends Component {
         </div>
       </div>
     );
+  };
+
+  componentDidMount() {
+    this.getMessages();
   }
 
   render() {
     return (
       <Card>
         <CardContent>
-          <div className="row">
-            <div className="col-md grid-margin stretch-card">
-              <div className="card">
-                <div className="card-body">
+          <div class="row">
+            <div class="col-md grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
                   <div
                     id="app"
                     style={({ height: "100vh" }, { display: "flex" })}
@@ -175,9 +194,9 @@ export class Chat extends Component {
                     </Sidebar>
                     <main>
                       {this.state.showDiscussions && (
-                        <div className="col grid-margin ">
-                          <div className="card">
-                            <div className="card-body">
+                        <div class="col grid-margin ">
+                          <div class="card">
+                            <div class="card-body">
                               <h3> End of Discussions </h3>
                               <p>
                                 {" "}
