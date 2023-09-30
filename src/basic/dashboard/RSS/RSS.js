@@ -15,7 +15,7 @@ export default class RSS extends Component {
     };
   }
 
-  getFeed() {
+  getFeed = () => {
     axios
       .get(
         `https://localhost-0.tail5cd89.ts.net/rss/get_rss`,
@@ -36,7 +36,8 @@ export default class RSS extends Component {
 
   componentDidMount() {
     this.getFeed();
-  }
+  };
+  
   render() {
     let feed = this.state.RSSRaw.map((story) => (
       <div class="col">
