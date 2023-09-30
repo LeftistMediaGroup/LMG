@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
 const webpack = require("webpack");
 
 const cesiumSource = "node_modules/cesium/Source";
@@ -40,7 +39,6 @@ module.exports = {
       favicon: "./public/favicon.ico",
       filename: "index.html",
     }),
-    new Dotenv(),
     // fix "process is not defined" error:
     new webpack.ProvidePlugin({
       process: "process/browser",
