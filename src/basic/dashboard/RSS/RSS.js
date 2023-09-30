@@ -14,8 +14,22 @@ export default class RSS extends Component {
     };
   }
 
-  getUrls(song) {
-    return song.URL;
+  getFeed() {
+    axios
+        .put(
+          `https://localhost-0.tail5cd89.ts.net/rss/get_rss`,
+          {
+            password: password,
+            email: email,
+          },
+          { withCredentials: true }
+        )
+        .then((result) => {
+          console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
+        })
+        .catch((err) => {
+          console.log(`Error: ${err}`);
+        });
   }
 
   render() {

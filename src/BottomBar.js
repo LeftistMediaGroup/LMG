@@ -3,7 +3,7 @@ import React from "react";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 import Music from "./basic/home/Music";
 import Chat from "./basic/dashboard/chat/Chat";
-import RSS from "./basic/dashboard/chat/RSS/RSS";
+import RSS from "./basic/dashboard/RSS/RSS";
 
 export default class BottomBar extends React.Component {
   constructor(props) {
