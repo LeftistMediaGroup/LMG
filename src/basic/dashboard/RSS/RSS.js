@@ -17,14 +17,9 @@ export default class RSS extends Component {
 
   getFeed = () => {
     axios
-      .get(
-        `https://localhost-0.tail5cd89.ts.net/rss/get_rss`,
-        {
-          password: password,
-          email: email,
-        },
-        { withCredentials: true }
-      )
+      .get(`https://localhost-0.tail5cd89.ts.net/rss/get_rss`, {
+        withCredentials: true,
+      })
       .then((result) => {
         console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
         this.setState({ RSSRaw: result });
@@ -32,12 +27,12 @@ export default class RSS extends Component {
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
-  }
+  };
 
   componentDidMount() {
     this.getFeed();
-  };
-  
+  }
+
   render() {
     let feed = this.state.RSSRaw.map((story) => (
       <div class="col">
@@ -48,7 +43,6 @@ export default class RSS extends Component {
                 <h5>{story.Title}</h5>
 
                 <br />
-
               </CardContent>
             </Card>
           </CardContent>
