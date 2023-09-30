@@ -7,6 +7,7 @@ import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { Card, CardContent } from "@mui/material";
 
 export class Chat extends Component {
   constructor(props) {
@@ -21,8 +22,7 @@ export class Chat extends Component {
     this.showMessages = this.showMessages.bind(this);
   }
 
-  collapseSidebar() {
-  }
+  collapseSidebar() {}
 
   showDiscussions() {
     this.setState({
@@ -49,9 +49,7 @@ export class Chat extends Component {
 
             <div className="preview-list">
               <div className="preview-item border-bottom">
-                <div className="preview-thumbnail">
-
-                </div>
+                <div className="preview-thumbnail"></div>
 
                 <div className="preview-item-content d-flex flex-grow">
                   <div className="flex-grow">
@@ -69,9 +67,7 @@ export class Chat extends Component {
               </div>
 
               <div className="preview-item border-bottom">
-                <div className="preview-thumbnail">
-
-                </div>
+                <div className="preview-thumbnail"></div>
 
                 <div className="preview-item-content d-flex flex-grow">
                   <div className="flex-grow">
@@ -89,9 +85,7 @@ export class Chat extends Component {
               </div>
 
               <div className="preview-item border-bottom">
-                <div className="preview-thumbnail">
-
-                </div>
+                <div className="preview-thumbnail"></div>
 
                 <div className="preview-item-content d-flex flex-grow">
                   <div className="flex-grow">
@@ -106,8 +100,7 @@ export class Chat extends Component {
               </div>
 
               <div className="preview-item border-bottom">
-                <div className="preview-thumbnail">
-                </div>
+                <div className="preview-thumbnail"></div>
 
                 <div className="preview-item-content d-flex flex-grow">
                   <div className="flex-grow">
@@ -132,68 +125,78 @@ export class Chat extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md grid-margin stretch-card">
-          <div className="card">
-            <div className="card-body">
-              <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
-                <Sidebar style={{ height: "100vh" }}>
-                  <Menu>
-                    <MenuItem
-                      icon={<MenuOutlinedIcon />}
-                      onClick={() => {
-                        this.collapseSidebar();
-                      }}
-                      style={{ textAlign: "center" }}
-                    >
-                      Discussions & Messages
-                    </MenuItem>
+      <Card>
+        <CardContent>
+          <div className="row">
+            <div className="col-md grid-margin stretch-card">
+              <div className="card">
+                <div className="card-body">
+                  <div
+                    id="app"
+                    style={({ height: "100vh" }, { display: "flex" })}
+                  >
+                    <Sidebar style={{ height: "100vh" }}>
+                      <Menu>
+                        <MenuItem
+                          icon={<MenuOutlinedIcon />}
+                          onClick={() => {
+                            this.collapseSidebar();
+                          }}
+                          style={{ textAlign: "center" }}
+                        >
+                          Discussions & Messages
+                        </MenuItem>
 
-                    <MenuItem
-                      icon={<HomeOutlinedIcon />}
-                      onClick={() => {
-                        this.showDiscussions();
-                      }}
-                    >
-                      Discussions
-                    </MenuItem>
-                    <MenuItem icon={<ReceiptOutlinedIcon />}>
-                      New Discussion
-                    </MenuItem>
+                        <MenuItem
+                          icon={<HomeOutlinedIcon />}
+                          onClick={() => {
+                            this.showDiscussions();
+                          }}
+                        >
+                          Discussions
+                        </MenuItem>
+                        <MenuItem icon={<ReceiptOutlinedIcon />}>
+                          New Discussion
+                        </MenuItem>
 
-                    <MenuItem
-                      icon={<PeopleOutlinedIcon />}
-                      onClick={() => {
-                        this.showMessages();
-                      }}
-                    >
-                      Messages
-                    </MenuItem>
+                        <MenuItem
+                          icon={<PeopleOutlinedIcon />}
+                          onClick={() => {
+                            this.showMessages();
+                          }}
+                        >
+                          Messages
+                        </MenuItem>
 
-                    <MenuItem icon={<ContactsOutlinedIcon />}>
-                      Contacts
-                    </MenuItem>
-                  </Menu>
-                </Sidebar>
-                <main>
-                  {this.state.showDiscussions && (
-                    <div className="col grid-margin ">
-                      <div className="card">
-                        <div className="card-body">
-                          <h3> End of Discussions </h3>
-                          <p> Ask a question or post a new topic to discuss </p>
+                        <MenuItem icon={<ContactsOutlinedIcon />}>
+                          Contacts
+                        </MenuItem>
+                      </Menu>
+                    </Sidebar>
+                    <main>
+                      {this.state.showDiscussions && (
+                        <div className="col grid-margin ">
+                          <div className="card">
+                            <div className="card-body">
+                              <h3> End of Discussions </h3>
+                              <p>
+                                {" "}
+                                Ask a question or post a new topic to discuss{" "}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  )}
+                      )}
 
-                  {this.state.showMessages && this.Messages()}
-                </main>
+                      {this.state.showMessages && this.Messages()}
+                    </main>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     );
   }
 }

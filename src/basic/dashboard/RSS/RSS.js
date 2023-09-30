@@ -34,21 +34,27 @@ export default class RSS extends Component {
   }
 
   render() {
-    let feed = this.state.RSSRaw.map((story) => (
-      <div class="col">
-        <Card>
-          <CardContent>
-            <Card>
-              <CardContent>
-                <h5>{story.Title}</h5>
+    let feed = [];
 
-                <br />
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
-      </div>
-    ));
+    if (this.state.RSSRaw !== null) {
+      feed = this.state.RSSRaw.map((story) => (
+        <div class="col">
+          <Card>
+            <CardContent>
+              <Card>
+                <CardContent>
+                  <h5>{story.Title}</h5>
+
+                  <br />
+                </CardContent>
+              </Card>
+            </CardContent>
+          </Card>
+        </div>
+      ));
+    } else {
+      feed = <p>Not Initialized Yet</p>;
+    }
 
     return (
       <div class="container">
