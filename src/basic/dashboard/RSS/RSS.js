@@ -1,7 +1,16 @@
 import { Button, Card, CardContent } from "@mui/material";
+import axios from "axios";
 import React, { Component } from "react";
 
+import { jsonrepair } from "jsonrepair";
+
 import { Dropdown } from "react-bootstrap";
+
+import ReactHtmlParser, {
+  processNodes,
+  convertNodeToElement,
+  htmlparser2,
+} from "react-html-parser";
 
 export default class RSS extends Component {
   constructor(props) {
@@ -17,12 +26,29 @@ export default class RSS extends Component {
 
   getFeed = () => {
     axios
-      .get(`http://localhost:3001/rss/get_rss`, {
+      .get(`http://localhost:3001/rss_out/get_rss`, {
         withCredentials: true,
       })
       .then((result) => {
-        console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
-        this.setState({ RSSRaw: result });
+        console.log(`Axios update: ${JSON.stringify(result.data, null, 2)}`);
+
+        this.props.returnFeed(
+          result.data.map((story) => (
+            <div class="row">
+              <Card variant="outlined">
+                <CardContent>
+                  <Card>
+                    <CardContent>
+                      <p> {JSON.stringify(story.doc.title, null, 2)} </p>
+
+                      <div>{ReactHtmlParser(story.doc.body)}</div>
+                    </CardContent>
+                  </Card>
+                </CardContent>
+              </Card>
+            </div>
+          ))
+        );
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
@@ -34,50 +60,26 @@ export default class RSS extends Component {
   }
 
   render() {
-    let feed = [];
-
-    if (this.state.RSSRaw !== []) {
-      feed = this.state.RSSRaw.map((story) => (
-        <div class="col">
-          <Card>
-            <CardContent>
-              <Card>
-                <CardContent>
-                  <h5>{story.Title}</h5>
-
-                  <br />
-                </CardContent>
-              </Card>
-            </CardContent>
-          </Card>
-        </div>
-      ));
-    } else {
-      feed = <p>Not Initialized Yet</p>;
-    }
-
     return (
-      <div class="container">
-        <Card>
-          <CardContent>
-            <h1> RSS </h1>
+      <Card>
+        <CardContent>
+          <h1> RSS </h1>
 
-            <div className="col">
-              <Card>
-                <CardContent>
-                  <h4>Feed</h4>
+          <div className="col">
+            <Card>
+              <CardContent>
+                <h4>Feed</h4>
 
-                  <Card>
-                    <CardContent>
-                      <div class="row">{feed}</div>
-                    </CardContent>
-                  </Card>
-                </CardContent>
-              </Card>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+                <Card>
+                  <CardContent>
+                    <div class="row">{this.props.RSSFeed}</div>
+                  </CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 }

@@ -8,6 +8,7 @@ import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Card, CardContent } from "@mui/material";
+import axios from "axios";
 
 export class Chat extends Component {
   constructor(props) {
@@ -21,20 +22,20 @@ export class Chat extends Component {
 
     this.showDiscussions = this.showDiscussions.bind(this);
     this.showMessages = this.showMessages.bind(this);
-  };
+  }
 
-  getMessages = () =>{
+  getMessages = () => {
     axios
-    .get(`http://localhost:3001/messages/get_messages`, {
-      withCredentials: true,
-    })
-    .then((result) => {
-      console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
-      this.setState({ Messages: result });
-    })
-    .catch((err) => {
-      console.log(`Error: ${err}`);
-    });
+      .get(`http://localhost:3001/messages/get_messages`, {
+        withCredentials: true,
+      })
+      .then((result) => {
+        console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
+        this.setState({ Messages: result });
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
   };
 
   collapseSidebar() {}
@@ -74,9 +75,7 @@ export class Chat extends Component {
                       <p class="text-muted text-small">5 minutes ago</p>
                     </div>
 
-                    <p class="text-muted">
-                      Well, it seems to be working now.
-                    </p>
+                    <p class="text-muted">Well, it seems to be working now.</p>
                   </div>
                 </div>
               </div>
@@ -92,9 +91,7 @@ export class Chat extends Component {
                       <p class="text-muted text-small">10 Minutes Ago</p>
                     </div>
 
-                    <p class="text-muted">
-                      Well, it seems to be working now.
-                    </p>
+                    <p class="text-muted">Well, it seems to be working now.</p>
                   </div>
                 </div>
               </div>
@@ -136,7 +133,7 @@ export class Chat extends Component {
         </div>
       </div>
     );
-  };
+  }
 
   componentDidMount() {
     this.getMessages();

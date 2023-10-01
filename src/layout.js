@@ -190,7 +190,9 @@ export default class Layout extends React.Component {
             <div class="col">{this.renderComponent()}</div>
           </div>
 
-          <div class="row bottombar">{this.renderBottomBar()}</div>
+          <div class="row">
+            <div class="row bottombar">{this.renderBottomBar()}</div>
+          </div>
         </div>
       </ThemeProvider>
     );
