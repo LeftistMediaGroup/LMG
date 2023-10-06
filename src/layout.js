@@ -62,7 +62,10 @@ export default class Layout extends React.Component {
     if (this.state.is_loggedin === true) {
       return (
         <div className="row" style={{ backgroundColor: "#000000" }}>
-          <BottomBar BottomBarComponent={this.state.BottomBarComponent} />
+          <BottomBar
+            BottomBarComponent={this.state.BottomBarComponent}
+            username={this.state.username}
+          />
         </div>
       );
     }
@@ -172,7 +175,7 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container">
+        <div class="container-fluid">
           <div class="row" style={{ paddingTop: 20 }}>
             {this.renderTopBar()}
           </div>
@@ -190,8 +193,8 @@ export default class Layout extends React.Component {
             <div class="col">{this.renderComponent()}</div>
           </div>
 
-          <div class="row">
-            <div class="row bottombar">{this.renderBottomBar()}</div>
+          <div class="row" style={{ margin: 0 }}>
+            {this.renderBottomBar()}
           </div>
         </div>
       </ThemeProvider>

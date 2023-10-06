@@ -10,209 +10,294 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Card, CardContent } from "@mui/material";
 import axios from "axios";
 
+import Contacts from "../contacts/contacts.js";
+
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+  ConversationList,
+  Conversation,
+  ConversationHeader,
+  Avatar,
+} from "@chatscope/chat-ui-kit-react";
+
+import strftime from "strftime";
+
 export class Chat extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      conversations: {},
+      activeChat: null,
+      activeMessages: {},
+      showChat: true,
       showDiscussions: false,
-      showMessages: true,
-      Messages: [],
+      showContacts: false,
+      contacts: {},
+      allUsers: {},
+      usersBack: {},
     };
-
-    this.showDiscussions = this.showDiscussions.bind(this);
-    this.showMessages = this.showMessages.bind(this);
   }
+
+  getAllUsers = (data) => {
+    let usersOut = {};
+
+    console.log(`Get All: ${JSON.stringify(this.state.allUsers)}`);
+    console.log(`Data: ${JSON.stringify(data, null, 2)}`);
+
+    Object.values(data).forEach((user) => {
+      if (!JSON.stringify(this.state.contacts).includes(user.username)) {
+        usersOut[user.username] = user;
+      }
+    });
+
+    this.setState({ allUsers: usersOut });
+    console.log(
+      `ALLusers after: ${JSON.stringify(this.state.allUsers, null, 2)}`
+    );
+  };
+
+  getAllContacts = (data) => {
+    this.setState({ contacts: data });
+  };
+
+  clearUsers = () => {
+    this.setState({ usersBack: {} });
+  };
+
+  getReturnedUsers = (user) => {
+    let usersNow = this.state.usersBack;
+
+    usersNow[user.username] = user;
+
+    this.setState({ usersBack: usersNow });
+    console.log(`AllUsers: ${JSON.stringify(this.state.usersBack)}`);
+  };
+
+  showContacts = () => {
+    this.setState({
+      showContacts: !this.state.showContacts,
+    });
+  };
+
+  showDiscussions = () => {
+    this.setState({
+      showDiscussions: !this.state.showDiscussions,
+    });
+  };
+
+  showChat = () => {
+    this.setState({
+      showChat: !this.state.showChat,
+    });
+  };
+
+  showMessages = () => {
+    this.setState({
+      showMessages: !this.state.showMessages,
+    });
+  };
+  renderSidebar = () => {
+    {
+      this.state.showDiscussions && (
+        <div class="col grid-margin ">
+          <div class="card">
+            <div class="card-body">
+              <h3> End of Discussions </h3>
+              <p> Ask a question or post a new topic to discuss </p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    {
+      this.state.showMessages && this.Messages();
+    }
+  };
 
   getMessages = () => {
     axios
-      .get(`http://localhost:3001/messages/get_messages`, {
-        withCredentials: true,
-      })
+      .put(
+        `http://localhost:3001/messages/get_messages`,
+        {
+          username: this.props.username,
+        },
+        {
+          withCredentials: true,
+        }
+      )
       .then((result) => {
-        console.log(`Axios update: ${JSON.stringify(result, null, 2)}`);
-        this.setState({ Messages: result });
+        console.log(`Axios update: ${JSON.stringify(result.data, null, 2)}`);
+        this.setState({ conversations: result.data });
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
   };
 
-  collapseSidebar() {}
+  renderChat = () => {
+    if (this.state.activeChat !== null) {
+      let activeChatName = this.state.activeChat;
 
-  showDiscussions() {
-    this.setState({
-      showDiscussions: !this.state.showDiscussions,
-    });
-  }
+      let messages = Object.values(this.props.activeMessages).map((message) => (
+        <>
+          <Message
+            model={{
+              message: message.message,
+              sentTime: message.sentTime,
+              sender: message.sender,
+            }}
+          />
+        </>
+      ));
 
-  showMessages() {
-    this.setState({
-      showMessages: !this.state.showMessages,
-    });
-  }
+      return (
+        <ChatContainer>
+          <ConversationHeader>
+            <ConversationHeader.Content>
+              <Avatar src={JSON.stringify(this.props.avatarLink)} />
+            </ConversationHeader.Content>
+          </ConversationHeader>
 
-  Messages() {
-    return (
-      <div class="col grid-margin ">
-        <div class="card">
-          <div class="card-body">
-            <div class="justify-content-between">
-              <h4 class="card-title">Messages</h4>
+          <MessageList>{messages} </MessageList>
+          <MessageInput placeholder="Type message here" />
+        </ChatContainer>
+      );
+    }
+  };
 
-              <p class="text-muted mb-1 small">View all</p>
-            </div>
-
-            <div class="preview-list">
-              <div class="preview-item border-bottom">
-                <div class="preview-thumbnail"></div>
-
-                <div class="preview-item-content d-flex flex-grow">
-                  <div class="flex-grow">
-                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 class="preview-subject">Leonard</h6>
-
-                      <p class="text-muted text-small">5 minutes ago</p>
-                    </div>
-
-                    <p class="text-muted">Well, it seems to be working now.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="preview-item border-bottom">
-                <div class="preview-thumbnail"></div>
-
-                <div class="preview-item-content d-flex flex-grow">
-                  <div class="flex-grow">
-                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 class="preview-subject">Luella Mills</h6>
-
-                      <p class="text-muted text-small">10 Minutes Ago</p>
-                    </div>
-
-                    <p class="text-muted">Well, it seems to be working now.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="preview-item border-bottom">
-                <div class="preview-thumbnail"></div>
-
-                <div class="preview-item-content d-flex flex-grow">
-                  <div class="flex-grow">
-                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 class="preview-subject">Ethel Kelly</h6>
-
-                      <p class="text-muted text-small">2 Hours Ago</p>
-                    </div>
-                    <p class="text-muted">Please review the tickets</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="preview-item border-bottom">
-                <div class="preview-thumbnail"></div>
-
-                <div class="preview-item-content d-flex flex-grow">
-                  <div class="flex-grow">
-                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                      <h6 class="preview-subject">Herman May</h6>
-
-                      <p class="text-muted text-small">4 Hours Ago</p>
-                    </div>
-
-                    <p class="text-muted">
-                      Thanks a lot. It was easy to fix it .
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  setActiveChat = (conversation) => {
+    this.props.getActiveMessages(conversation.messages);
+    this.props.getAvatarLink(conversation.avatarLink);
+    this.setState({ activeChat: conversation.conversationName });
+  };
 
   componentDidMount() {
     this.getMessages();
   }
 
   render() {
+    let conversations = Object.values(this.state.conversations).map(
+      (conversation) => (
+        <Conversation
+          name={conversation.name}
+          lastSenderName={conversation.lastSenderName}
+          info={conversation.info}
+          unreadCnt={conversation.unreadCnt}
+          unreadDot={conversation.unreadDot}
+          lastActivityTime={conversation.lastActivityTime}
+          onClick={() => this.setActiveChat(conversation)}
+        >
+          {" "}
+          <Avatar src={conversation.avatarLink} />
+        </Conversation>
+      )
+    );
+
     return (
-      <Card>
-        <CardContent>
-          <div class="row">
-            <div class="col-md grid-margin stretch-card">
+      <>
+        <div class="col">
+          <Sidebar style={{ height: "100vh" }}>
+            <Menu>
+              <MenuItem
+                icon={<MenuOutlinedIcon />}
+                onClick={() => {
+                  this.collapseSidebar();
+                }}
+                style={{ textAlign: "center" }}
+              >
+                Discussions & Chat
+              </MenuItem>
+
+              <MenuItem
+                icon={<HomeOutlinedIcon />}
+                onClick={() => {
+                  this.showDiscussions();
+                }}
+              >
+                Discussions
+              </MenuItem>
+              <MenuItem icon={<ReceiptOutlinedIcon />}>New Discussion</MenuItem>
+
+              <MenuItem
+                icon={<PeopleOutlinedIcon />}
+                onClick={() => {
+                  this.showChat();
+                }}
+              >
+                Chat
+              </MenuItem>
+
+              <MenuItem
+                icon={<ContactsOutlinedIcon />}
+                onClick={() => {
+                  this.showContacts();
+                }}
+              >
+                Contacts
+              </MenuItem>
+            </Menu>
+          </Sidebar>
+        </div>
+        <div class="row">
+          {this.state.showChat && (
+            <Card variant="outlined">
+              <CardContent>
+                <div style={{ height: "500px" }}>
+                  <MainContainer>
+                    <div class="col-6">
+                      <br />
+
+                      <div class="row">
+                        <h4> Chat </h4>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                          <ConversationList>{conversations}</ConversationList>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">{this.renderChat()}</div>
+                  </MainContainer>
+                </div>
+              </CardContent>
+            </Card>
+          )}{" "}
+        </div>{" "}
+        <div class="row">
+          {this.state.showDiscussions && (
+            <div class="col grid-margin ">
               <div class="card">
                 <div class="card-body">
-                  <div
-                    id="app"
-                    style={({ height: "100vh" }, { display: "flex" })}
-                  >
-                    <Sidebar style={{ height: "100vh" }}>
-                      <Menu>
-                        <MenuItem
-                          icon={<MenuOutlinedIcon />}
-                          onClick={() => {
-                            this.collapseSidebar();
-                          }}
-                          style={{ textAlign: "center" }}
-                        >
-                          Discussions & Messages
-                        </MenuItem>
-
-                        <MenuItem
-                          icon={<HomeOutlinedIcon />}
-                          onClick={() => {
-                            this.showDiscussions();
-                          }}
-                        >
-                          Discussions
-                        </MenuItem>
-                        <MenuItem icon={<ReceiptOutlinedIcon />}>
-                          New Discussion
-                        </MenuItem>
-
-                        <MenuItem
-                          icon={<PeopleOutlinedIcon />}
-                          onClick={() => {
-                            this.showMessages();
-                          }}
-                        >
-                          Messages
-                        </MenuItem>
-
-                        <MenuItem icon={<ContactsOutlinedIcon />}>
-                          Contacts
-                        </MenuItem>
-                      </Menu>
-                    </Sidebar>
-                    <main>
-                      {this.state.showDiscussions && (
-                        <div class="col grid-margin ">
-                          <div class="card">
-                            <div class="card-body">
-                              <h3> End of Discussions </h3>
-                              <p>
-                                {" "}
-                                Ask a question or post a new topic to discuss{" "}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {this.state.showMessages && this.Messages()}
-                    </main>
-                  </div>
+                  <h3> End of Discussions </h3>
+                  <p> Ask a question or post a new topic to discuss </p>
                 </div>
               </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          )}{" "}
+        </div>
+        <div class="row">
+          {this.state.showContacts && (
+            <Contacts
+              username={this.props.username}
+              allUsers={this.state.allUsers}
+              usersBack={this.state.usersBack}
+              contacts={this.state.contacts}
+              getReturnedUsers={this.getReturnedUsers}
+              clearUsers={this.clearUsers}
+              getAllContacts={this.getAllContacts}
+              getAllUsers={this.getAllUsers}
+            />
+          )}
+        </div>
+      </>
     );
   }
 }

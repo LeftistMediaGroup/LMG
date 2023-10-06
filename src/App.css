@@ -2,11 +2,15 @@
   text-align: center;
 }
 
+.container-fluid{
+  padding-left: 10;
+}
 .topbar {
   background-color: #000000;
 }
 .bottombar {
   background-color: #000000;
+  margin: 0;
 }
 
 .main {
