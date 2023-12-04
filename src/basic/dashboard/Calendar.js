@@ -141,7 +141,7 @@ class Calendar1 extends React.Component {
     switch (action) {
       case "update":
         axios
-          .post(`https://localhost-0.tail5cd89.ts.net/calendar/update_event`, {
+          .post(`https://localhost:3001/calendar/update_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
@@ -152,7 +152,7 @@ class Calendar1 extends React.Component {
 
       case "insert":
         axios
-          .post(`https://localhost-0.tail5cd89.ts.net/calendar/insert_event`, {
+          .post(`https://localhost:3001/calendar/insert_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
@@ -164,7 +164,7 @@ class Calendar1 extends React.Component {
 
       case "delete":
         axios
-          .post(`https://localhost-0.tail5cd89.ts.net/calendar/delete_event`, {
+          .post(`https://localhost:3001/calendar/delete_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })

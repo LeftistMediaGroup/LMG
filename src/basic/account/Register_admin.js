@@ -28,7 +28,7 @@ export class Register_Admin extends Component {
 
       axios
         .put(
-          `https://localhost-0.tail5cd89.ts.net/system/register_admin`,
+          `https://localhost:3001/system/register_admin`,
           {
             password: password,
             email: email,

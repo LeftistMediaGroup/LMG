@@ -141,7 +141,7 @@ export default class Layout extends React.Component {
 
   admin_created = () => {
     axios
-      .get(`https://localhost-0.tail5cd89.ts.net/system/admin_created`, {
+      .get(`https://localhost:3001/system/admin_created`, {
         withCredentials: true,
       })
       .then((result) => {
