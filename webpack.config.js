@@ -7,11 +7,13 @@ const cesiumWorkers = "../Build/Cesium/Workers";
 
 const CopywebpackPlugin = require("copy-webpack-plugin");
 const Visualizer = require("webpack-visualizer-plugin2");
+const Dotenv = require('dotenv-webpack');
+const fs = require("fs");
 
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "[name].js",
+    filename: "[name].[contenthash].js",
     chunkFilename: "[name].chunk.js",
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
@@ -57,13 +59,21 @@ module.exports = {
     new Visualizer({
       filename: path.join("..", "WebpackStatistics.html"),
     }),
+    new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, "build"),
+    }, client: {
+      overlay: false,
     },
-    port: 3000,
+    port: 5500,
+    allowedHosts: "all",
+    https: {
+      key: fs.readFileSync(".ssl/Key.key"),
+      cert: fs.readFileSync(".ssl/Cert.crt"),
+    },
   },
   module: {
     // exclude node_modules
@@ -77,9 +87,8 @@ module.exports = {
           cacheDirectory: true,
         },
       },
-
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
     ],

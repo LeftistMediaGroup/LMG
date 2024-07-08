@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Card, CardContent } from "@mui/material";
 import React from "react";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 
@@ -16,17 +16,15 @@ export default class SideBar extends React.Component {
   renderAccount = () => {
     if (this.props.is_loggedin === true) {
       return (
-        <div class=" row">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Dashboard");
-              }
-            }}
-          >
-            Dashboard
-          </Button>
-        </div>
+        <Button
+          onClick={() => {
+            if (this.state) {
+              this.returnComponent("Dashboard");
+            }
+          }}
+        >
+          Dashboard
+        </Button>
       );
     } else {
       return (
@@ -99,48 +97,72 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="col sidebar"  style={{margin: 0}}>
-        <div class="row ">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Home");
-              }
-            }}
-          >
-            {" "}
-            Home
-          </Button>
-        </div>
+      <Card variant="outlined">
+        <CardContent>
 
-        <div class="row ">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Education");
-              }
-            }}
-          >
-            Education
-          </Button>
-        </div>
 
-        <div className="row ">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.returnComponent("Resources");
-              }
-            }}
-          >
-            Resources
-          </Button>
-        </div>
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Home");
+                }
+              }}
+            >
+              {" "}
+              Home
+            </Button>
+          </div><div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Education");
+                }
+              }}
+            >
+              Education
+            </Button>
+          </div><div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Music");
+                }
+              }}
+            >
+              Music
+            </Button>
+          </div>
 
-        {this.renderAccount()}
-        {this.renderAdminDashboard()}
-        {this.renderCreateAdmin()}
-      </div>
+          <div className="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("Resources");
+                }
+              }}
+            >
+              Resources
+            </Button>
+          </div>
+
+          {this.renderAccount()}
+          {this.renderAdminDashboard()}
+          {this.renderCreateAdmin()}
+
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("SundaySocial");
+                }
+              }}
+            >
+              Sunday Social
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 }

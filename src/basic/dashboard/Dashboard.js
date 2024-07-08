@@ -1,20 +1,31 @@
 import React, { Component } from "react";
 
 import Chat from "./chat/Chat.js";
-import Calendar1 from "./Calendar.js";
 import Stats from "./stats/Stats.js";
 import Music from "./music/Music.js";
 import Sync from "./sync/Sync.js";
 import Kanban1 from "./kanban/kanban.js";
 
 import Account from "../account/Account.js";
+import PersGPS from "./gps/PersGPS.js";
+import { Cartesian3, Cartesian4 } from "cesium";
+import { Card, CardContent } from "@mui/material";
 
 
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = {};
+
+    this.state = {
+      live: {
+        time: null,
+        latitude: null,
+        longitude: null,
+        altitude: null,
+        altitude: null,
+        position: null,
+      }
+    };
   };
 
 
@@ -30,10 +41,31 @@ export class Dashboard extends Component {
       );
     }
   };
-  
+
+  LiveData = (data) => {
+    this.setState({
+      live: {
+        time: data.time,
+        latitude: data.lat,
+        longitude: data.lon,
+        altitude: data.alt,
+        position: Cartesian3.fromDegrees(data.lon, data.lat)
+      }
+    });
+
+    console.log(`Latitude: ${data.lat} Longitude: ${data.lon}`)
+  };
+
   render() {
-    return(
-      <Account username={this.props.username}/>
+    return (
+      <Card variant="outlined">
+        <CardContent>
+          <Account username={this.props.username} />
+          <PersGPS username={this.props.username}
+            LiveData={this.LiveData}
+            live={this.state.live} />
+        </CardContent>
+      </Card>
     )
   }
 }
@@ -41,6 +73,7 @@ export class Dashboard extends Component {
 export default Dashboard;
 
 /*
+
 <Calendar1></Calendar1>
 
 <ProSidebarProvider>

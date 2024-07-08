@@ -16,34 +16,22 @@ import React, { useEffect } from "react";
 import SideBar from "./SideBar.js";
 import axios from "axios";
 import ResourceMap from "./basic/Resources/ResourceMap.js";
-import AdminDashboard from "./basic/dashboard/AdminDashboard.js";
+import AdminDashboard from "./basic/dashboard/AdminDashboard/AdminDashboard.js";
 import TopBar from "./Topbar.js";
 import Dashboard from "./basic/dashboard/Dashboard.js";
 import { Margin } from "@mui/icons-material";
 import Education from "./basic/Education.js";
 import BottomBar from "./BottomBar.js";
+import Music from "./basic/music/Music.js";
+import { maxWidth } from "@mui/system";
+import { Card } from "react-bootstrap";
+import { CardContent } from "@mui/material";
+import SundaySocial from "./basic/SundaySocial/SundaySocial.js";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: red,
-  },
-  components: {
-    // Name of the component
-    MuiCard: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          // Some CSS
-          borderColor: "red",
-          borderRadius: 2,
-          position: "relative",
-          zIndex: 0,
-        },
-      },
-    },
-  },
-});
+import { darkTheme } from "./Theme.js";
+
+import queryString from 'query-string';
+import { useLocation } from 'react-router-dom';
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -52,19 +40,16 @@ export default class Layout extends React.Component {
     this.state = {
       is_loggedin: "Not initalized",
       username: "Not initalized",
-      component: "Home",
       is_admin: null,
+      component: "Home",
       BottomBarComponent: null,
     };
+
   }
 
   renderBottomBar = () => {
     if (this.state.is_loggedin === true) {
-      return (
-        <div className="row" style={{ backgroundColor: "#000000" }}>
-          <BottomBar BottomBarComponent={this.state.BottomBarComponent} />
-        </div>
-      );
+      return <BottomBar BottomBarComponent={this.state.BottomBarComponent} username={this.state.username} />;
     }
   };
 
@@ -106,6 +91,10 @@ export default class Layout extends React.Component {
       return <Dashboard username={this.state.username} />;
     } else if (this.state.component === "AdminDashboard") {
       return <AdminDashboard username={this.state.username} />;
+    } else if (this.state.component === "Music") {
+      return <Music />;
+    } else if (this.state.component === "SundaySocial") {
+      return <SundaySocial />;
     }
   };
 
@@ -126,6 +115,10 @@ export default class Layout extends React.Component {
       this.setState({ component: "Resources" });
     } else if (component === "AdminDashboard") {
       this.setState({ component: "AdminDashboard" });
+    } else if (component === "Music") {
+      this.setState({ component: "Music" });
+    } else if (component === "SundaySocial") {
+      this.setState({ component: "SundaySocial" });
     }
   };
 
@@ -136,12 +129,14 @@ export default class Layout extends React.Component {
       this.setState({ BottomBarComponent: "Messages" });
     } else if (component === "RSS") {
       this.setState({ BottomBarComponent: "RSS" });
+    } else if (component === "Journal") {
+      this.setState({ BottomBarComponent: "Journal" });
     }
   };
 
   admin_created = () => {
     axios
-      .get(`https://localhost-0.tail5cd89.ts.net/system/admin_created`, {
+      .get(`https://${process.env.host}/system/admin_created`, {
         withCredentials: true,
       })
       .then((result) => {
@@ -149,7 +144,7 @@ export default class Layout extends React.Component {
           this.props.setadmin_created(true);
         } else {
           this.props.setadmin_created(false);
-        }
+        };
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
@@ -166,31 +161,49 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     this.admin_created();
+    const loc = document.location;
+
+    let location = loc.pathname.replace("/", "")
+
+    if (location === "") {
+      location = "Home"
+    }
+
+    this.setState({
+      component: location
+    })
   }
 
   render() {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container">
-          <div class="row" style={{ paddingTop: 20 }}>
-            {this.renderTopBar()}
-          </div>
+        <div class="container" style={{ maxWidth: 1980 }}>
+          <Card>
+            <CardContent>
+              <div class="row">
+                {this.renderTopBar()}
+              </div>
 
-          <div class="row main" style={{ margin: 0 }}>
-            <div class="col-sm-3" style={{ margin: 0 }}>
-              <SideBar
-                getComponent={this.getComponent}
-                is_loggedin={this.state.is_loggedin}
-                admin_created={this.props.admin_created}
-                is_admin={this.state.is_admin}
-              />
-            </div>
+              <div class="row">
+                <div class="col" style={{ maxWidth: "15%" }}>
+                  <SideBar
+                    getComponent={this.getComponent}
+                    is_loggedin={this.state.is_loggedin}
+                    admin_created={this.props.admin_created}
+                    is_admin={this.state.is_admin}
+                  />
+                </div>
 
-            <div class="col">{this.renderComponent()}</div>
-          </div>
-
-          <div class="row bottombar">{this.renderBottomBar()}</div>
+                <div class="col">
+                  {this.renderComponent()}
+                </div>
+              </div>
+              <div class="row">
+                {this.renderBottomBar()}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </ThemeProvider>
     );

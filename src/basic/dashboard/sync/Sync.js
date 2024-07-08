@@ -3,9 +3,6 @@ import React, { Component, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import Dropzone from "react-dropzone";
 
-import FolderTree, { testData } from "react-folder-tree";
-import "react-folder-tree/dist/style.css";
-import styles from "./treeBrowser.module.css";
 import { Card, CardContent } from "@mui/material";
 import axios from "axios";
 
@@ -107,7 +104,7 @@ export class Sync extends Component {
   SyncChange = (fileList) => {
     console.log(`Changes: ${JSON.stringify(fileList)}`);
 
-    axios.post(`http://localhost:5001/sync_in/syncIn`, { fileList: fileList });
+    axios.post(`https://${process.env.host}/sync_in/syncIn`, { fileList: fileList });
   };
 
   render() {

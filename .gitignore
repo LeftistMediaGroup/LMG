@@ -23,6 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 /package-lock.json
 /ssl
-core
-.env
+ssl/LMG_cert.pem
+ssl/LMG_key.pem
 WebpackStatistics.html
+node_modules
+.yarn
+.ssl

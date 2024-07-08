@@ -1,1 +1,0 @@
-openssl req -x509 -newkey rsa:4096 -keyout LMG_key.pem -out LMG_cert.pem -sha256 -days 365 -subj '/CN=100.121.136.56:3000' -nodes

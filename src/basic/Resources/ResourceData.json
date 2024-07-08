@@ -2269,7 +2269,7 @@
     "id": "1fc4df08-d7be-4eed-8630-e27bf374aa8a",
     "name": "Grupo ayuda mutua Vall d’Hebron",
     "location_country": "ES",
-    "location_coord": { "lng": 2.1487078, "lat": 41.43001460000001 }
+    "location_coord": { "lng": 2.1487078, "lat": 41.45001460000001 }
   },
   {
     "links": [{ "url": "https://chat.whatsapp.com/FKQDZU1xrXLDpxI78UWCM8" }],
@@ -19896,7 +19896,7 @@
   },
   {
     "links": [{ "url": "https://es-es.facebook.com/StopDesahuciosAlicante/" }],
-    "location_name": "Plaça de la Montanyeta, 03001 Alacant",
+    "location_name": "Plaça de la Montanyeta, 05001 Alacant",
     "updated_at": "2020-05-21T02:24:04.749Z",
     "link_facebook": "https://es-es.facebook.com/StopDesahuciosAlicante/",
     "source": "grupos-de-apoyo-mutuo-covid-19-espana",
@@ -33828,9 +33828,9 @@
     "location_coord": { "lng": -3.4288692, "lat": 51.64902069999999 }
   },
   {
-    "links": [{ "url": "https://www.facebook.com/groups/825094211300114/" }],
+    "links": [{ "url": "https://www.facebook.com/groups/825094211500114/" }],
     "location_name": "Glasgow",
-    "link_facebook": "https://www.facebook.com/groups/825094211300114/",
+    "link_facebook": "https://www.facebook.com/groups/825094211500114/",
     "source": "mutualaidwiki",
     "id": "17d1cac2-599e-4d46-b1cd-a1815bc8d69d",
     "name": "Whiteinch & Scotstoun Corona Virus Resilience Group",
@@ -37349,7 +37349,7 @@
     "id": "04775c2d-9586-4d92-a5f8-046ad9974e2e",
     "name": "Caring in Hathersage Support Group",
     "location_country": "GB",
-    "location_coord": { "lng": -1.6563548, "lat": 53.3300114 }
+    "location_coord": { "lng": -1.6563548, "lat": 53.3500114 }
   },
   {
     "links": [
@@ -37669,7 +37669,7 @@
     "id": "4c2e608f-ffb3-4141-8b0c-21a5284133f9",
     "name": "Southowram Covid 19 Community",
     "location_country": "GB",
-    "location_coord": { "lng": -1.8300199, "lat": 53.7098944 }
+    "location_coord": { "lng": -1.8500199, "lat": 53.7098944 }
   },
   {
     "links": [
@@ -65251,7 +65251,7 @@
     "id": "0b37398e-72df-4e9d-9eba-7265abd60c2e",
     "name": "Ripley Corona Support",
     "location_country": "GB",
-    "location_coord": { "lng": -0.49327, "lat": 51.300173 }
+    "location_coord": { "lng": -0.49327, "lat": 51.500173 }
   },
   {
     "links": [{ "url": "https://www.facebook.com/BLACKLEYvCOVID/" }],
@@ -65883,7 +65883,7 @@
     "id": "2a88dc74-0378-41cc-aeed-64cf68d0bf4a",
     "name": "Ashford In The Water Corona Help",
     "location_country": "GB",
-    "location_coord": { "lng": -1.7030019, "lat": 53.2267741 }
+    "location_coord": { "lng": -1.7050019, "lat": 53.2267741 }
   },
   {
     "links": [
@@ -66449,7 +66449,7 @@
     "id": "e90791eb-b526-4b34-8d5d-1ca1107c386c",
     "name": "Milliners Wharf and Hatbox",
     "location_country": "GB",
-    "location_coord": { "lng": -2.2230012, "lat": 53.4827624 }
+    "location_coord": { "lng": -2.2250012, "lat": 53.4827624 }
   },
   {
     "links": [{ "url": "https://www.facebook.com/groups/216400619769386/" }],

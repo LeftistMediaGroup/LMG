@@ -6,14 +6,16 @@ import SignUpForm from "./account/SignUpForm.js";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 
-import { LMG_memes } from "./home/LMG_memes.js";
-import Social_media from "./home/Social_media.js";
-import Sophia from "./home/Sophia.js";
-import Wade from "./home/Wade.js";
-import Music from "./home/Music.js";
-import Mentorship from "./home/Mentorship.js";
+import { LMG_memes } from "./home/projects/LMG_memes.js";
+import SocialMediaManager from "./home/positions/SocialMediaManager.js";
+import Sophia from "./home/projects/Sophia.js";
+import Wade from "./home/projects/Wade.js";
+import Music from "./home/projects/Music.js";
 import Contact from "./home/Contact.js";
-import Programmer from "./home/Programmer.js";
+import Programmer from "./home/positions/Programmer.js";
+import LMGAsSocialMedia from "./home/projects/LMGAsSocialMedia.js";
+import CommunitySupportNetwork from "./home/projects/CommunitySupportNetwork.js";
+import MemeDistributer from "./home/positions/MemeDistributer.js";
 
 export class Home extends Component {
   render() {
@@ -58,8 +60,7 @@ export class Home extends Component {
                     <Card variant="outlined">
                       <CardContent>
                         <p>
-                          We are nearing the end of our fascist leadership path
-                          and our escalating climate catastrophe.
+                          Due to our escalating climate catastrophe we are nearing the end of our fascist leadership path.
                         </p>
                       </CardContent>
                     </Card>
@@ -82,57 +83,82 @@ export class Home extends Component {
 
           <Card variant="outlined">
             <CardContent style={{ borderColor: "red" }}>
-              <h4>Projects</h4>
+              <div class="row">
+                <h4>Projects</h4>
 
-              <p>All projects need volunteers</p>
+                <p>
+                  All projects are focused on a specific avenue of dismantling
+                  Capitalism one brick at a time.
+                </p>
 
-              <p>
-                All projects are focused on a specific avenue of dismantling
-                Capitalism one brick at a time.
-              </p>
+                <div class="row">
+                  <div className="col" style={{ padding: 15 }}>
+                    <CommunitySupportNetwork />
+                  </div>
 
-              <div className="row">
-                <div className="col" style={{ padding: 15 }}>
-                  <LMG_memes />
+                  <div className="col" style={{ padding: 15 }}>
+                    <Sophia />
+                  </div>
                 </div>
 
-                <div className="col" style={{ padding: 15 }}>
-                  <Social_media />
-                </div>
-              </div>
 
-              <div className="col" style={{ padding: 15 }}>
-                <Programmer />
-              </div>
+                <div class="row">
 
-              <div className="col" style={{ padding: 15 }}>
-                <Sophia />
-              </div>
+                  <div className="col" style={{ padding: 15 }}>
+                    <LMGAsSocialMedia />
+                  </div>
 
-              <div className="row">
-                <div className="col" style={{ padding: 15 }}>
-                  <Wade />
+
+                  <div className="col" style={{ padding: 15 }}>
+                    <Wade />
+                  </div>
                 </div>
 
-                <div className="col" style={{ padding: 15 }}>
-                  <Music />
+                <div class="row">
+
+
+                  <div className="col" style={{ padding: 15 }}>
+                    <Music />
+                  </div>
+
+                  <div className="col" style={{ padding: 15 }}>
+                    <LMG_memes />
+                  </div>
                 </div>
-              </div>
-
-              <div className="col" style={{ padding: 15 }}>
-                <Mentorship />
-              </div>
-
-              <div className="row-centered">
-                <SignUpForm />
-              </div>
-
-              <div className="row-centerd" tyle={{ padding: 15 }}>
-                <Contact />
               </div>
             </CardContent>
           </Card>
+
+          <Card>
+            <CardContent>
+              <div class="row">
+                <h4>Join Our Team!</h4>
+
+                <div className="col" style={{ padding: 15 }}>
+                  <MemeDistributer />
+                </div>
+
+                <div className="col" style={{ padding: 15 }}>
+                  <Programmer />
+                </div>
+
+                <div className="col" style={{ padding: 15 }}>
+                  <SocialMediaManager />
+                </div>
+
+              </div>
+            </CardContent>
+
+            <div className="row-centered">
+              <SignUpForm />
+            </div>
+
+            <div className="row-centered">
+              <Contact />
+            </div>
+          </Card>
         </CardContent>
+
       </Card>
     );
   }

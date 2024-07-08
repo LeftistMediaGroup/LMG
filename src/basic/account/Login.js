@@ -4,6 +4,9 @@ import { Form } from "react-bootstrap";
 import { Button, Card, CardContent } from "@mui/material";
 import axios from "axios";
 
+import { io } from "socket.io-client";
+
+
 export class Login extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +28,7 @@ export class Login extends Component {
     axios.defaults.withCredentials = true;
 
     axios
-      .post(`https://localhost-0.tail5cd89.ts.net/system/login`, {
+      .post(`https://${process.env.host}/system/login`, {
         username: username,
         password: password,
       })
@@ -38,12 +41,28 @@ export class Login extends Component {
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
-      });
+      }).then((resolve, reject) => {
+        const socket = io(`https://${process.env.host}`, {
+          withCredentials: true
+        });
+
+        socket.on("connect", () => {
+          console.log(`Socket Connected`);
+
+          socket.emit("auth", ({
+            username: username,
+            password: password,
+          }))
+        })
+
+        resolve()
+      }).catch((err) => {
+        console.log(`Error: ${err}`);
+      })
   };
 
   usernameChange(event) {
     let username = event.target.value;
-
     if (username !== this.state.username) {
       this.setState({
         username: username,
@@ -100,8 +119,7 @@ export class Login extends Component {
                             console.log("Clicked!");
                             this.submit();
                           }}
-                          role="button"
-                          tabIndex={0}
+                          type="button"
                         >
                           Submit
                         </Button>
