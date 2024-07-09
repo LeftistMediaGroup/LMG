@@ -161,6 +161,17 @@ export default class SideBar extends React.Component {
               Sunday Social
             </Button>
           </div>
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("TestPage");
+                }
+              }}
+            >
+              Test Page
+            </Button>
+          </div>
         </CardContent>
       </Card>
     );

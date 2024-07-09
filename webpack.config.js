@@ -70,10 +70,10 @@ module.exports = {
     },
     port: 5500,
     allowedHosts: "all",
-    https: {
-      key: fs.readFileSync(".ssl/Key.key"),
-      cert: fs.readFileSync(".ssl/Cert.crt"),
-    },
+    // https: {
+    //   key: fs.readFileSync(".ssl/Key.key"),
+    //   cert: fs.readFileSync(".ssl/Cert.crt"),
+    // },
   },
   module: {
     // exclude node_modules

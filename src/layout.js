@@ -27,6 +27,8 @@ import { maxWidth } from "@mui/system";
 import { Card } from "react-bootstrap";
 import { CardContent } from "@mui/material";
 import SundaySocial from "./basic/SundaySocial/SundaySocial.js";
+import TestPage from "./basic/TestPage/TestPage.js";
+
 
 import { darkTheme } from "./Theme.js";
 
@@ -95,6 +97,8 @@ export default class Layout extends React.Component {
       return <Music />;
     } else if (this.state.component === "SundaySocial") {
       return <SundaySocial />;
+    } else if (this.state.component === "TestPage") {
+      return <TestPage />;
     }
   };
 
@@ -119,6 +123,8 @@ export default class Layout extends React.Component {
       this.setState({ component: "Music" });
     } else if (component === "SundaySocial") {
       this.setState({ component: "SundaySocial" });
+    } else if (component === "TestPage") {
+      this.setState({ component: "TestPage" });
     }
   };
 
@@ -179,14 +185,13 @@ export default class Layout extends React.Component {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <div class="container" style={{ maxWidth: 1980 }}>
-          <Card>
-            <CardContent>
+          
               <div class="row">
                 {this.renderTopBar()}
               </div>
 
               <div class="row">
-                <div class="col" style={{ maxWidth: "15%" }}>
+                <div class="col-12 col-lg-2" >
                   <SideBar
                     getComponent={this.getComponent}
                     is_loggedin={this.state.is_loggedin}
@@ -195,15 +200,14 @@ export default class Layout extends React.Component {
                   />
                 </div>
 
-                <div class="col">
+                <div class="col-12 col-lg-10">
                   {this.renderComponent()}
                 </div>
               </div>
               <div class="row">
                 {this.renderBottomBar()}
               </div>
-            </CardContent>
-          </Card>
+            
         </div>
       </ThemeProvider>
     );

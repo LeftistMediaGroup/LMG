@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+.debug * { border: 1px solid #c0c; }
 .main {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -30,6 +30,69 @@
   padding-top: 60;
   position: relative;
   max-width: fit-content;
+}
+
+body {
+  background-color: linear-gradient(rgb(33, 37, 41), #000);
+}
+
+
+
+.card { 
+  background-color: linear-gradient(rgb(33, 37, 41), #000);
+  border: 0 none transparent;
+}
+
+.card .MuiCardContent-root {
+  background-color: #000;
+  /* border: 1px solid red; */
+ 
+}
+
+
+.page-header {
+  background-color: #000;
+  border: 1px solid red;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 5px 0;
+}
+
+.page-header nav {
+  padding: 0 5px;
+  display: flex;
+  align-items: center;  
+}
+
+.page-header nav .breadcrumb {
+  background-color: #000;
+  margin: auto;
+}
+
+.page-header nav .breadcrumb .breadcrumb-item {
+  
+}
+
+.page-header nav .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: red;
+}
+
+.page-header nav .breadcrumb .breadcrumb-item a {
+  color: red;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-header nav .breadcrumb .breadcrumb-item a:hover,
+.page-header nav .breadcrumb .breadcrumb-item a:focus {
+  background-color: red;
+  color: white;
+}
+
+.page-header nav .breadcrumb .breadcrumb-item.active {
+  color: white;
 }
 
 .sidebarWrapper {
