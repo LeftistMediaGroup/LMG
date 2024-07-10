@@ -23,34 +23,32 @@ export class Home extends Component {
       
       <Card variant="outlined">
         <CardContent>
-            <div className="row">
-              <div className="page-header">
-                <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="!#" onClick={(event) => event.preventDefault()}>
-                        Home
-                      </a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Landing
-                    </li>
-                  </ol>
-                </nav>
-              </div>
+            
+            <div className="page-header">
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <a href="!#" onClick={(event) => event.preventDefault()}>
+                      Home
+                    </a>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    Landing
+                  </li>
+                </ol>
+              </nav>
             </div>
-            <div className="row">
+           
+            <div className="row mt-3">
               <div className="row-centered">
-                <Card variant="outlined">
-                  <CardContent>
+                
                     <h1>Leftist Media Group</h1>
 
                     <p>
                       Leftist Media group is dedicated to Organizing the Left and
                       starting the Revolution.
                     </p>
-                  </CardContent>
-                </Card>
+                  
               </div>
             </div>
 

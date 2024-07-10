@@ -36,11 +36,23 @@ body {
   background-color: linear-gradient(rgb(33, 37, 41), #000);
 }
 
+a {
+  color: red;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: red;
+  text-decoration: underline;
+}
+
 
 
 .card { 
   background-color: linear-gradient(rgb(33, 37, 41), #000);
-  border: 0 none transparent;
+  /* border: 0 none transparent; */
 }
 
 .card .MuiCardContent-root {

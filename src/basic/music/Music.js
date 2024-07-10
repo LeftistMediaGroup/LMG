@@ -217,68 +217,74 @@ export default class Music extends Component {
 
   render() {
     return (
-      <div class="row">
-        <div class="row">
-          <Card>
+          <Card variant="outlined">
             <CardContent>
-              <a href="!#" onClick={(event) => event.preventDefault()}>
-                Home /
-              </a>
-              Leftism Through Music
-
-              <h3 className="page-title">Leftism Through Music</h3>
-
-              <p>
-                80+ leftist songs
-              </p>
-
-              <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for Spotify playlist!</a>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div class="row">
-          <RevolutionTelevision
-            song={this.state.song}
-            NextSong={this.NextSong}
-            PrevSong={this.PrevSong}
-          />
-        </div>
-
-        <div class="row">
-          <Card>
-            <CardContent>
-              <h1>Queue</h1>
-              <br />
-
-              {this.renderStartRestart()}
-              <br />
-              <br />
-
-              {this.renderQueueCount()}
-
-              <div class="col s12" style={{ overflow: auto, height: 200 }}>
-                {this.renderQueue()}
+              <div className="page-header">
+                <nav aria-label="breadcrumb">
+                  <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                      <a href="!#" onClick={(event) => event.preventDefault()}>
+                        Home
+                      </a>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">
+                      Leftism Through Music
+                    </li>
+                  </ol>
+                </nav>
               </div>
-            </CardContent>
-          </Card>
-        </div>
+              <div className="row">
+                <div className="col">
 
-        <div class="row">
-          <Card>
-            <CardContent>
-              Playlist
-              <br />
+                  <h3 className="page-title my-3">Leftism Through Music</h3>
 
-              <div class="row">
-                <div class="col s12" style={{ overflow: auto, height: 400 }}>
-                  {this.renderSongs()}
+                  <p>80+ leftist songs</p>
+
+                  <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for Spotify playlist!</a>
                 </div>
               </div>
+    
+
+              <div className="row">
+                <div className="col">
+                  <RevolutionTelevision
+                    song={this.state.song}
+                    NextSong={this.NextSong}
+                    PrevSong={this.PrevSong}
+                  />
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col">
+                
+                    <h1>Queue</h1>
+                    <br />
+
+                    {this.renderStartRestart()}
+                    <br />
+                    <br />
+
+                    {this.renderQueueCount()}
+                </div>
+
+                <div className="col s12" style={{ overflow: auto, height: 200 }}>
+                  {this.renderQueue()}
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col">
+                  Playlist
+                  <br />
+                </div>
+                
+                <div className="col s12" style={{ overflow: auto, height: 400 }}>
+                  {this.renderSongs()}
+                </div>             
+              </div>
             </CardContent>
           </Card>
-        </div>
-      </div>
     );
   }
 }

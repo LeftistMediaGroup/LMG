@@ -79,7 +79,7 @@ export default class ResourceMap extends React.Component {
               </nav>
             </div>
             
-            <h3 className="page-title"> Resource Map </h3>
+            <h3 className="page-title my-3"> Resource Map </h3>
 
           <Card variant="outlined">
             <CardContent>

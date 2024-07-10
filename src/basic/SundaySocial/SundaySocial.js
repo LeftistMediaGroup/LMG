@@ -36,24 +36,43 @@ export default class SundaySocial extends Component {
 
   render() {
     return (
-      <div class="row">
-        <Card>
+      
+        <Card variant="outlined">
           <CardContent>
-            <h1>Sunday Social</h1>
 
-            <h3>Revolution Television</h3>
+            <div className="page-header">
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <a href="!#" onClick={(event) => event.preventDefault()}>
+                      Home
+                    </a>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    Sunday Social
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <div className="row mt-3">
+              <div className="col">
+                <h1>Sunday Social</h1>
 
-            {this.state.show_SS && (
+                <h3>Revolution Television</h3>
 
-              <iframe
-                allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-                src={this.state.SS}
-                style={{ height: 720, width: 576, border: 0 }}
-              />
-            )}
+                {this.state.show_SS && (
+
+                  <iframe
+                    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+                    src={this.state.SS}
+                    style={{ height: 720, width: 576, border: 0 }}
+                  />
+                )}
+              </div>
+            </div>
           </CardContent>
         </Card>
-      </div>
+    
     );
   }
 }
