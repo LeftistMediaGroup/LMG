@@ -107,7 +107,7 @@
     "prettier": "^3.0.2",
     "style-loader": "^3.3.3",
     "symlink-dir": "^5.2.0",
-    "webpack": "^5.93.0",
+    "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
@@ -122,5 +122,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }
