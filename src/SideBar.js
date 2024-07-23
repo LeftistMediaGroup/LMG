@@ -146,7 +146,7 @@ export default class SideBar extends React.Component {
             </Button>
           </div>
 
-          {this.renderAccount()}
+          {/*this.renderAccount()*/}
           {this.renderAdminDashboard()}
           {this.renderCreateAdmin()}
 
