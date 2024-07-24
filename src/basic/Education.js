@@ -9,46 +9,46 @@ import Library from "./education/Library/Library.js";
 export class Education extends Component {
   render() {
     return (
-      
-        <Card variant="outlined">
-          <CardContent>
-            <div className="page-header">
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <a href="!#" onClick={(event) => event.preventDefault()}>
-                      Home
-                    </a>
-                  </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    Education
-                  </li>
-                </ol>
-              </nav>
+
+      <Card variant="outlined">
+        <CardContent>
+          <div className="page-header">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="!#" onClick={(event) => event.preventDefault()}>
+                    Home
+                  </a>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  Education
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div className="row mt-3">
+            <div className="col-12">
+
+              <h3 className="page-title"> Education </h3>
+              <Card variant="outlined">
+                <CardContent>
+                  <div className="row-centered">
+                    <h4>Lets Overthrow Capitalism together</h4>
+                    <Card>
+                      <CardContent>
+                        The goal of overthrowing Capitalism will require many
+                        subtasks, as the only way to defeat it is through the power
+                        of love, or in other words, a multifaceted attack from every
+                        angle possible.
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-            <div className="row mt-3">
-              <div className="col-12">
-            
-                <h3 className="page-title"> Education </h3>
-                <Card variant="outlined">
-                  <CardContent>
-                    <div className="row-centered">
-                      <h4>Lets Overthrow Capitalism together</h4>
-                      <Card>
-                        <CardContent>
-                          The goal of overthrowing Capitalism will require many
-                          subtasks, as the only way to defeat it is through the power
-                          of love, or in other words, a multifaceted attack from every
-                          angle possible.
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-            <div className="row mt-3">
-              <div className="col-12">
+          </div>
+          <div className="row mt-3">
+            <div className="col-12">
               <Card variant="outlined">
                 <CardContent>
                   <h4>Topics to explore</h4>
@@ -78,21 +78,21 @@ export class Education extends Component {
                   </Card>
                 </CardContent>
               </Card>
-              </div>
-              <div className="col-12">
-
-                <WhatIsCapitalism />
-
-                <WhatIsAnarchism />
-
-                <Revolution />
-
-                <Library></Library>
-              </div>
             </div>
-          </CardContent>
-        </Card>
-      
+            <div className="col-12">
+
+              <WhatIsCapitalism />
+
+              <WhatIsAnarchism />
+
+              <Revolution />
+
+              {/*<Library></Library>*/}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
     );
   }
 }
