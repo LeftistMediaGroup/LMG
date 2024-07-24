@@ -12,6 +12,7 @@ export default class LMGAsSocialMedia extends Component {
           </div>
 
           <br />
+
           <div className="row-centered">
             <Card variant="outlined">
               <CardContent>
@@ -22,13 +23,17 @@ export default class LMGAsSocialMedia extends Component {
               </CardContent>
             </Card>
           </div>
+
           <br />
+
           <Card>
             <CardContent>
               <div className="row-centered">
                 <h2>Community</h2>
               </div>
+
               <br />
+
               <div className="row">
                 <div className="col">
                   <h4>Mentorship </h4>
@@ -122,16 +127,16 @@ export default class LMGAsSocialMedia extends Component {
                       </div>
                     </CardContent>
                   </Card>
+                </div>
 
-                  <div className="col">
-                    <h4> Education </h4>
-                    <Card variant="outlined">
-                      <CardContent>
-                        <p>Intro to Leftistm guides.</p>
-                        <p>Library of leftist texts.</p>
-                      </CardContent>
-                    </Card>
-                  </div>
+                <div className="col">
+                  <h4> Education </h4>
+                  <Card variant="outlined">
+                    <CardContent>
+                      <p>Intro to Leftistm guides.</p>
+                      <p>Library of leftist texts.</p>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
             </CardContent>
