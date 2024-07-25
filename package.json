@@ -82,6 +82,8 @@
     "react-router": "6.15.0",
     "react-router-dom": "6.15.0",
     "react-simple-code-editor": "^0.13.1",
+    "react-spotify-embed": "^2.0.4",
+    "react-spotify-player": "^1.0.4",
     "resium": "^1.17.1",
     "smart-webcomponents-react": "^16.0.1",
     "socket.io-client": "^4.7.4",

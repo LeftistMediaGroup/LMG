@@ -5,6 +5,19 @@ import axios from "axios";
 import RevolutionTelevision from "./RevolutionTelevision";
 import { auto } from "@popperjs/core";
 
+import SpotifyPlayer from 'react-spotify-player';
+
+
+
+// size may also be a plain string using the presets 'large' or 'compact'
+const size = {
+  width: '100%',
+  height: 300,
+};
+const view = 'list'; // or 'coverart'
+const theme = 'black'; // or 'white'
+
+
 
 export default class Music extends Component {
   constructor(props) {
@@ -217,74 +230,91 @@ export default class Music extends Component {
 
   render() {
     return (
-          <Card variant="outlined">
-            <CardContent>
-              <div className="page-header">
-                <nav aria-label="breadcrumb">
-                  <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                      <a href="!#" onClick={(event) => event.preventDefault()}>
-                        Home
-                      </a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                      Leftism Through Music
-                    </li>
-                  </ol>
-                </nav>
-              </div>
-              <div className="row">
-                <div className="col">
+      <Card variant="outlined">
+        <CardContent>
+          <div className="page-header">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="!#" onClick={(event) => event.preventDefault()}>
+                    Home
+                  </a>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  Leftism Through Music
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div className="row">
+            <div className="col">
 
-                  <h3 className="page-title my-3">Leftism Through Music</h3>
+              <h3 className="page-title my-3">Leftism Through Music</h3>
 
-                  <p>80+ leftist songs</p>
+              <p>120+ leftist songs</p>
 
-                  <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for Spotify playlist!</a>
-                </div>
-              </div>
-    
+              <div class="row">
+                <div class="col mx-auto" align="center">
 
-              <div className="row">
-                <div className="col">
-                  <RevolutionTelevision
-                    song={this.state.song}
-                    NextSong={this.NextSong}
-                    PrevSong={this.PrevSong}
+                  <SpotifyPlayer
+                    uri="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=8d75011cd7ee427f"
+                    size={{
+                      width: '50%',
+                      height: 700,
+                    }}
+                    view={'list'}
+                    theme={'black'}
                   />
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="row">
-                <div className="col">
-                
-                    <h1>Queue</h1>
-                    <br />
 
-                    {this.renderStartRestart()}
-                    <br />
-                    <br />
+          {/*
 
-                    {this.renderQueueCount()}
-                </div>
+          <div className="row">
+            <div className="col">
+              <RevolutionTelevision
+                song={this.state.song}
+                NextSong={this.NextSong}
+                PrevSong={this.PrevSong}
+              />
+            </div>
+          </div>
 
-                <div className="col s12" style={{ overflow: auto, height: 200 }}>
-                  {this.renderQueue()}
-                </div>
-              </div>
+          <div className="row">
+            <div className="col">
 
-              <div className="row">
-                <div className="col">
-                  Playlist
-                  <br />
-                </div>
-                
-                <div className="col s12" style={{ overflow: auto, height: 400 }}>
-                  {this.renderSongs()}
-                </div>             
-              </div>
-            </CardContent>
-          </Card>
+              <h1>Queue</h1>
+              <br />
+
+              {this.renderStartRestart()}
+              <br />
+              <br />
+
+              {this.renderQueueCount()}
+            </div>
+
+            <div className="col s12" style={{ overflow: auto, height: 200 }}>
+              {this.renderQueue()}
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col">
+              Playlist
+              <br />
+            </div>
+
+            <div className="col s12" style={{ overflow: auto, height: 400 }}>
+              {this.renderSongs()}
+            </div>
+          </div>
+
+          */}
+        </CardContent>
+      </Card>
     );
   }
 }

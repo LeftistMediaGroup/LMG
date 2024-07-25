@@ -63,7 +63,7 @@ export class Home extends Component {
                       <Card variant="outlined">
                         <CardContent>
                           <p>
-                            Due to our escalating climate catastrophe we are nearing the end of our fascist leadership path.
+                            Due to our our fascist leadership path we are nearing the end of our escalating climate catastrophe.
                           </p>
                         </CardContent>
                       </Card>
