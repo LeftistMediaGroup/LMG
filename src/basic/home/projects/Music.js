@@ -7,13 +7,13 @@ export class Music extends Component {
   constructor(props) {
     super(props);
 
-    this.state={};
+    this.state = {};
   }
 
   render() {
     return (
       <>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
             <div style={{ textAlign: "center" }}>
               <h4>Leftism Through Music</h4>
@@ -33,6 +33,7 @@ export class Music extends Component {
             </Card>
           </CardContent>
         </Card>
+
         <Card>
           <CardContent>
             <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for playlist!</a>

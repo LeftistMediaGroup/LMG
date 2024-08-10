@@ -13,9 +13,8 @@
     "crypto": false
   },
   "scripts": {
-    "start": "set HTTPS=true&&webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",
-    "serve": "webpack serve --mode=production --config webpack.config.js",
+    "start": "webpack serve --mode=production --config webpack.config.js",
     "dev": " HTTPS=true && webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
   },
   "dependencies": {
@@ -43,7 +42,7 @@
     "@types/three": "^0.156.0",
     "ag-grid-community": "^30.2.1",
     "ag-grid-react": "^30.2.1",
-    "axios": "^1.6.5",
+    "axios": "^1.7.3",
     "bootstrap": "^5.3.0",
     "buffer": "^6.0.3",
     "canvasjs-react-charts": "^1.0.5",
@@ -107,6 +106,7 @@
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.2",
+    "process": "^0.11.10",
     "style-loader": "^3.3.3",
     "symlink-dir": "^5.2.0",
     "webpack": "^5.91.0",

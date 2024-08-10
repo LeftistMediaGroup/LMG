@@ -41,10 +41,6 @@ module.exports = {
       favicon: "./public/favicon.ico",
       filename: "index.html",
     }),
-    // fix "process is not defined" error:
-    new webpack.ProvidePlugin({
-      process: "process/browser",
-    }),
     new CopywebpackPlugin({
       patterns: [
         { from: path.join(cesiumSource, cesiumWorkers), to: "Workers" },

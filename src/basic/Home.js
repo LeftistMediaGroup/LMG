@@ -9,7 +9,7 @@ import { Padding } from "@mui/icons-material";
 import { LMG_memes } from "./home/projects/LMG_memes.js";
 import SocialMediaManager from "./home/positions/SocialMediaManager.js";
 import Sophia from "./home/projects/Sophia.js";
-import Wade from "./home/projects/Wade.js";
+import Wade from "./home/projects/Wade/Wade.js";
 import Music from "./home/projects/Music.js";
 import Contact from "./home/Contact.js";
 import Programmer from "./home/positions/Programmer.js";
@@ -88,12 +88,24 @@ export class Home extends Component {
           <Card variant="outlined">
             <CardContent style={{ borderColor: "red" }}>
               <div class="row">
-                <h4>Projects</h4>
+                <div style={{ textAlign: "center" }}>
+                  <h4>Projects</h4>
 
-                <p>
-                  All projects are focused on a specific avenue of dismantling
-                  Capitalism one brick at a time.
-                </p>
+                  <p>
+                    All projects are focused on a specific avenue of dismantling
+                    Capitalism one brick at a time.
+                  </p>
+                </div>
+
+                <div class="row">
+                  <div className="col" style={{ padding: 15 }}>
+                    <Music />
+                  </div>
+
+                  <div className="col" style={{ padding: 15 }}>
+                    <LMG_memes />
+                  </div>
+                </div>
 
                 <div class="row">
                   <div className="col" style={{ padding: 15 }}>
@@ -101,32 +113,19 @@ export class Home extends Component {
                   </div>
 
                   <div className="col" style={{ padding: 15 }}>
-                    <Sophia />
+                    <LMGAsSocialMedia />
                   </div>
                 </div>
 
-
                 <div class="row">
-
-                  <div className="col" style={{ padding: 15 }}>
-                    <LMGAsSocialMedia />
-                  </div>
-
-
                   <div className="col" style={{ padding: 15 }}>
                     <Wade />
                   </div>
                 </div>
 
                 <div class="row">
-
-
                   <div className="col" style={{ padding: 15 }}>
-                    <Music />
-                  </div>
-
-                  <div className="col" style={{ padding: 15 }}>
-                    <LMG_memes />
+                    <Sophia />
                   </div>
                 </div>
               </div>

@@ -57,10 +57,10 @@ module.exports = function (_env, argv) {
     },
     plugins: [
       isProduction &&
-        new MiniCssExtractPlugin({
-          filename: "assets/css/[name].[contenthash:8].css",
-          chunkFilename: "assets/css/[name].[contenthash:8].chunk.css",
-        }),
+      new MiniCssExtractPlugin({
+        filename: "assets/css/[name].[contenthash:8].css",
+        chunkFilename: "assets/css/[name].[contenthash:8].chunk.css",
+      }),
 
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(
@@ -122,5 +122,6 @@ module.exports = function (_env, argv) {
       open: true,
       overlay: true,
     },
+    resolve: { fallback: { 'process/browser': require.resolve('process/browser'), } }
   };
 };

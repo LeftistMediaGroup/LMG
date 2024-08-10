@@ -5,13 +5,11 @@ import { Card, CardContent } from "@mui/material";
 export default class LMGAsSocialMedia extends Component {
   render() {
     return (
-      <Card>
+      <Card variant="outlined">
         <CardContent>
           <div style={{ textAlign: "center" }}>
             <h4>Leftist Media Group as a social media platform</h4>
           </div>
-
-          <br />
 
           <div className="row-centered">
             <Card variant="outlined">
@@ -23,8 +21,6 @@ export default class LMGAsSocialMedia extends Component {
               </CardContent>
             </Card>
           </div>
-
-          <br />
 
           <Card>
             <CardContent>
@@ -59,6 +55,19 @@ export default class LMGAsSocialMedia extends Component {
                   </Card>
                 </div>
 
+                <div className="col">
+                  <h4> Education </h4>
+                  <Card variant="outlined">
+                    <CardContent>
+                      <p>Intro to Leftistm guides.</p>
+                      <p>Library of leftist texts.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+              <br />
+
+              <div class="row">
                 <div className="col">
                   <h4> Organization </h4>
                   <Card variant="outlined">
@@ -128,21 +137,11 @@ export default class LMGAsSocialMedia extends Component {
                     </CardContent>
                   </Card>
                 </div>
-
-                <div className="col">
-                  <h4> Education </h4>
-                  <Card variant="outlined">
-                    <CardContent>
-                      <p>Intro to Leftistm guides.</p>
-                      <p>Library of leftist texts.</p>
-                    </CardContent>
-                  </Card>
-                </div>
               </div>
             </CardContent>
           </Card>
-        </CardContent>
-      </Card>
+        </CardContent >
+      </Card >
     );
   }
 }
