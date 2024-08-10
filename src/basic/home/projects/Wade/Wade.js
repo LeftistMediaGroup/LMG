@@ -206,6 +206,11 @@ export class Wade extends Component {
 
             <div class="col">
               <h5>Personnel</h5>
+
+              <br />
+
+              <p>Site Work in progress</p>
+              <p>Check back for updates!</p>
             </div>
           </div>
         </CardContent>
