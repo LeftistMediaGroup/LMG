@@ -60,7 +60,7 @@ export default class SideBar extends React.Component {
   };
 
   renderCreateAdmin = () => {
-    if (this.props.admin_created === false) {
+    if (this.props.admin_created === true) {
       return (
         <div class="row ">
           <Button
@@ -70,7 +70,7 @@ export default class SideBar extends React.Component {
               }
             }}
           >
-            Register-Admin
+            Register - Admin
           </Button>
         </div>
       );
@@ -99,9 +99,7 @@ export default class SideBar extends React.Component {
     return (
       <Card variant="outlined">
         <CardContent>
-
-
-          <div class="row ">
+          <div class="row">
             <Button
               onClick={() => {
                 if (this.state) {

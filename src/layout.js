@@ -33,7 +33,11 @@ import TestPage from "./basic/TestPage/TestPage.js";
 import { darkTheme } from "./Theme.js";
 
 import queryString from 'query-string';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'; 4
+
+import { io } from "socket.io-client";
+
+
 
 export default class Layout extends React.Component {
   constructor(props) {
@@ -45,6 +49,7 @@ export default class Layout extends React.Component {
       is_admin: null,
       component: "Home",
       BottomBarComponent: null,
+      is_admin: false,
     };
 
   }
@@ -141,20 +146,17 @@ export default class Layout extends React.Component {
   };
 
   admin_created = () => {
-    axios
-      .get(`https://${process.env.host}/system/admin_created`, {
-        withCredentials: true,
-      })
-      .then((result) => {
-        if (result.data.admin_created === true) {
-          this.props.setadmin_created(true);
-        } else {
-          this.props.setadmin_created(false);
-        };
-      })
-      .catch((err) => {
-        console.log(`Error: ${err}`);
-      });
+    this.socket = io("ws://localhost:5501");
+
+    this.socket.on("connect", () => {
+      console.log(`CONNECTED`)
+      this.socket.emit("is_init");
+    })
+
+    this.socket.on("is_init", () => {
+      console.log("ISINIT");
+      this.props.setadmin_created(true);
+    })
   };
 
   setIs_loggedin = (is_loggedin) => {
@@ -185,29 +187,28 @@ export default class Layout extends React.Component {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <div class="container" style={{ maxWidth: 1980 }}>
-          
-              <div class="row">
-                {this.renderTopBar()}
-              </div>
+          <div class="row">
+            <div class="row">
+              {this.renderTopBar()}
+            </div>
 
-              <div class="row">
-                <div class="col-12 col-lg-2" >
-                  <SideBar
-                    getComponent={this.getComponent}
-                    is_loggedin={this.state.is_loggedin}
-                    admin_created={this.props.admin_created}
-                    is_admin={this.state.is_admin}
-                  />
-                </div>
+            <div class="col-sm-2" >
+              <SideBar
+                getComponent={this.getComponent}
+                is_loggedin={this.state.is_loggedin}
+                admin_created={this.props.admin_created}
+                is_admin={this.state.is_admin}
+              />
+            </div>
 
-                <div class="col-12 col-lg-10">
-                  {this.renderComponent()}
-                </div>
-              </div>
-              <div class="row">
-                {this.renderBottomBar()}
-              </div>
-            
+            <div class="col">
+              {this.renderComponent()}
+            </div>
+
+            <div class="row">
+              {this.renderBottomBar()}
+            </div>
+          </div>
         </div>
       </ThemeProvider>
     );

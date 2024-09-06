@@ -9,44 +9,9 @@ export class Register_Admin extends Component {
     super(props);
 
     this.state = {
-      email: null,
-      password: null,
-      password2: null,
+      manifest: null,
     };
   }
-
-  submit = () => {
-    console.log(`Submit`);
-
-    if (this.state.password === this.state.password2) {
-      let email = this.state.email;
-      let password = this.state.password;
-
-      console.log(`Data out`);
-
-      axios.defaults.withCredentials = true;
-
-      axios
-        .put(
-          `https://${process.env.host}/system/register_admin`,
-          {
-            password: password,
-            email: email,
-          },
-          { withCredentials: true }
-        )
-        .then((result) => {
-          console.log(`Axios update: ${JSON.stringify(result)}`);
-
-          this.props.admin_created();
-        })
-        .catch((err) => {
-          console.log(`Error: ${err}`);
-        });
-    } else {
-      console.log("Passwords don't match, please try again.");
-    }
-  };
 
   emailChange(event) {
     let email = event.target.value;
