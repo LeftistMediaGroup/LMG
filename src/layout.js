@@ -1,6 +1,3 @@
-import { Routes, Route, Link } from "react-router-dom";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-
 import Home from "./basic/Home.js";
 import Volunteering from "./basic/volunteering/Volunteering.js";
 import Account from "./basic/account/Account.js";
@@ -8,35 +5,23 @@ import Account from "./basic/account/Account.js";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import SignUpForm from "./basic/account/SignUpForm.js";
-import { red } from "@mui/material/colors";
 
 import Register_Admin from "./basic/account/Register_admin.js";
 import Login from "./basic/account/Login.js";
 import React, { useEffect } from "react";
 import SideBar from "./SideBar.js";
-import axios from "axios";
 import ResourceMap from "./basic/Resources/ResourceMap.js";
 import AdminDashboard from "./basic/dashboard/AdminDashboard/AdminDashboard.js";
 import TopBar from "./Topbar.js";
 import Dashboard from "./basic/dashboard/Dashboard.js";
-import { Margin } from "@mui/icons-material";
 import Education from "./basic/Education.js";
 import BottomBar from "./BottomBar.js";
 import Music from "./basic/music/Music.js";
-import { maxWidth } from "@mui/system";
-import { Card } from "react-bootstrap";
-import { CardContent } from "@mui/material";
 import SundaySocial from "./basic/SundaySocial/SundaySocial.js";
 import TestPage from "./basic/TestPage/TestPage.js";
 
-
-import { darkTheme } from "./Theme.js";
-
-import queryString from 'query-string';
-import { useLocation } from 'react-router-dom'; 4
-
 import { io } from "socket.io-client";
-
+import { darkTheme } from "./Theme.js";
 
 
 export default class Layout extends React.Component {
@@ -50,8 +35,20 @@ export default class Layout extends React.Component {
       component: "Home",
       BottomBarComponent: null,
       is_admin: false,
+      admin_created: false,
+      socket: io("ws://localhost:5501")
     };
+  }
 
+  admin_created = () => {
+    this.state.socket.on("connect", () => {
+      console.log(`CONNECTED`)
+      this.state.socket.emit("is_init")
+    })
+
+    this.state.socket.on("is_init", () => {
+      this.setState({ admin_created: true })
+    })
   }
 
   renderBottomBar = () => {
@@ -91,7 +88,7 @@ export default class Layout extends React.Component {
         />
       );
     } else if (this.state.component === "RegisterAdmin") {
-      return <Register_Admin admin_created={this.admin_created} />;
+      return <Register_Admin />;
     } else if (this.state.component === "Resources") {
       return <ResourceMap />;
     } else if (this.state.component === "Dashboard") {
@@ -145,19 +142,6 @@ export default class Layout extends React.Component {
     }
   };
 
-  admin_created = () => {
-    this.socket = io("ws://localhost:5501");
-
-    this.socket.on("connect", () => {
-      console.log(`CONNECTED`)
-      this.socket.emit("is_init");
-    })
-
-    this.socket.on("is_init", () => {
-      console.log("ISINIT");
-      this.props.setadmin_created(true);
-    })
-  };
 
   setIs_loggedin = (is_loggedin) => {
     this.setState({ is_loggedin: is_loggedin });
@@ -186,7 +170,7 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container" style={{ maxWidth: 1980 }}>
+        <div class="container" style={{ maxWidth: 1980, paddingTop: 30 }}>
           <div class="row">
             <div class="row">
               {this.renderTopBar()}
@@ -196,7 +180,7 @@ export default class Layout extends React.Component {
               <SideBar
                 getComponent={this.getComponent}
                 is_loggedin={this.state.is_loggedin}
-                admin_created={this.props.admin_created}
+                admin_created={this.state.admin_created}
                 is_admin={this.state.is_admin}
               />
             </div>

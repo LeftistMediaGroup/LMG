@@ -2,23 +2,65 @@ import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
 import { Button, Card, CardContent } from "@mui/material";
-import axios from "axios";
+
+
 
 export class Register_Admin extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      manifest: null,
+      cause: null,
+      organization: null,
+      admin_name: null,
+      password: null,
+      password2: null,
     };
   }
 
-  emailChange(event) {
-    let email = event.target.value;
+  submit = () => {
+    console.log(`Submit`);
 
-    if (email !== this.state.email) {
+    if (this.state.password === this.state.password2 && this.state.password !== null) {
+      let cause = this.state.cause;
+      let organization = this.state.organization;
+      let admin_name = this.state.admin_name;
+      let password = this.state.password;
+
+      console.log(`Data out`);
+
+
+    } else {
+      console.log("Passwords Error, please try again.");
+    }
+  };
+
+  causeChange(event) {
+    let cause = event.target.value;
+
+    if (cause !== this.state.cause) {
       this.setState({
-        email: email,
+        cause: cause,
+      });
+    }
+  }
+
+  organizationChange(event) {
+    let organization = event.target.value;
+
+    if (organization !== this.state.organization) {
+      this.setState({
+        organization: organization,
+      });
+    }
+  }
+
+  admin_nameChange(event) {
+    let admin_name = event.target.value;
+
+    if (admin_name !== this.state.admin_name) {
+      this.setState({
+        admin_name: admin_name,
       });
     }
   }
@@ -43,62 +85,76 @@ export class Register_Admin extends Component {
     }
   }
 
+
+
   render() {
     return (
       <div className="row-centered">
-        <div className="row-centered">
-          <div className="row-centered" style={{ maxWidth: 500 }}>
-            <Card>
-              <CardContent>
-                <h5>Register - Admin</h5>
+        <div className="row-centered" style={{ maxWidth: 500 }}>
+          <Card>
+            <CardContent>
+              <h5>Register - Admin</h5>
 
-                <form className="row-centered">
-                  <Form.Group>
-                    <Form.Control
-                      type="email"
-                      id="InputEmail"
-                      placeholder="Email"
-                      onChange={this.emailChange.bind(this)}
-                    />
-                  </Form.Group>
+              <h4>Enter Manifest Details</h4>
 
-                  <Form.Group>
-                    <Form.Control
-                      type="password"
-                      id="InputPassword"
-                      placeholder="Password"
-                      onChange={this.passwordChange.bind(this)}
-                    />
-                  </Form.Group>
 
-                  <Form.Group>
-                    <Form.Control
-                      type="password"
-                      className="form-control"
-                      id="InputConfirmPassword"
-                      placeholder="Password"
-                      onChange={this.password2Change.bind(this)}
-                    />
-                  </Form.Group>
+              <form className="row-centered">
+                <Form.Group>
+                  <Form.Control
+                    id="Inputcause"
+                    placeholder="Cause"
+                    onChange={this.causeChange.bind(this)}
+                  />
+                </Form.Group>
 
-                  <br />
+                <Form.Control
+                  id="Inputorganization"
+                  placeholder="Organization"
+                  onChange={this.organizationChange.bind(this)}
+                />
 
-                  <Button
-                    color="primary"
-                    variant="outlined"
-                    onClick={() => {
-                      console.log("Clicked!");
-                      this.submit();
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    Submit
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                <Form.Control
+                  id="Inputadmin_name"
+                  placeholder="Admin Name"
+                  onChange={this.admin_nameChange.bind(this)}
+                />
+
+                <Form.Group>
+                  <Form.Control
+                    type="password"
+                    id="InputPassword"
+                    placeholder="Password"
+                    onChange={this.passwordChange.bind(this)}
+                  />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Control
+                    type="password"
+                    className="form-control"
+                    id="InputConfirmPassword"
+                    placeholder="Enter Password Again"
+                    onChange={this.password2Change.bind(this)}
+                  />
+                </Form.Group>
+
+                <br />
+
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  onClick={() => {
+                    console.log("Clicked!");
+                    this.submit();
+                  }}
+                  role="button"
+                  tabIndex={0}
+                >
+                  Submit
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
     );
