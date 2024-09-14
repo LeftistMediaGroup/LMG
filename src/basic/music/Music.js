@@ -237,7 +237,7 @@ export default class Music extends Component {
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
                   <a href="!#" onClick={(event) => event.preventDefault()}>
-                    Home
+                    LMG
                   </a>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">

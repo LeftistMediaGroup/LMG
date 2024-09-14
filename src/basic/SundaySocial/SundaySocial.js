@@ -36,43 +36,41 @@ export default class SundaySocial extends Component {
 
   render() {
     return (
-      
-        <Card variant="outlined">
-          <CardContent>
+      <Card variant="outlined">
+        <CardContent>
+          <div className="page-header">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="!#" onClick={(event) => event.preventDefault()}>
+                    LMG
+                  </a>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  Sunday Social
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div className="row mt-3">
+            <div className="col">
+              <h1>Sunday Social</h1>
 
-            <div className="page-header">
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <a href="!#" onClick={(event) => event.preventDefault()}>
-                      Home
-                    </a>
-                  </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    Sunday Social
-                  </li>
-                </ol>
-              </nav>
+              <h3>Revolution Television</h3>
+
+              {this.state.show_SS && (
+
+                <iframe
+                  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+                  src={this.state.SS}
+                  style={{ height: 720, width: 576, border: 0 }}
+                />
+              )}
             </div>
-            <div className="row mt-3">
-              <div className="col">
-                <h1>Sunday Social</h1>
+          </div>
+        </CardContent>
+      </Card>
 
-                <h3>Revolution Television</h3>
-
-                {this.state.show_SS && (
-
-                  <iframe
-                    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-                    src={this.state.SS}
-                    style={{ height: 720, width: 576, border: 0 }}
-                  />
-                )}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-    
     );
   }
 }

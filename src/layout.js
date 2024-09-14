@@ -22,6 +22,8 @@ import TestPage from "./basic/TestPage/TestPage.js";
 
 import { io } from "socket.io-client";
 import { darkTheme } from "./Theme.js";
+import System from "./basic/account/System.js";
+import Dashboard_Login_Signup from "./basic/account/Dashboard_Login_Signup.js";
 
 
 export default class Layout extends React.Component {
@@ -31,25 +33,15 @@ export default class Layout extends React.Component {
     this.state = {
       is_loggedin: "Not initalized",
       username: "Not initalized",
-      is_admin: null,
       component: "Home",
       BottomBarComponent: null,
       is_admin: false,
-      admin_created: false,
-      socket: io("ws://localhost:5501")
+      is_database_found: false,
+      is_admin_created: null
     };
   }
 
-  admin_created = () => {
-    this.state.socket.on("connect", () => {
-      console.log(`CONNECTED`)
-      this.state.socket.emit("is_init")
-    })
 
-    this.state.socket.on("is_init", () => {
-      this.setState({ admin_created: true })
-    })
-  }
 
   renderBottomBar = () => {
     if (this.state.is_loggedin === true) {
@@ -63,9 +55,9 @@ export default class Layout extends React.Component {
     }
   };
 
-  setIs_admin = (is_admin) => {
-    this.setState({ is_admin: is_admin });
-  };
+  set_component = (value) => {
+    this.setState({ component: value });
+  }
 
   renderComponent = () => {
     if (this.state.component === "Home") {
@@ -87,8 +79,18 @@ export default class Layout extends React.Component {
           setIs_admin={this.setIs_admin}
         />
       );
-    } else if (this.state.component === "RegisterAdmin") {
-      return <Register_Admin />;
+    } else if (this.state.component === "System") {
+      return <System
+        is_database_found={this.is_database_found}
+        set_admin_created={this.set_admin_created}
+        set_component={this.set_component}
+      />;
+    }
+    else if (this.state.component === "RegisterAdmin") {
+      return <Register_Admin
+        is_admin={this.state.is_database_found}
+        socket={this.state.socket}
+      />;
     } else if (this.state.component === "Resources") {
       return <ResourceMap />;
     } else if (this.state.component === "Dashboard") {
@@ -101,6 +103,8 @@ export default class Layout extends React.Component {
       return <SundaySocial />;
     } else if (this.state.component === "TestPage") {
       return <TestPage />;
+    } else if (this.state.component === "Dashboard_Login_Signup") {
+      return <Dashboard_Login_Signup />
     }
   };
 
@@ -119,7 +123,10 @@ export default class Layout extends React.Component {
       this.setState({ component: "RegisterAdmin" });
     } else if (component === "Resources") {
       this.setState({ component: "Resources" });
-    } else if (component === "AdminDashboard") {
+    } else if (component === "System") {
+      this.setState({ component: "System" });
+    }
+    else if (component === "AdminDashboard") {
       this.setState({ component: "AdminDashboard" });
     } else if (component === "Music") {
       this.setState({ component: "Music" });
@@ -151,8 +158,24 @@ export default class Layout extends React.Component {
     this.state.username = username;
   };
 
+  is_database_found = (value) => {
+    if (value == true) {
+      this.setState({ is_database_found: true })
+    } else {
+      this.setState({ is_database_found: false })
+    }
+  }
+
+  set_admin_created = (value) => {
+    console.log(`Value: ${value}`)
+    if (value == true) {
+      this.setState({ is_admin_created: true })
+    } else if (value == false) {
+      this.setState({ is_admin_created: false })
+    }
+  }
+
   componentDidMount() {
-    this.admin_created();
     const loc = document.location;
 
     let location = loc.pathname.replace("/", "")
@@ -180,8 +203,9 @@ export default class Layout extends React.Component {
               <SideBar
                 getComponent={this.getComponent}
                 is_loggedin={this.state.is_loggedin}
-                admin_created={this.state.admin_created}
+                is_database_found={this.state.is_database_found}
                 is_admin={this.state.is_admin}
+                is_admin_created={this.state.is_admin_created}
               />
             </div>
 

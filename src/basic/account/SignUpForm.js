@@ -82,71 +82,68 @@ export class SignUpForm extends Component {
 
   render() {
     return (
-      <div class="row">
+      <div class="row-centered" style={{ maxWidth: 500 }}>
         <Card variant="outlined">
           <CardContent>
-            <div class="row-centered">
-              <div class="row-centered">
-                <div class="page-header">
-                  <h5>Sign up</h5>
 
-                  <p>
-                    Leftist Media Group is recruiting for volunteers to spread
-                    revolutionary propaganda.
-                  </p>
-                </div>
-                <div class="row-centered" style={{ maxWidth: 500 }}>
-                  <Card>
-                    <CardContent>
-                      <form class="row-centered">
-                        <Form.Group>
-                          <Form.Control
-                            type="email"
-                            id="InputEmail"
-                            placeholder="Email"
-                            onChange={this.emailChange.bind(this)}
-                          />
-                        </Form.Group>
+            <h5>Sign up</h5>
+            <br />
 
-                        <Form.Group>
-                          <Form.Control
-                            type="password"
-                            id="InputPassword"
-                            placeholder="Password"
-                            onChange={this.passwordChange.bind(this)}
-                          />
-                        </Form.Group>
+            <p>
+              Leftist Media Group is recruiting for volunteers to spread
+              revolutionary propaganda.
+            </p>
 
-                        <Form.Group>
+            <div class="row-centered" style={{ maxWidth: 500 }}>
+              <Card>
+                <CardContent>
+                  <form class="row-centered">
+                    <Form.Group>
+                      <Form.Control
+                        type="email"
+                        id="InputEmail"
+                        placeholder="Email"
+                        onChange={this.emailChange.bind(this)}
+                      />
+                    </Form.Group>
 
-                          <Form.Control
-                            type="password"
-                            class="form-control"
-                            id="InputConfirmPassword"
-                            placeholder="Password"
-                            onChange={this.password2Change.bind(this)}
-                          />
-                        </Form.Group>
+                    <Form.Group>
+                      <Form.Control
+                        type="password"
+                        id="InputPassword"
+                        placeholder="Password"
+                        onChange={this.passwordChange.bind(this)}
+                      />
+                    </Form.Group>
 
-                        <br />
+                    <Form.Group>
 
-                        <Button
-                          color="primary"
-                          variant="outlined"
-                          onClick={() => {
-                            console.log("Clicked!");
-                            this.submit();
-                          }}
-                          role="button"
-                          tabIndex={0}
-                        >
-                          Submit
-                        </Button>
-                      </form>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
+                      <Form.Control
+                        type="password"
+                        class="form-control"
+                        id="InputConfirmPassword"
+                        placeholder="Password"
+                        onChange={this.password2Change.bind(this)}
+                      />
+                    </Form.Group>
+
+                    <br />
+
+                    <Button
+                      color="primary"
+                      variant="outlined"
+                      onClick={() => {
+                        console.log("Clicked!");
+                        this.submit();
+                      }}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      Submit
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
             </div>
           </CardContent>
         </Card>

@@ -1,3 +1,4 @@
+import { CenterFocusStrong } from "@mui/icons-material";
 import { Button, Card, CardContent } from "@mui/material";
 import React from "react";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
@@ -59,22 +60,44 @@ export default class SideBar extends React.Component {
     }
   };
 
-  renderCreateAdmin = () => {
-    if (this.props.admin_created === true) {
+  renderSystem = () => {
+    if (this.props.is_database_found === false) {
       return (
         <div class="row ">
           <Button
             onClick={() => {
               if (this.state) {
-                this.returnComponent("RegisterAdmin");
+                this.returnComponent("System");
               }
             }}
           >
-            Register - Admin
+            System
           </Button>
         </div>
       );
+    } else if (this.props.is_database_found === true) {
+      if (this.props.is_admin_created === true) {
+        return (
+          this.renderAccount()
+        )
+      } else if (this.props.is_admin_created === false) {
+        return (
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("RegisterAdmin");
+                }
+              }}
+            >
+              Register Admin
+            </Button>
+          </div>
+        )
+
+      }
     }
+
   };
 
   renderAdminDashboard = () => {
@@ -99,6 +122,9 @@ export default class SideBar extends React.Component {
     return (
       <Card variant="outlined">
         <CardContent>
+          <div class="row-centered" style={{ textAlign: "center" }}>
+            LMG
+          </div>
           <div class="row">
             <Button
               onClick={() => {
@@ -144,10 +170,6 @@ export default class SideBar extends React.Component {
             </Button>
           </div>
 
-          {/*this.renderAccount()*/}
-          {this.renderAdminDashboard()}
-          {this.renderCreateAdmin()}
-
           <div class="row ">
             <Button
               onClick={() => {
@@ -158,7 +180,21 @@ export default class SideBar extends React.Component {
             >
               Sunday Social
             </Button>
+            <br />
           </div>
+
+          {this.renderAdminDashboard()}
+
+          <Card variant="outlined">
+            <CardContent>
+              <div class="row-centered" style={{ textAlign: "center" }}>
+                Wade
+
+                {this.renderSystem()}
+              </div>
+            </CardContent>
+
+          </Card>
         </CardContent>
       </Card>
     );

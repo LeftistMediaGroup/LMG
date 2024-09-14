@@ -14,6 +14,8 @@ export class Login extends Component {
     this.state = {
       username: null,
       password: null,
+      socket: io("ws://localhost:5501")
+
     };
   }
 
@@ -80,57 +82,68 @@ export class Login extends Component {
     }
   }
 
+  Encrypt() {
+    this.state.socket.emit("Encrypt");
+  }
+
   render() {
     return (
-      <div class="row-centered">
-        <div class="row-centered">
-          <Card variant="outlined">
-            <CardContent>
-              <div class="row-centered" style={{ maxWidth: 500 }}>
-                <Card>
-                  <CardContent>
-                    <form class="row-centered">
-                      <p> Log In</p>
+      <div class="row-centered" style={{ maxWidth: 500 }}>
 
-                      <Form.Group>
-                        <Form.Control
-                          id="Inputusername"
-                          placeholder="Username"
-                          onChange={this.usernameChange.bind(this)}
-                        />
-                      </Form.Group>
-                      <br />
+        <Card variant="outlined">
+          <CardContent>
 
-                      <Form.Group>
-                        <Form.Control
-                          type="password"
-                          id="InputPassword"
-                          placeholder="Password"
-                          onChange={this.passwordChange.bind(this)}
-                        />
-                      </Form.Group>
-                      <br />
+            <form class="row-centered">
+              <p> Log In</p>
 
-                      <div class="row-centered">
-                        <Button
-                          color="primary"
-                          variant="outlined"
-                          onClick={() => {
-                            console.log("Clicked!");
-                            this.submit();
-                          }}
-                          type="button"
-                        >
-                          Submit
-                        </Button>
-                      </div>
-                    </form>
-                  </CardContent>
-                </Card>
+              <Form.Group>
+                <Form.Control
+                  id="Inputusername"
+                  placeholder="Username"
+                  onChange={this.usernameChange.bind(this)}
+                />
+              </Form.Group>
+              <br />
+
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  id="InputPassword"
+                  placeholder="Password"
+                  onChange={this.passwordChange.bind(this)}
+                />
+              </Form.Group>
+              <br />
+
+              <div class="row-centered">
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  onClick={() => {
+                    console.log("Clicked!");
+                    this.submit();
+                  }}
+                  type="button"
+                >
+                  Submit
+                </Button>
               </div>
-            </CardContent>
-          </Card>
-        </div>
+            </form>
+
+
+            <Button
+              color="primary"
+              variant="outlined"
+              onClick={() => {
+                console.log("Clicked!");
+                this.Encrypt();
+              }}
+              type="button"
+            >
+              Encrypt
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     );
   }

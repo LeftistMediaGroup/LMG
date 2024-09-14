@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
 import { Button, Card, CardContent } from "@mui/material";
+import { io } from "socket.io-client";
 
 
 
@@ -15,6 +16,8 @@ export class Register_Admin extends Component {
       admin_name: null,
       password: null,
       password2: null,
+      socket: io("ws://localhost:5501")
+
     };
   }
 
@@ -25,10 +28,16 @@ export class Register_Admin extends Component {
       let cause = this.state.cause;
       let organization = this.state.organization;
       let admin_name = this.state.admin_name;
-      let password = this.state.password;
+      let admin_pass = this.state.password;
 
       console.log(`Data out`);
 
+      this.state.socket.emit("register_admin", {
+        cause: cause,
+        organization: organization,
+        admin_name: admin_name,
+        admin_pass: admin_pass
+      })
 
     } else {
       console.log("Passwords Error, please try again.");
@@ -89,73 +98,72 @@ export class Register_Admin extends Component {
 
   render() {
     return (
-      <div className="row-centered">
-        <div className="row-centered" style={{ maxWidth: 500 }}>
-          <Card>
-            <CardContent>
-              <h5>Register - Admin</h5>
+      <div className="row-centered" style={{ maxWidth: 500 }}>
+        <Card>
+          <CardContent>
+            <h5>Register - Admin</h5>
 
-              <h4>Enter Manifest Details</h4>
+            <h4>Enter Manifest Details</h4>
 
 
-              <form className="row-centered">
-                <Form.Group>
-                  <Form.Control
-                    id="Inputcause"
-                    placeholder="Cause"
-                    onChange={this.causeChange.bind(this)}
-                  />
-                </Form.Group>
-
+            <form className="row-centered" style={{ color: "black" }}>
+              <Form.Group>
                 <Form.Control
-                  id="Inputorganization"
-                  placeholder="Organization"
-                  onChange={this.organizationChange.bind(this)}
+                  type="cause"
+                  id="Inputcause"
+                  placeholder="Cause"
+                  onChange={this.causeChange.bind(this)}
                 />
+              </Form.Group>
 
+              <Form.Control
+                id="Inputorganization"
+                placeholder="Organization"
+                onChange={this.organizationChange.bind(this)}
+              />
+
+              <Form.Control
+                id="Inputadmin_name"
+                placeholder="Admin Name"
+                onChange={this.admin_nameChange.bind(this)}
+              />
+
+              <Form.Group>
                 <Form.Control
-                  id="Inputadmin_name"
-                  placeholder="Admin Name"
-                  onChange={this.admin_nameChange.bind(this)}
+                  type="password"
+                  id="InputPassword"
+                  placeholder="Password"
+                  onChange={this.passwordChange.bind(this)}
                 />
+              </Form.Group>
 
-                <Form.Group>
-                  <Form.Control
-                    type="password"
-                    id="InputPassword"
-                    placeholder="Password"
-                    onChange={this.passwordChange.bind(this)}
-                  />
-                </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  type="password"
+                  className="form-control"
+                  id="InputConfirmPassword"
+                  placeholder="Enter Password Again"
+                  onChange={this.password2Change.bind(this)}
+                />
+              </Form.Group>
 
-                <Form.Group>
-                  <Form.Control
-                    type="password"
-                    className="form-control"
-                    id="InputConfirmPassword"
-                    placeholder="Enter Password Again"
-                    onChange={this.password2Change.bind(this)}
-                  />
-                </Form.Group>
+              <br />
 
-                <br />
-
-                <Button
-                  color="primary"
-                  variant="outlined"
-                  onClick={() => {
-                    console.log("Clicked!");
-                    this.submit();
-                  }}
-                  role="button"
-                  tabIndex={0}
-                >
-                  Submit
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
+              <Button
+                color="primary"
+                variant="outlined"
+                onClick={() => {
+                  console.log("Clicked!");
+                  this.submit();
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                Submit
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     );
   }
