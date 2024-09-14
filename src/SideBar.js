@@ -10,17 +10,13 @@ export default class SideBar extends React.Component {
     this.state = {};
   }
 
-  returnComponent = (component) => {
-    this.props.getComponent(component);
-  };
-
   renderAccount = () => {
     if (this.props.is_loggedin === true) {
       return (
         <Button
           onClick={() => {
             if (this.state) {
-              this.returnComponent("Dashboard");
+              this.getComponent("Dashboard");
             }
           }}
         >
@@ -34,7 +30,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("SignUp");
+                  this.getComponent("SignUp");
                 }
               }}
             >
@@ -47,7 +43,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("LogIn");
+                  this.getComponent("LogIn");
                 }
               }}
             >
@@ -67,7 +63,7 @@ export default class SideBar extends React.Component {
           <Button
             onClick={() => {
               if (this.state) {
-                this.returnComponent("System");
+                this.getComponent("System");
               }
             }}
           >
@@ -86,7 +82,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("RegisterAdmin");
+                  this.getComponent("RegisterAdmin");
                 }
               }}
             >
@@ -107,7 +103,7 @@ export default class SideBar extends React.Component {
           <Button
             onClick={() => {
               if (this.state) {
-                this.returnComponent("AdminDashboard");
+                this.getComponent("AdminDashboard");
               }
             }}
           >
@@ -129,7 +125,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("Home");
+                  this.getComponent("Home");
                 }
               }}
             >
@@ -140,7 +136,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("Education");
+                  this.getComponent("Education");
                 }
               }}
             >
@@ -150,7 +146,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("Music");
+                  this.getComponent("Music");
                 }
               }}
             >
@@ -162,7 +158,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("Resources");
+                  this.getComponent("Resources");
                 }
               }}
             >
@@ -174,7 +170,7 @@ export default class SideBar extends React.Component {
             <Button
               onClick={() => {
                 if (this.state) {
-                  this.returnComponent("SundaySocial");
+                  this.getComponent("SundaySocial");
                 }
               }}
             >
