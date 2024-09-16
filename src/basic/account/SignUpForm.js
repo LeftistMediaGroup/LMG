@@ -1,154 +1,171 @@
 import React, { Component } from "react";
-import { useContext } from "react";
-
 import { Form } from "react-bootstrap";
 
-import { Button, Card, CardContent } from "@mui/material";
-import axios from "axios";
+import { Accordion, AccordionDetails, AccordionSummary, Button, Card, CardContent } from "@mui/material";
+import { io } from "socket.io-client";
+
+
+
 export class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: null,
+      username: null,
       password: null,
-      password2: null,
+      socket: io("ws://localhost:5501"),
+      pass_error: false,
+      ready: null,
+      short_pass: null,
     };
   }
 
-  submit = () => {
-    console.log(`Submit`);
+  set_pass_error = (result) => {
+    this.setState({ pass_error: result })
+  }
 
-    if (this.state.password === this.state.password2) {
-      let email = this.state.email;
-      let password = this.state.password;
+  render_pass_error = () => {
+    if (this.state.pass_error) {
+      return (
+        <Card>
+          <CardContent>
+            <h1>INCORRECT PASSWORD</h1>
+          </CardContent>
+        </Card>
+      )
+    }
+  }
 
+  passChange(event) {
+    let pass = event.target.value;
+
+    if (pass !== this.state.password) {
+      this.setState({
+        password: pass,
+      });
+    }
+  }
+
+
+  get_password = () => {
+    this.state.socket.on("admin_pass", (admin_pass) => {
+      this.setState({ short_pass: admin_pass })
+    })
+
+    this.state.socket.on("user_details", (details) => {
+      console.log(`User Details: ${JSON.stringify(details)}`)
+
+      this.setState({ username: details.username, short_pass: details.local_key })
+    })
+  }
+
+  submit_user = () => {
+    if (this.state.short_pass === this.state.password) {
       console.log(`Data out`);
 
-      axios.defaults.withCredentials = true;
+      let data_out = {
+        username: this.state.username,
+        password: this.state.short_pass
+      }
 
-      axios
-        .put(
-          `https://${process.env.host}/system/register_user`,
-          {
-            password: password,
-            email: email,
-          },
-          { withCredentials: true }
-        )
-        .then((result) => {
-          console.log(`Axios update: ${JSON.stringify(result)}`);
+      this.state.socket.emit("create_user", data_out);
 
-          this.props.setIs_loggedin(result.data.is_loggedin);
-          this.props.setUsername(result.data.username);
-        })
-        .catch((err) => {
-          console.log(`Error: ${err}`);
-        });
+
+      this.set_pass_error(false);
+
     } else {
-      console.log("Passwords don't match, please try again.");
-    }
-  };
-
-  emailChange(event) {
-    let email = event.target.value;
-
-    if (email !== this.state.email) {
-      this.setState({
-        email: email,
-      });
+      this.set_pass_error(true);
     }
   }
 
-  passwordChange(event) {
-    let password = event.target.value;
-
-    if (password !== this.state.password) {
-      this.setState({
-        password: password,
-      });
-    }
+  register() {
+    this.state.socket.emit("new_user");
   }
 
-  password2Change(event) {
-    let password2 = event.target.value;
+  componentDidMount() {
+    this.get_password();
+  }
 
-    if (password2 !== this.state.password2) {
-      this.setState({
-        password2: password2,
-      });
-    }
+  render_register = () => {
+    return (
+      <Card variant="outlined">
+        <CardContent>
+          <p>To Register:</p>
+
+          <ul>
+            <li>1. WRITE DOWN username & password in SECURE place</li>
+            <li>2. Enter and submit password </li>
+            <li>3. Log in with password</li>
+          </ul>
+
+          <Accordion>
+            <AccordionSummary>
+              <div className="row">
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  onClick={() => {
+                    console.log("Clicked!");
+                    this.register();
+                  }}
+                  type="button"
+                >
+                  Register
+                </Button>
+              </div>
+            </AccordionSummary>
+
+            <AccordionDetails>
+              <p>Username: {this.state.username}</p>
+              <p>Password: {this.state.short_pass}</p>
+              <br />
+
+              <Accordion>
+                <AccordionDetails>
+                  <Card>
+                    <CardContent>
+                      <form className="row-centered" style={{ color: "black" }}>
+                        <Form.Group>
+                          <Form.Control
+                            type="manifest_pass"
+                            id="Inputcause"
+                            placeholder="Enter Above Password"
+                            onChange={this.passChange.bind(this)}
+                          />
+                        </Form.Group>
+                        <br />
+
+                        <Button
+                          color="primary"
+                          variant="outlined"
+                          onClick={() => {
+                            this.submit_user();
+                          }}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          Submit
+                        </Button>
+                      </form>
+                      <br />
+
+                      <p>Enter Above Password to register user</p>
+                      {this.render_pass_error()}
+                    </CardContent>
+                  </Card>
+                </AccordionDetails>
+              </Accordion>
+            </AccordionDetails>
+          </Accordion>
+        </CardContent>
+      </Card >
+    )
   }
 
   render() {
     return (
-      <div class="row-centered" style={{ maxWidth: 500 }}>
-        <Card variant="outlined">
-          <CardContent>
-
-            <h5>Sign up</h5>
-            <br />
-
-            <p>
-              Leftist Media Group is recruiting for volunteers to spread
-              revolutionary propaganda.
-            </p>
-
-            <div class="row-centered" style={{ maxWidth: 500 }}>
-              <Card>
-                <CardContent>
-                  <form class="row-centered">
-                    <Form.Group>
-                      <Form.Control
-                        type="email"
-                        id="InputEmail"
-                        placeholder="Email"
-                        onChange={this.emailChange.bind(this)}
-                      />
-                    </Form.Group>
-
-                    <Form.Group>
-                      <Form.Control
-                        type="password"
-                        id="InputPassword"
-                        placeholder="Password"
-                        onChange={this.passwordChange.bind(this)}
-                      />
-                    </Form.Group>
-
-                    <Form.Group>
-
-                      <Form.Control
-                        type="password"
-                        class="form-control"
-                        id="InputConfirmPassword"
-                        placeholder="Password"
-                        onChange={this.password2Change.bind(this)}
-                      />
-                    </Form.Group>
-
-                    <br />
-
-                    <Button
-                      color="primary"
-                      variant="outlined"
-                      onClick={() => {
-                        console.log("Clicked!");
-                        this.submit();
-                      }}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      Submit
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
+      this.render_register()
+    )
   }
 }
 
