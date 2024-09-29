@@ -16,7 +16,7 @@ export class Sophia extends Component {
           </div>
 
           <br />
-          <Card variant="outlined">
+          <Card>
             <CardContent>
               <div className="row">
                 <div className="col">

@@ -13,7 +13,6 @@ export class SignUpForm extends Component {
     this.state = {
       username: null,
       password: null,
-      socket: io("ws://localhost:5501"),
       pass_error: false,
       ready: null,
       short_pass: null,
@@ -48,15 +47,18 @@ export class SignUpForm extends Component {
 
 
   get_password = () => {
-    this.state.socket.on("admin_pass", (admin_pass) => {
-      this.setState({ short_pass: admin_pass })
-    })
+    if (this.props.socket) {
+      this.props.socket.on("admin_pass", (admin_pass) => {
+        this.setState({ short_pass: admin_pass })
+        console.log(`Admin Pass: ${admin_pass}`)
+      })
 
-    this.state.socket.on("user_details", (details) => {
-      console.log(`User Details: ${JSON.stringify(details)}`)
+      this.props.socket.on("user_details", (details) => {
+        console.log(`User Details: ${JSON.stringify(details)}`)
 
-      this.setState({ username: details.username, short_pass: details.local_key })
-    })
+        this.setState({ username: details.username, short_pass: details.local_key })
+      })
+    }
   }
 
   submit_user = () => {
@@ -64,11 +66,11 @@ export class SignUpForm extends Component {
       console.log(`Data out`);
 
       let data_out = {
-        username: this.state.username,
-        password: this.state.short_pass
+        username: this.props.username,
+        password: this.props.short_pass
       }
 
-      this.state.socket.emit("create_user", data_out);
+      this.props.socket.emit("create_user", data_out);
 
 
       this.set_pass_error(false);
@@ -79,7 +81,7 @@ export class SignUpForm extends Component {
   }
 
   register() {
-    this.state.socket.emit("new_user");
+    this.props.socket.emit("new_user");
   }
 
   componentDidMount() {
@@ -116,8 +118,8 @@ export class SignUpForm extends Component {
             </AccordionSummary>
 
             <AccordionDetails>
-              <p>Username: {this.state.username}</p>
-              <p>Password: {this.state.short_pass}</p>
+              <p>Username: {this.props.username}</p>
+              <p>Password: {this.props.short_pass}</p>
               <br />
 
               <Accordion>

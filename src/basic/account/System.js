@@ -10,20 +10,24 @@ export default class System extends Component {
 
     this.state = {
       socket_url: "ws://localhost:5501",
-      socket: null,
     };
   }
 
   watch_Socket = () => {
-    if (this.state.socket) {
-      this.state.socket.on("connect", () => {
+    if (this.props.socket) {
+      this.props.socket.on("connect", () => {
         console.log(`CONNECTED`)
         this.props.is_database_found(true);
 
-        this.state.socket.emit("database_init");
+        this.props.socket.emit("database_init");
       })
 
-      this.state.socket.on("database_init", (value) => {
+      this.props.socket.on("admin_pass", (admin_pass) => {
+        this.props.set_admin_pass(admin_pass)
+        console.log(`Pass: ${admin_pass}`)
+      });
+
+      this.props.socket.on("database_init", (value) => {
         console.log(`DatabaseInit: ${value}`)
         if (value == "True") {
           this.props.set_admin_created(true);
@@ -42,24 +46,21 @@ export default class System extends Component {
       this.setState({
         socket_url: url,
       });
+      this.props.setSocket(url)
     }
   }
-
 
   submit_socket = () => {
     console.log(`Submit`);
 
     console.log(`Data out`);
 
-    let socket = io(this.state.socket_url);
-
-    this.setState({ socket: socket });
+    this.props.setSocket(this.state.socket_url)
   }
-  
 
   render() {
     return (
-      <div className="row-centered" style={{ maxWidth: 500 }}>
+      <div className="row-centered" style={{ maxWidth: 500 }} >
         <Card>
           <CardContent>
             {this.watch_Socket()}
@@ -95,10 +96,10 @@ export default class System extends Component {
               </Button>
             </form>
 
-            
+
           </CardContent>
         </Card>
-      </div>
+      </div >
     );
   }
 }

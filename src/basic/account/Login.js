@@ -14,8 +14,6 @@ export class Login extends Component {
     this.state = {
       username: null,
       password: null,
-      socket: io("ws://localhost:5501")
-
     };
   }
 

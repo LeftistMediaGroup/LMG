@@ -16,7 +16,6 @@ export class Register_Admin extends Component {
       admin_name: null,
       password: null,
       password2: null,
-      socket: io("ws://localhost:5501"),
       short_pass: null,
       manifest_pass_out: null,
       pass_error: false,
@@ -30,7 +29,6 @@ export class Register_Admin extends Component {
 
       console.log(`Submit Manifest Pass`);
 
-      let short_pass = this.state.short_pass;
       let cause = this.state.cause;
       let organization = this.state.organization;
       let admin_name = this.state.admin_name;
@@ -38,7 +36,7 @@ export class Register_Admin extends Component {
 
       console.log(`Data out`);
 
-      this.state.socket.emit("manifest_init", {
+      this.props.socket.emit("manifest_init", {
         cause: cause,
         organization: organization,
         admin_name: admin_name,
@@ -105,11 +103,6 @@ export class Register_Admin extends Component {
     })
   }
 
-  get_password = () => {
-    this.state.socket.on("admin_pass", (admin_pass) => {
-      this.setState({ short_pass: admin_pass })
-    })
-  }
 
   componentDidMount() {
     this.get_password();
@@ -155,7 +148,7 @@ export class Register_Admin extends Component {
                 onClick={() => {
                   console.log("Clicked!");
                   this.setState({ ready: true })
-                  this.state.socket.emit("Encrypt")
+                  this.props.socket.emit("Encrypt")
                 }}
                 role="button"
                 tabIndex={0}
@@ -186,7 +179,7 @@ export class Register_Admin extends Component {
               </AccordionSummary>
 
               <AccordionDetails>
-                <p>{this.state.short_pass}</p>
+                <p>{this.props.short_pass}</p>
                 <br />
 
                 <Card>
