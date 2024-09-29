@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SpotifyPlayer from 'react-spotify-player';
 
 import { Card, CardContent } from "@mui/material";
 
@@ -23,8 +24,22 @@ export class Music extends Component {
             of 80+ downloadable leftist songs to listen to and
             reflect on centered around leftist topics.
           </p>
+          <br />
+          <div class="row">
+            <div class="col mx-auto" align="center">
 
-          <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for playlist!</a>
+              <SpotifyPlayer
+                uri="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=8d75011cd7ee427f"
+                size={{
+                  width: '50%',
+                  height: 700,
+                }}
+                view={'list'}
+                theme={'black'}
+              />
+            </div>
+          </div>
+          <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for Spotify playlist!</a>
         </CardContent>
       </Card>
     );

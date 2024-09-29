@@ -14,8 +14,6 @@ export class Login extends Component {
     this.state = {
       username: null,
       password: null,
-      socket: io("ws://localhost:5501")
-
     };
   }
 
@@ -82,8 +80,24 @@ export class Login extends Component {
     }
   }
 
-  Encrypt() {
-    this.state.socket.emit("Encrypt");
+
+  submit_user = () => {
+    if (this.state.short_pass === this.state.password) {
+      console.log(`Data out`);
+
+      let data_out = {
+        username: this.state.username,
+        password: this.state.short_pass
+      }
+
+      this.state.socket.emit("create_user", data_out);
+
+
+      this.set_pass_error(false);
+
+    } else {
+      this.set_pass_error(true);
+    }
   }
 
   render() {
@@ -94,7 +108,7 @@ export class Login extends Component {
           <CardContent>
 
             <form class="row-centered">
-              <p> Log In</p>
+              <p> Log in existing user</p>
 
               <Form.Group>
                 <Form.Control
@@ -121,7 +135,7 @@ export class Login extends Component {
                   variant="outlined"
                   onClick={() => {
                     console.log("Clicked!");
-                    this.submit();
+                    this.submit_user();
                   }}
                   type="button"
                 >
@@ -129,19 +143,6 @@ export class Login extends Component {
                 </Button>
               </div>
             </form>
-
-
-            <Button
-              color="primary"
-              variant="outlined"
-              onClick={() => {
-                console.log("Clicked!");
-                this.Encrypt();
-              }}
-              type="button"
-            >
-              Encrypt
-            </Button>
           </CardContent>
         </Card>
       </div>

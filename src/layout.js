@@ -37,7 +37,9 @@ export default class Layout extends React.Component {
       BottomBarComponent: null,
       is_admin: false,
       is_database_found: false,
-      is_admin_created: null
+      is_admin_created: null,
+      socket: null,
+      short_pass: null
     };
   }
 
@@ -59,6 +61,14 @@ export default class Layout extends React.Component {
     this.setState({ component: value });
   }
 
+  setSocket = (socket_url) => {
+    let socket = io(socket_url);
+
+    socket.emit("database_init");
+
+    this.setState({ socket: socket })
+  }
+
   renderComponent = () => {
     if (this.state.component === "Home") {
       return <Home />;
@@ -69,6 +79,9 @@ export default class Layout extends React.Component {
         <SignUpForm
           setIs_loggedin={this.setIs_loggedin}
           setUsername={this.setUsername}
+          socket={this.state.socket}
+          short_pass={this.state.short_pass}
+          set_admin_pass={this.set_short_pass}
         />
       );
     } else if (this.state.component === "LogIn") {
@@ -77,13 +90,17 @@ export default class Layout extends React.Component {
           setIs_loggedin={this.setIs_loggedin}
           setUsername={this.setUsername}
           setIs_admin={this.setIs_admin}
+          socket={this.state.socket}
         />
       );
     } else if (this.state.component === "System") {
       return <System
         is_database_found={this.is_database_found}
         set_admin_created={this.set_admin_created}
+        set_admin_pass={this.set_admin_pass}
         set_component={this.set_component}
+        setSocket={this.setSocket}
+        socket={this.state.socket}
       />;
     }
     else if (this.state.component === "RegisterAdmin") {
@@ -175,6 +192,15 @@ export default class Layout extends React.Component {
     }
   }
 
+  set_admin_pass = () => {
+    if (this.state.socket) {
+      this.state.socket.on("admin_pass", (admin_pass) => {
+        this.setState({ short_pass: admin_pass })
+        console.log(`Pass: ${admin_pass}`)
+      });
+    }
+  }
+
   componentDidMount() {
     const loc = document.location;
 
@@ -187,6 +213,8 @@ export default class Layout extends React.Component {
     this.setState({
       component: location
     })
+
+    this.set_admin_pass();
   }
 
   render() {

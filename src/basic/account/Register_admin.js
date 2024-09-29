@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
-import { Button, Card, CardContent } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Button, Card, CardContent } from "@mui/material";
 import { io } from "socket.io-client";
 
 
@@ -16,33 +16,54 @@ export class Register_Admin extends Component {
       admin_name: null,
       password: null,
       password2: null,
-      socket: io("ws://localhost:5501")
-
+      short_pass: null,
+      manifest_pass_out: null,
+      pass_error: false,
+      manifest: null,
+      ready: null,
     };
   }
 
-  submit = () => {
-    console.log(`Submit`);
+  submit_manifest_pass = () => {
+    if (this.state.short_pass === this.state.manifest_pass_out) {
 
-    if (this.state.password === this.state.password2 && this.state.password !== null) {
+      console.log(`Submit Manifest Pass`);
+
       let cause = this.state.cause;
       let organization = this.state.organization;
       let admin_name = this.state.admin_name;
-      let admin_pass = this.state.password;
+      let admin_pass = this.state.short_pass;
 
       console.log(`Data out`);
 
-      this.state.socket.emit("register_admin", {
+      this.props.socket.emit("manifest_init", {
         cause: cause,
         organization: organization,
         admin_name: admin_name,
         admin_pass: admin_pass
       })
+      this.set_pass_error(false);
 
     } else {
-      console.log("Passwords Error, please try again.");
+      this.set_pass_error(true);
     }
-  };
+  }
+
+  set_pass_error = (result) => {
+    this.setState({ pass_error: result })
+  }
+
+  render_pass_error = () => {
+    if (this.state.pass_error) {
+      return (
+        <Card>
+          <CardContent>
+            <h1>INCORRECT PASSWORD</h1>
+          </CardContent>
+        </Card>
+      )
+    }
+  }
 
   causeChange(event) {
     let cause = event.target.value;
@@ -74,31 +95,22 @@ export class Register_Admin extends Component {
     }
   }
 
-  passwordChange(event) {
-    let password = event.target.value;
+  manifest_passChange(event) {
+    let pass = event.target.value;
 
-    if (password !== this.state.password) {
-      this.setState({
-        password: password,
-      });
-    }
-  }
-
-  password2Change(event) {
-    let password2 = event.target.value;
-
-    if (password2 !== this.state.password2) {
-      this.setState({
-        password2: password2,
-      });
-    }
+    this.setState({
+      manifest_pass_out: pass,
+    })
   }
 
 
+  componentDidMount() {
+    this.get_password();
+  }
 
-  render() {
-    return (
-      <div className="row-centered" style={{ maxWidth: 500 }}>
+  render_register = () => {
+    if (this.state.ready === null) {
+      return (
         <Card>
           <CardContent>
             <h5>Register - Admin</h5>
@@ -128,25 +140,6 @@ export class Register_Admin extends Component {
                 onChange={this.admin_nameChange.bind(this)}
               />
 
-              <Form.Group>
-                <Form.Control
-                  type="password"
-                  id="InputPassword"
-                  placeholder="Password"
-                  onChange={this.passwordChange.bind(this)}
-                />
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Control
-                  type="password"
-                  className="form-control"
-                  id="InputConfirmPassword"
-                  placeholder="Enter Password Again"
-                  onChange={this.password2Change.bind(this)}
-                />
-              </Form.Group>
-
               <br />
 
               <Button
@@ -154,7 +147,8 @@ export class Register_Admin extends Component {
                 variant="outlined"
                 onClick={() => {
                   console.log("Clicked!");
-                  this.submit();
+                  this.setState({ ready: true })
+                  this.props.socket.emit("Encrypt")
                 }}
                 role="button"
                 tabIndex={0}
@@ -164,8 +158,72 @@ export class Register_Admin extends Component {
             </form>
           </CardContent>
         </Card>
-      </div>
-    );
+      )
+    } else {
+      return (
+        <Card>
+          <CardContent>
+            <h1>Admin Pass</h1>
+
+            <p>To Register:</p>
+
+            <ul>
+              <li>1. WRITE DOWN password in SECURE place</li>
+              <li>2. Enter and submit password </li>
+              <li>3. Log in with password</li>
+            </ul>
+
+            <Accordion>
+              <AccordionSummary>
+                SHOW PASSWORD
+              </AccordionSummary>
+
+              <AccordionDetails>
+                <p>{this.props.short_pass}</p>
+                <br />
+
+                <Card>
+                  <CardContent>
+                    <form className="row-centered" style={{ color: "black" }}>
+                      <Form.Group>
+                        <Form.Control
+                          type="manifest_pass"
+                          id="Inputcause"
+                          placeholder="Enter Above Password"
+                          onChange={this.manifest_passChange.bind(this)}
+                        />
+                      </Form.Group>
+                      <br />
+
+                      <Button
+                        color="primary"
+                        variant="outlined"
+                        onClick={() => {
+                          this.submit_manifest_pass();
+                        }}
+                        role="button"
+                        tabIndex={0}
+                      >
+                        Submit
+                      </Button>
+                    </form>
+                    <br />
+
+                    {this.render_pass_error()}
+                  </CardContent>
+                </Card>
+              </AccordionDetails>
+            </Accordion>
+          </CardContent>
+        </Card>
+      )
+    }
+  }
+
+  render() {
+    return (
+      this.render_register()
+    )
   }
 }
 

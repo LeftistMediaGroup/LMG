@@ -85,7 +85,7 @@ export class Home extends Component {
             </div>
           </div>
 
-          <Card variant="outlined">
+          <Card >
             <CardContent style={{ borderColor: "red" }}>
               <div class="row">
                 <div style={{ textAlign: "center" }}>
@@ -99,19 +99,15 @@ export class Home extends Component {
 
                 <div class="row">
                   <div className="col" style={{ padding: 15 }}>
-                    <Music />
+                    <CommunitySupportNetwork />
                   </div>
 
                   <div className="col" style={{ padding: 15 }}>
-                    <LMG_memes />
+                    <Music />
                   </div>
                 </div>
 
                 <div class="row">
-                  <div className="col" style={{ padding: 15 }}>
-                    <CommunitySupportNetwork />
-                  </div>
-
                   <div className="col" style={{ padding: 15 }}>
                     <LMGAsSocialMedia />
                   </div>
@@ -126,6 +122,10 @@ export class Home extends Component {
                 <div class="row">
                   <div className="col" style={{ padding: 15 }}>
                     <Sophia />
+                  </div>
+
+                  <div className="col" style={{ padding: 15 }}>
+                    <LMG_memes />
                   </div>
                 </div>
               </div>
