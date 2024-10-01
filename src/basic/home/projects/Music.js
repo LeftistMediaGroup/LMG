@@ -25,13 +25,14 @@ export class Music extends Component {
             reflect on centered around leftist topics.
           </p>
           <br />
+          
           <div class="row">
-            <div class="col mx-auto" align="center">
+            <div class="col mx-auto" align="center" >
 
               <SpotifyPlayer
                 uri="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=8d75011cd7ee427f"
                 size={{
-                  width: '50%',
+                  width: '90%',
                   height: 700,
                 }}
                 view={'list'}

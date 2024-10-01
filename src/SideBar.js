@@ -118,9 +118,6 @@ export default class SideBar extends React.Component {
     return (
       <Card variant="outlined">
         <CardContent>
-          <div class="row-centered" style={{ textAlign: "center" }}>
-            LMG
-          </div>
           <div class="row">
             <Button
               onClick={() => {
@@ -164,19 +161,6 @@ export default class SideBar extends React.Component {
             >
               Resources
             </Button>
-          </div>
-
-          <div class="row ">
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.props.getComponent("SundaySocial");
-                }
-              }}
-            >
-              Sunday Social
-            </Button>
-            <br />
           </div>
 
           {this.renderAdminDashboard()}

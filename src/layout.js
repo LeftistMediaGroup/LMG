@@ -227,7 +227,7 @@ export default class Layout extends React.Component {
               {this.renderTopBar()}
             </div>
 
-            <div class="col-sm-2" >
+            <div class="col-sm-2" style={{ maxWidth: 130 }}>
               <SideBar
                 getComponent={this.getComponent}
                 is_loggedin={this.state.is_loggedin}

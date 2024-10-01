@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, rgbToHex } from "@mui/material";
+
+import StreamList from "../../../../../public/Photos/StreamList.png";
+import Streams from "../../../../../public/Photos/Streams.png"
+import Comms from "../../../../../public/Photos/Comms.png"
+import CommSec from "../../../../../public/Photos/CommSec.png"
+import Info from "../../../../../public/Photos/Info.png"
+import Map from "../../../../../public/Photos/Map.jpg"
+import SatMap from "../../../../../public/Photos/SatMap.png"
+import Medical from "../../../../../public/Photos/Medical.png"
+
+
 
 export class Wade extends Component {
   constructor(props) {
@@ -47,6 +58,12 @@ export class Wade extends Component {
           <div style={{ textAlign: "center" }}>
             <h4>Wade</h4>
             <h5>They’re already organized and watching, why aren’t we?</h5>
+
+            <img src={Info} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
+
+
+
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -55,11 +72,11 @@ export class Wade extends Component {
           </div>
           <br />
 
-          <div className="row">
-            Wade is the mixture of Software and personnel.
+          <div className="row" style={{ textAlign: "center" }}>
+            <p>Wade is the mixture of Software and personnel. </p>
             <br />
 
-            <div className="col" style={{ textAlign: "center", maxHeight: 450 }}>
+            <div className="col vh-100 d-flex justify-content-center align-items-center" style={{ textAlign: "center", maxHeight: 450 }}>
               <br />
               <br />
               <Doughnut
@@ -73,128 +90,151 @@ export class Wade extends Component {
           <br />
 
           <div class="row">
+
             <div class="col">
-              <Card variant="outlined">
+              <Card variant="outlined" style={{ backgroundColor: "#36a1eb" }}>
                 <CardContent>
                   <h5>Software</h5>
 
                   <p>The software element for Wade consists of:</p>
+                  <Card>
+                    <CardContent>
 
-                  <ul>
-                    <li>
-                      Sending and viewing streams, encrypted chat, and a viewable library for education.
-                    </li>
-
-                    <li>
-                      An Android app that does all that plus it can send your stream to organizers to view
-                    </li>
-
-                    <li>
-                      A server for managing chats, streams, a library, and all other data.                </li>
-                  </ul>
-
-                  <h5>Software Tools:</h5>
-
-                  <ul>
-                    <li>
-                      Communication
-
-                      Encrypted communication channels to organize that evolve and collapse as needed
 
                       <ul>
                         <li>
-                          Medics
+                          Sending and viewing streams, encrypted chat, and a viewable library for education.
                         </li>
+
                         <li>
-                          Security
+                          An Android app that does all that plus it can send your stream to organizers to view
                         </li>
+
                         <li>
-                          Home Support
-                        </li>
-                        <li>
-                          City Groups
-                        </li>
+                          A server for managing chats, streams, a library, and all other data.                </li>
                       </ul>
-                    </li>
-                    <br />
 
-                    <li>
-                      Maps
+                      <h5>Software Tools:</h5>
 
-                      Mark and view points of intrest
+                      <img src={Comms} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
 
                       <ul>
                         <li>
-                          Police
+                          Communication
+
+                          Encrypted communication channels to organize that evolve and collapse as needed
+
+                          <img src={CommSec} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
+
+                          <ul>
+                            <li>
+                              Medics
+
+                              <img src={Medical} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
+                            </li>
+                            <li>
+                              Security
+                            </li>
+                            <li>
+                              Home Support
+                            </li>
+                            <li>
+                              City Groups
+                            </li>
+                          </ul>
                         </li>
+                        <br />
+
                         <li>
-                          Medics
+                          Maps
+
+                          Mark and view points of intrest
+
+                          <img src={SatMap} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
+                          <ul>
+                            <li>
+                              Police
+                            </li>
+                            <li>
+                              Medics
+                            </li>
+                            <li>
+                              Danger Areas
+                            </li>
+
+                            <img src={Map} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
+                          </ul>
                         </li>
+                        <br />
+
                         <li>
-                          Danger Areas
+                          Education
+
+                          A collection of resources for people to know their rights, history about the movement and links to other helpful resources
+                        </li>
+                        <br />
+
+                        <li>
+                          Livestream phone as bodycamera
+
+                          <img src={StreamList} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+                          <img src={Streams} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
+                          <ul>
+                            <li>
+                              Sources come from all over the internet
+                            </li>
+                            <li>
+                              Sources can steam directly to wade
+                            </li>
+
+                            <li>
+                              Verbal Coordination from admin team
+                            </li>
+                          </ul>
+                        </li>
+                        <br />
+
+                        <li>
+                          I need a medic button
+
+                          GPS sync between you and a medic
+                        </li>
+                        <br />
+
+                        <li>
+                          I’m being pulled over button
+
+                          Connect you to home support and record everything
+                        </li>
+                        <br />
+
+                        <li>
+                          Fund Raising
+
+                          Raise funds for direct payments to those in need
+                        </li>
+                        <br />
+
+                        <li>
+                          Audio sync
+
+                          Sync event speakers to everyone's phones
                         </li>
                       </ul>
-                    </li>
-                    <br />
-
-                    <li>
-                      Education
-
-                      A collection of resources for people to know their rights, history about the movement and links to other helpful resources
-                    </li>
-                    <br />
-
-                    <li>
-                      Livestream phone as bodycamera
-
-                      <ul>
-                        <li>
-                          Sources come from all over the internet
-                        </li>
-                        <li>
-                          Sources can steam directly to wade
-                        </li>
-
-                        <li>
-                          Verbal Coordination from admin team
-                        </li>
-                      </ul>
-                    </li>
-                    <br />
-
-                    <li>
-                      I need a medic button
-
-                      GPS sync between you and a medic
-                    </li>
-                    <br />
-
-                    <li>
-                      I’m being pulled over button
-
-                      Connect you to home support and record everything
-                    </li>
-                    <br />
-
-                    <li>
-                      Fund Raising
-
-                      Raise funds for direct payments to those in need
-                    </li>
-                    <br />
-
-                    <li>
-                      Audio sync
-
-                      Sync event speakers to everyone's phones
-                    </li>
-                  </ul>
+                    </CardContent>
+                  </Card>
                 </CardContent>
               </Card>
             </div>
 
             <div class="col">
-              <Card variant="outlined">
+              <Card variant="outlined" style={{ backgroundColor: "#ff6483" }}>
                 <CardContent>
                   <h5>Personnel</h5>
 
@@ -202,19 +242,9 @@ export class Wade extends Component {
 
                   <div class="row">
                     <div class="col">
-                      <h4>Boots on the Ground</h4>
-                    </div>
-
-                    <div class="col">
-                      <h4>At Home Support</h4>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col">
                       <Card variant="outlined">
                         <CardContent>
-                          <h5>Boots on the ground personnel</h5>
+                          <h4>Boots on the Ground</h4>
                           <br />
                           <p>The eyes, ears and heart of the protest</p>
 
@@ -247,7 +277,7 @@ export class Wade extends Component {
                     <div class="col">
                       <Card variant="outlined">
                         <CardContent>
-                          <h5> Home support </h5>
+                          <h4> Home support </h4>
                           <br />
 
                           <p>General Helpline, manages communications, supplies, personnel and livestream</p>

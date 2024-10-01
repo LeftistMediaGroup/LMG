@@ -20,10 +20,8 @@ import MemeDistributer from "./home/positions/MemeDistributer.js";
 export class Home extends Component {
   render() {
     return (
-
       <Card variant="outlined">
         <CardContent>
-
           <div className="page-header">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
@@ -85,52 +83,50 @@ export class Home extends Component {
             </div>
           </div>
 
-          <Card >
-            <CardContent style={{ borderColor: "red" }}>
-              <div class="row">
-                <div style={{ textAlign: "center" }}>
-                  <h4>Projects</h4>
 
-                  <p>
-                    All projects are focused on a specific avenue of dismantling
-                    Capitalism one brick at a time.
-                  </p>
-                </div>
+          <div class="row">
+            <div style={{ textAlign: "center" }}>
+              <h4>Projects</h4>
 
-                <div class="row">
-                  <div className="col" style={{ padding: 15 }}>
-                    <CommunitySupportNetwork />
-                  </div>
+              <p>
+                All projects are focused on a specific avenue of dismantling
+                Capitalism one brick at a time.
+              </p>
+            </div>
 
-                  <div className="col" style={{ padding: 15 }}>
-                    <Music />
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div className="col" style={{ padding: 15 }}>
-                    <LMGAsSocialMedia />
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div className="col" style={{ padding: 15 }}>
-                    <Wade />
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div className="col" style={{ padding: 15 }}>
-                    <Sophia />
-                  </div>
-
-                  <div className="col" style={{ padding: 15 }}>
-                    <LMG_memes />
-                  </div>
-                </div>
+            <div class="row">
+              <div className="col" style={{ padding: 15 }}>
+                <CommunitySupportNetwork />
               </div>
-            </CardContent>
-          </Card>
+
+              <div className="col" style={{ padding: 15 }}>
+                <Music />
+              </div>
+            </div>
+
+            <div class="row">
+              <div className="col" style={{ padding: 15 }}>
+                <Wade />
+              </div>
+            </div>
+
+            <div class="row">
+              <div className="col" style={{ padding: 15 }}>
+                <LMGAsSocialMedia />
+              </div>
+            </div>
+
+            <div class="row">
+              <div className="col" style={{ padding: 15 }}>
+                <Sophia />
+              </div>
+
+              <div className="col" style={{ padding: 15 }}>
+                <LMG_memes />
+              </div>
+            </div>
+          </div>
+
 
           <Card>
             <CardContent>

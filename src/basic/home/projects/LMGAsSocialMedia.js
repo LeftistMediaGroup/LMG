@@ -12,14 +12,16 @@ export default class LMGAsSocialMedia extends Component {
           </div>
 
           <div className="row-centered">
-            <Card variant="outlined">
-              <CardContent>
-                <p>
-                  All users assigned randomized username. DO NOT SHARE
-                  PERSONAL DETAILS assume everyone is a cop
-                </p>
-              </CardContent>
-            </Card>
+            <div className="col d-flex justify-content-center align-items-center">
+              <Card variant="outlined" style={{ maxWidth: "50%" }}>
+                <CardContent>
+                  <p style={{ textAlign: "center" }}>
+                    All users assigned randomized username. DO NOT SHARE
+                    PERSONAL DETAILS assume everyone is a cop
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           <Card>
