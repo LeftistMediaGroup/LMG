@@ -10,6 +10,7 @@ import Info from "../../../../../public/Photos/Info.png"
 import Map from "../../../../../public/Photos/Map.jpg"
 import SatMap from "../../../../../public/Photos/SatMap.png"
 import Medical from "../../../../../public/Photos/Medical.png"
+import Forehead from "../../../../../public/Photos/Forehead.png"
 
 
 
@@ -58,12 +59,9 @@ export class Wade extends Component {
           <div style={{ textAlign: "center" }}>
             <h4>Wade</h4>
             <h5>They’re already organized and watching, why aren’t we?</h5>
+            <br />
 
             <img src={Info} style={{ maxHeight: "100%", maxWidth: "100%" }} />
-
-
-
-
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -115,6 +113,7 @@ export class Wade extends Component {
                       </ul>
 
                       <h5>Software Tools:</h5>
+                      <br />
 
                       <img src={Comms} style={{ maxHeight: "100%", maxWidth: "100%" }} />
 
@@ -124,6 +123,7 @@ export class Wade extends Component {
                           Communication
 
                           Encrypted communication channels to organize that evolve and collapse as needed
+                          <br />
 
                           <img src={CommSec} style={{ maxHeight: "100%", maxWidth: "100%" }} />
 
@@ -131,6 +131,7 @@ export class Wade extends Component {
                           <ul>
                             <li>
                               Medics
+                              <br />
 
                               <img src={Medical} style={{ maxHeight: "100%", maxWidth: "100%" }} />
 
@@ -152,6 +153,7 @@ export class Wade extends Component {
                           Maps
 
                           Mark and view points of intrest
+                          <br />
 
                           <img src={SatMap} style={{ maxHeight: "100%", maxWidth: "100%" }} />
 
@@ -165,6 +167,7 @@ export class Wade extends Component {
                             <li>
                               Danger Areas
                             </li>
+                            <br />
 
                             <img src={Map} style={{ maxHeight: "100%", maxWidth: "100%" }} />
 
@@ -181,6 +184,7 @@ export class Wade extends Component {
 
                         <li>
                           Livestream phone as bodycamera
+                          <br />
 
                           <img src={StreamList} style={{ maxHeight: "100%", maxWidth: "100%" }} />
                           <img src={Streams} style={{ maxHeight: "100%", maxWidth: "100%" }} />
@@ -237,6 +241,9 @@ export class Wade extends Component {
               <Card variant="outlined" style={{ backgroundColor: "#ff6483" }}>
                 <CardContent>
                   <h5>Personnel</h5>
+                  <br />
+                  <img src={Forehead} style={{ maxHeight: "100%", maxWidth: "100%" }} />
+
 
                   <p>Personnel for Wade is divided into two groups.</p>
 
