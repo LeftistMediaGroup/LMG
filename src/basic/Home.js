@@ -6,16 +6,14 @@ import SignUpForm from "./account/SignUpForm.js";
 import { Card, CardContent } from "@mui/material";
 import { Padding } from "@mui/icons-material";
 
-import { LMG_memes } from "./home/projects/LMG_memes.js";
 import SocialMediaManager from "./home/positions/SocialMediaManager.js";
-import Sophia from "./home/projects/Sophia.js";
-import Wade from "./home/projects/Wade/Wade.js";
-import Music from "./home/projects/Music.js";
 import Contact from "./home/Contact.js";
 import Programmer from "./home/positions/Programmer.js";
-import LMGAsSocialMedia from "./home/projects/LMGAsSocialMedia.js";
-import CommunitySupportNetwork from "./home/projects/CommunitySupportNetwork.js";
 import MemeDistributer from "./home/positions/MemeDistributer.js";
+
+import Educate from "./home/Educate/Educate.js";
+import Organize from "./home/Organize/Organize.js";
+import Resist from "./home/Resist/Resist.js";
 
 export class Home extends Component {
   render() {
@@ -94,36 +92,10 @@ export class Home extends Component {
               </p>
             </div>
 
-            <div class="row">
-              <div className="col" style={{ padding: 15 }}>
-                <CommunitySupportNetwork />
-              </div>
-
-              <div className="col" style={{ padding: 15 }}>
-                <Music />
-              </div>
-            </div>
-
-            <div class="row">
-              <div className="col" style={{ padding: 15 }}>
-                <Wade />
-              </div>
-            </div>
-
-            <div class="row">
-              <div className="col" style={{ padding: 15 }}>
-                <LMGAsSocialMedia />
-              </div>
-            </div>
-
-            <div class="row">
-              <div className="col" style={{ padding: 15 }}>
-                <Sophia />
-              </div>
-
-              <div className="col" style={{ padding: 15 }}>
-                <LMG_memes />
-              </div>
+            <div>
+              <Educate />
+              <Organize />
+              <Resist />
             </div>
           </div>
 
