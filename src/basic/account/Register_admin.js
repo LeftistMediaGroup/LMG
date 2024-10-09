@@ -103,11 +103,6 @@ export class Register_Admin extends Component {
     })
   }
 
-
-  componentDidMount() {
-    this.get_password();
-  }
-
   render_register = () => {
     if (this.state.ready === null) {
       return (

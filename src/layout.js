@@ -39,7 +39,7 @@ export default class Layout extends React.Component {
       is_database_found: false,
       is_admin_created: null,
       socket: null,
-      short_pass: null
+      admin_pass: null
     };
   }
 
@@ -80,7 +80,7 @@ export default class Layout extends React.Component {
           setIs_loggedin={this.setIs_loggedin}
           setUsername={this.setUsername}
           socket={this.state.socket}
-          short_pass={this.state.short_pass}
+          admin_pass={this.state.admin_pass}
           set_admin_pass={this.set_short_pass}
         />
       );
@@ -195,7 +195,7 @@ export default class Layout extends React.Component {
   set_admin_pass = () => {
     if (this.state.socket) {
       this.state.socket.on("admin_pass", (admin_pass) => {
-        this.setState({ short_pass: admin_pass })
+        this.setState({ admin_pass: admin_pass })
         console.log(`Pass: ${admin_pass}`)
       });
     }

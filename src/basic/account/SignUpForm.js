@@ -118,14 +118,16 @@ export class SignUpForm extends Component {
             </AccordionSummary>
 
             <AccordionDetails>
-              <p>Username: {this.props.username}</p>
-              <p>Password: {this.props.short_pass}</p>
-              <br />
+
 
               <Accordion>
                 <AccordionDetails>
                   <Card>
                     <CardContent>
+                      <p>Username: {this.props.username}</p>
+                      <p>Password: {this.props.admin_pass}</p>
+                      <br />
+
                       <form className="row-centered" style={{ color: "black" }}>
                         <Form.Group>
                           <Form.Control
