@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, CardContent } from "@mui/material";
+import { Button, Card, CardContent } from "@mui/material";
 import { io } from "socket.io-client";
 
 export const socket = io(`ws://${import.meta.env.VITE_HOST}`)
