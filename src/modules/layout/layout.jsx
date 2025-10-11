@@ -8,6 +8,7 @@ import ComponentBar from "./ComponentBar";
 import Home from "../home/Home.jsx";
 import Education from "../education/Education.jsx";
 import Account from "../account/Account.jsx";
+import System from "../system/system.jsx";
 
 
 export default class Layout extends React.Component {
@@ -135,6 +136,8 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
+        <System />
+
         <div className="container-fluid" style={{ maxWidth: 1980, paddingTop: 30 }}>
 
           <div className="row">
