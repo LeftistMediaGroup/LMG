@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Card, CardContent } from "@mui/material";
 import { io } from "socket.io-client";
 
-export const socket = io(`ws://${import.meta.env.VITE_HOST}`)
+export const socket = io(`wss://${import.meta.env.VITE_HOST}`)
 
 
 export default class Education extends React.Component {
