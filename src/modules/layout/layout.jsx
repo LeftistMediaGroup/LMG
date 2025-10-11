@@ -7,6 +7,7 @@ import { darkTheme } from "./Theme.jsx";
 import ComponentBar from "./ComponentBar";
 import Home from "../home/Home.jsx";
 import Education from "../education/Education.jsx";
+import Account from "../account/Account.jsx";
 
 
 export default class Layout extends React.Component {
@@ -28,6 +29,8 @@ export default class Layout extends React.Component {
       return <Home />
     } else if (this.state.component === "Education") {
       return <Education />
+    } else if (this.state.component === "Account") {
+      return <Account />
     } else if (this.state.component === "SignUp") {
       return (
         <SignUpForm
